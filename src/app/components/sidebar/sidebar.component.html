@@ -1,0 +1,34 @@
+<div class="container" style="overflow: hidden;">
+  <p class="imgbar">
+    <img [src]="user" class="imgUser" alt="">
+  </p>
+  <div class="usercon">USUÁRIO CONECTADO</div>
+  <div>
+    <p class="imgbar">
+      <img [src]="barsdown" alt="">
+    </p>
+    <p class="usercon">...</p>
+  </div>
+  <div class="divs"></div>
+  <div class="divs">&nbsp;
+  <p class="usercon">
+    <a href="#"  routerLinkActive="active" class="btns">
+      <img [src]="news" style="float: right;" alt="">
+       <span style="padding-left: 1em; width: 70%;">ANALYTICS</span>
+    </a>
+  </p>
+  </div>
+  <div class="divs" *ngFor="let item of links">&nbsp;
+  <p class="usercon">
+    <a [href]="item.rota"  routerLinkActive="active" class="btns">
+      <mat-icon style="width: 30%; margin-top: 4px; float: right;">{{item.ico}}</mat-icon>
+       <p style="padding-left: 1em; width: 70%; text-align: right !important;">{{item.nome | uppercase}}</p>
+    </a>
+  </p>
+  </div>
+
+  <p style="text-align: right; font-size: 13px;" >
+
+  </p>
+
+  <p></p>

@@ -1,0 +1,97 @@
+<div style="background-color: #fff; padding-left: 2em; width: 100%; border-bottom: 1px solid #ddd; height: 80px; padding-top: 0.9em;">
+  <div>
+    <h4 style="font-weight: bold; color: #444;"> {{titulotela}} </h4>
+    <p style="font-size: 12px; color: #777; margin-top: -1.5em;">{{subtitulotela}}</p>
+    <p style="font-size: 12px; color: #777; margin-top: -1.5em; padding-right: 2em; text-align: right;">
+      {{caminho}}</p>
+  </div>
+</div>
+
+<body class="body">
+
+<div class="container" style="padding-top: 2em; width: 1000px;">
+<div class="lgdiv">
+  <p></p>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table lgtable">
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <!-- nome Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{element.nome}}</td>
+    </ng-container>
+
+    <!-- tipo Column -->
+    <ng-container matColumnDef="tipo">
+      <th mat-header-cell *matHeaderCellDef>Tipo</th>
+      <td mat-cell *matCellDef="let element">{{element.tipo}}</td>
+    </ng-container>
+
+    <!-- area Column -->
+    <ng-container matColumnDef="area">
+      <th mat-header-cell *matHeaderCellDef>Área</th>
+      <td mat-cell *matCellDef="let element">{{element.area}}</td>
+    </ng-container>
+
+    <!-- nomeCli Column -->
+    <ng-container matColumnDef="nomeCli">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{element.nomeCli}}</td>
+    </ng-container>
+
+    <!-- data Column -->
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let element">{{element.data}}</td>
+    </ng-container>
+
+    <!-- ondeESta Column -->
+    <ng-container matColumnDef="ondeESta">
+      <th mat-header-cell *matHeaderCellDef>Onde está</th>
+      <td mat-cell *matCellDef="let element">{{element.ondeESta}}</td>
+    </ng-container>
+
+    <!-- tiControla Column -->
+    <ng-container matColumnDef="tiControla">
+      <th mat-header-cell *matHeaderCellDef>T.I controla?</th>
+      <td mat-cell *matCellDef="let element">{{element.tiControla}}</td>
+    </ng-container>
+
+    <!-- risco Column -->
+    <ng-container matColumnDef="risco">
+      <th mat-header-cell *matHeaderCellDef>Risco</th>
+      <td mat-cell *matCellDef="let element">{{element.risco}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+  <div>&nbsp; </div>
+  <mat-paginator [length]="4"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 15, 25]"
+              aria-label="Select page">
+</mat-paginator>
+
+  <div class="demo-button-container">
+    <a mat-raised-button (click)="addData()" class="btn btn-primary large" style="margin: 15px;">
+      Adicionar Campo
+    </a>
+    <a mat-raised-button [disabled]="!dataToDisplay.length" (click)="removeData()" class="btn btn-primary large" style="margin: 15px;">
+      Remover Campo
+    </a>
+  </div>
+
+</div>
+
+
+</div>
+
+</body>

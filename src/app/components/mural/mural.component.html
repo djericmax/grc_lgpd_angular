@@ -1,0 +1,66 @@
+<style>
+  .skin-option { position: fixed; text-align: center; right: -1px; padding: 10px; top: 80px; width: 150px; height: 133px; text-transform: uppercase; background-color: #ffffff; box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, .1); border-radius: 4px 0 0 4px; z-index: 100; }
+</style>
+<script>
+  setInterval(function(){ $('#demo-star').toggleClass('text-success'); }, 300)
+</script>
+<body style="background-color: #F1F3F6;">
+  <div id="wrapper" style="background-color: #F1F3F6;  padding: 3%;">
+
+    <div class="content animate-panel">
+
+      <!-- Mural -->
+      <div class="row">
+
+          <div class="col-lg-3" *ngFor="let param of parametrizacao">
+            <div class="hpanel stats" style="background-color: #fff; padding: 5%; border: 1px solid #ddd;">
+              <div class="panel-body h-100">
+                <div class="stats-title pull-left">
+                  <a [routerLink]="param.rota" style="text-decoration: none;">
+                    <h4 class="text-danger" style="font-size: 12px; font-weight: bold;">{{param.titulo}}</h4>
+                  </a>
+                <p style="font-size: 11px; margin-top: -10px;">{{param.rodape}}</p>
+                <div class="stats-icon pull-right" style="float: right; margin-top: -60px;">
+                  <a [routerLink]="param.rota">
+                    <img [src]="'/assets/imgs/' + param.img" alt="">
+                  </a>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3" *ngFor="let link of LinksMural">
+          <div class="hpanel"
+          style="background-color: #fff; margin-top: 10%; padding: 5%; border: 1px solid #ddd;">
+            <div class="panel-body text-center h-100">
+
+              <a [href]="link.rota" style="text-decoration: none;">
+
+                <img [src]="'/assets/imgs/' + link.img" alt="">
+
+                <i class="pe-7s-culture fa-4x"></i>
+                <h3 [style.color]="link.cor" style="font-weight: 900; font-size: 22px;">
+                  {{link.titulo}}
+                </h3>
+              </a>
+
+              <p style="font-size: 11px; margin-top: -10px;">{{link.rodape}}</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <!-- Mural -->
+
+    </div>
+
+  </div>
+
+</body>

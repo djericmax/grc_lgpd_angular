@@ -1,0 +1,22 @@
+.footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+.modelo{
+  font-size: 13px;
+}
+
+.modelico{
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  padding-top: 0.5%;
+  float: right !important ;
+}
+
+.ico{
+  font-size: 15px;
+  color: brown;
+}

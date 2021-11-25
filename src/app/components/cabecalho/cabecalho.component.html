@@ -1,73 +1,54 @@
-<body>
-
 <div>
-  <img [src]="colorbar" alt="" class="imgp">
+  <img [src]="colorbar" alt="" style="width: 100%; margin-top: -15px; position: relative;">
 </div>
 
-<div style="width: 100%; margin-top: -18px !important; ">
+<div style="width: 100%; top: 0; margin-top: -13px !important; ">
 
   <div class="iconedivs bcocin bordrig bordbot" style="width: 12.5%;">
     <p class="pspace"></p>
     <p class="ptit">
-      <a href="mural" style="text-decoration: none; color: #34495E;">
-        <mat-icon class="maticon">home</mat-icon>GRC Team
-      </a>
-    </p>
-
+      <mat-icon class="maticon">home</mat-icon>
+      E-xyon</p>
   </div>
   <div class="iconedivs bcocin bordrig bordbot" style=" width: 4.5%;">
-
+    <p class="pspace"></p>
     <p class="icon">
-      <a (click)="drawer.toggle()" style="cursor: pointer;">
+      <!-- <a (click)="drawer.toggle()" style="cursor: pointer;"> -->
 
         <mat-icon class="maticon">menu</mat-icon>
-      </a>
+      <!-- </a> -->
     </p>
   </div>
   <div class="iconedivs bordbot bco" style="width: 60.6%;">
     <p></p>
-    <p class="pinput">
+    <p style=" height: 35px; text-align: left; font-size: 15px;">
     <input type="text" class="inputs" placeholder="Clique para Pesquisar...">
   </p>
   </div>
   <div class="icones bordrig bordbot bco" style="width: 4.2%;">
-
-    <a href="mural_lgpd" class="pspic">
+    <p class="pspace"></p>
+    <a href="#" class="pspic">
       <img [src]="mural" alt=""></a>
   </div>
   <div class="icones bordrig bordbot bcocin" style="width: 4.2%;">
-
+    <p class="pspace"></p>
     <a href="#" class="pspic">
       <img [src]="options" alt=""></a>
   </div>
   <div class="icones bordrig bordbot bcocin" style="width: 4.2%;">
-
+    <p class="pspace"></p>
     <a href="#" class="pspic">
       <img [src]="email" alt=""></a>
   </div>
   <div class="icones bordrig bordbot bcocin" style="width: 4.5%;">
-
+    <p class="pspace"></p>
     <a href="#" class="pspic">
       <img [src]="voz" alt=""></a>
   </div>
-  <div class="bcocin bordbot icoband">
-
+  <div class="bcocin bordbot" style="float: left;  margin-top: 0; height: 57px; width: 5.3%;">
+    <p class="pspace"></p>
     <a href="#" class="pspic">
       <img [src]="bandeira" alt=""></a>
   </div>
 
 </div>
-
-<mat-drawer-container class="example-container" [hasBackdrop]="'false'"
-style="width: 100%; ">
-  <mat-drawer style="width: 12.5%; background-color: #fefefe;"
-  #drawer [mode]="'side'">
-    <app-sidebar></app-sidebar>
-  </mat-drawer>
-  <mat-drawer-content>
-
-    <router-outlet></router-outlet>
-
-  </mat-drawer-content>
-</mat-drawer-container>
-</body>

@@ -1,0 +1,91 @@
+.example-container {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  border: 0px solid #555;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+.lgtable{
+  width: 93.5% !important;
+  margin-left: 3%;
+  box-shadow: none !important;
+  border: 1px solid #ddd;
+}
+
+.lgdiv{
+  border: 1px solid #eee;
+  background-color: #fff;
+  width: 130% !important;
+  margin-left: -15% !important;
+  padding-top: 2em;
+}
+
+.body{
+  background-color: #F1F3F6;
+  overflow-x:hidden !important;
+}

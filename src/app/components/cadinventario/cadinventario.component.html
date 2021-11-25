@@ -1,0 +1,46 @@
+<div style="background-color: #fff; padding-left: 2em; width: 100%; border-bottom: 1px solid #ddd; height: 80px; padding-top: 0.9em;">
+  <div>
+    <h4 style="font-weight: bold; color: #444;"> {{titulotela}} </h4>
+    <p style="font-size: 12px; color: #777; margin-top: -1.5em;">{{subtitulotela}}</p>
+    <p style="font-size: 12px; color: #777; margin-top: -1.5em; padding-right: 2em; text-align: right;">
+      {{caminho}}</p>
+  </div>
+</div>
+
+<body class="body">
+
+  <div class="container" style="padding-top: 2em; width: 1000px;">
+    <div class="lgdiv">
+      <p></p>
+
+  <div style="padding-top: 2%;">
+    <a href="inventario" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
+      Cadastrar Ativo
+    </a>
+
+    <p></p>
+    <table style="width: 100%;" *ngFor="let item of botoes">
+      <tr>
+        <td style="width: 25%; padding-top: 10px;">
+          <a href="#" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
+            {{item.btA}}
+          </a>
+        </td>
+        <td style="width: 25%; padding-top: 10px;">
+          <a href="#" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
+            {{item.btB}}
+          </a>
+        </td>
+        <td style="width: 25%; padding-top: 10px;" *ngIf="item.tipo == ''">
+          {{item.tipo}}
+        </td>
+        <td style="width: 25%; border-bottom: 1px solid #999;" *ngIf="item.tipo != ''">
+          {{item.tipo}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+</div>
+</body>
