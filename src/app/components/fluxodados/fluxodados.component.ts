@@ -67,32 +67,5 @@ export class FluxodadosComponent implements OnInit {
     console.log(this.tabs);
   }
 
-  PrintElem(div: any){
-    let array = this.tabs;
 
-    var mywindow = window.open('', 'PRINT', 'height=720,width=1000');
-
-    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-    mywindow.document.write('</head><body >');
-
-    array.forEach((nos) => {
-      mywindow.document.write(nos.title);
-
-      mywindow.document.write('<p style="text-align: justify;">'+nos.desc+'</p><hr>');
-    });
-
-
-
-
-
-    // mywindow.document.write(document.getElementById(div).innerHTML);
-    mywindow.document.write('</body></html>');
-    mywindow.document.close();
-
-    mywindow.focus();
-    mywindow.print();
-    // mywindow.close();
-
-    return true;
-  }
 }
