@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable, ReplaySubject} from 'rxjs';
 
+//----------------------- dialog ------------------
+import {MatDialog} from '@angular/material/dialog';
+import { DialoginventComponent } from './dialoginvent/dialoginvent.component';
+//----------------------- dialog ------------------
+
 export interface PeriodicElement {
   id: number;
   nome: string;
@@ -37,7 +42,19 @@ export class InventarioComponent implements OnInit {
 
   dataSource = new ExampleDataSource(this.dataToDisplay);
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+    ) {}
+
+  //----------------------- dialog ------------------
+  openDialog() {
+    const dialogRef = this.dialog.open(DialoginventComponent); //abre a dialoginvent
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  //----------------------- dialog ------------------
 
   ngOnInit(): void {
   }

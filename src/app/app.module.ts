@@ -24,6 +24,9 @@ import { MuralComponent } from './components/mural/mural.component';
 import { CadinventarioComponent } from './components/cadinventario/cadinventario.component';
 import { DadoinventarioComponent } from './components/dadoinventario/dadoinventario.component';
 import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FluxodadosComponent } from './components/fluxodados/fluxodados.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
     MuralComponent,
     CadinventarioComponent,
     DadoinventarioComponent,
-    SistrepoComponent
+    SistrepoComponent,
+    FluxodadosComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

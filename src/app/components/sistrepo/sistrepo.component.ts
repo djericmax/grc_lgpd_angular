@@ -23,7 +23,7 @@ export class SistrepoComponent implements AfterViewInit {
     'aproximadas'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  titulotela = 'REPOSITÓRIOS';
+  titulotela = 'SISTEMAS E REPOSITÓRIOS';
   subtitulotela ='Mapa de Sistemas e Repositório';
   caminho = 'LGPD / Inventário / Repositórios';
 

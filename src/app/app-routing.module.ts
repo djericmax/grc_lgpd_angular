@@ -6,6 +6,7 @@ import { CadinventarioComponent } from './components/cadinventario/cadinventario
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { DadoinventarioComponent } from './components/dadoinventario/dadoinventario.component';
 import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
+import { FluxodadosComponent } from './components/fluxodados/fluxodados.component';
 
 
 const routes: Routes = [
@@ -13,9 +14,10 @@ const routes: Routes = [
   {path: 'mural',               component: MuralComponent},
   {path: 'mural_lgpd',          component: MenuComponent},
   {path: 'inventario',          component: InventarioComponent},
-  {path: 'dados_inventario',    component: DadoinventarioComponent},
   {path: 'cadastro_inventario', component: CadinventarioComponent},
+  {path: 'dados_inventario',    component: DadoinventarioComponent},
   {path: 'sistema_repositorio', component: SistrepoComponent},
+  {path: 'fluxo_dados',         component: FluxodadosComponent},
 ];
 
 @NgModule({
