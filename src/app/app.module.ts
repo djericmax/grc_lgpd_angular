@@ -27,6 +27,7 @@ import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FluxodadosComponent } from './components/fluxodados/fluxodados.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatPaginatorModule,
     MatMenuModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

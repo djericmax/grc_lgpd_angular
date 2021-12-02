@@ -8,12 +8,142 @@
   padding-bottom: 2em !important;
 }
 
+.lgdivn2{
+  width: 95%;
+  height: 16em;
+  margin-left: 2em;
+}
+
+.lgdivn3{
+  float: left;
+  height: 16em;
+  padding: 0%;
+}
+
+.lgdivn4{
+  width: 96%;
+  height: 100%;
+}
+
+.divn20{
+  width: 100%;
+  height: 20%;
+}
+.divn25{
+  width: 100%;
+  height: 25%;
+}
+.divn45{
+  width: 100%;
+  height: 45%;
+}
+
+.imgus2{
+  width: 40px;
+  border-radius: 100%;
+  float: left;
+}
+
+.divspace{
+  float: left;
+  width: 20px;
+}
+
+.linknone{
+  text-decoration: none;
+}
+
+.addresp{
+  float: left;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 100%;
+  background-color: #ccc;
+}
+
+.addresplus{
+  margin: 10%;
+  font-weight: bold;
+  color: #555;
+  font-size: 22px;
+}
+
+.empres{
+  float: left;
+  height: 13em;
+  padding: 0%;
+}
+
+.empresbox{
+  width: 97%;
+  border: 1px #ddd solid;
+  height: 100%;
+}
+
+.apontalign{
+  float: right;
+}
+
+.processbox{
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 3%;
+}
+
+.empresbalt{
+  height: 40%;
+}
+
+.hrdivis{
+  margin-top: 5px;
+}
+
+.processbalt{
+  height: 47%;
+}
+
+.empresp{
+  width: 90%;
+  font-size: 12px;
+  margin-left: 25px;
+  margin-top: 12px !important;
+  color: #555;
+}
+
+.divconteudo{
+  /* overflow-y: scroll; */
+  width: 98%;
+  height: 170px;
+  font-size: 14px;
+  font-weight: 100;
+  margin-left: 1%;
+  margin-top: -2%;
+}
+
+.pconteudo{
+  width: 98%;
+  height: 170px;
+  font-size: 22px;
+  font-weight: 100;
+  margin-left: 1em;
+  margin-top: -2%;
+}
+
+.icon{
+  color: greenyellow;
+  font-size: 30px;
+  vertical-align: sub;
+}
+
 .lgdivtab{
-  border: 1px solid #eee;
-  background-color: #F1F3F6;
   width: 130% !important;
+  height: 400px;
+  margin-top: 3em;
   margin-left: -15% !important;
   margin-bottom: 2em;
+  border: 1px solid #e8e8e8;
+  background-color: #F1F3F6;
   padding-top: 2em;
   padding-bottom: 2em !important;
 }
@@ -34,93 +164,252 @@
   padding-left: 2em;
   width: 100%;
   padding-top: 0.9em;
-  }
+}
 
-  .titulotela{
-    font-weight: bold;
-    color: #444;
-  }
+.titulotela{
+  font-weight: bold;
+  color: #444;
+}
 
-  .subtitulotela{
-    font-size: 12px;
-    color: #777;
-    margin-top: -1.5em;
-  }
+.subtitulotela{
+  font-size: 12px;
+  color: #777;
+  margin-top: -1.5em;
+}
 
-  .crumbs {
-    font-size: 12px;
-    color: #777;
-    margin-top: -1.5em;
-    padding-right: 2em;
-    text-align: right;
-    float: right;
-  }
+.crumbs {
+  font-size: 12px;
+  color: #777;
+  margin-top: -1.5em;
+  padding-right: 2em;
+  text-align: right;
+  float: right;
+}
 
-  .mat-tab-group {
-    margin-bottom: 48px;
-  }
+.mat-tab-group {
+  margin-bottom: 48px;
+}
 
+.tamatico{
+  font-size: 18px;
+}
 
+.btns{
+  width: 100%;
+  background-color: #F7F9FA;
+  border-top: 1px solid #dcdcdc;
+  height: 3.5em;
+  margin-left: 0em;
+  margin-bottom: -2em;
+  margin-top: -1em;
+}
 
+.btnopt1{margin-left: -410px;
+  float: left;
+  background-color: #fff;
+  text-align: left;
+  border: 1px solid #ddd;
+  width: 33px;
+  height: 33px;
+  padding: 7px !important;
+}
 
+.btnopt2{margin-left: -370px;
+  float: left;
+  background-color: #fff;
+  text-align: left;
+  border: 1px solid #ddd;
+  width: 33px;
+  height: 33px;
+  padding: 7px !important;
+}
 
-  .nav_tabs{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    position: relative;
-  }
+.btnopt3{margin-left: -330px;
+  float: left;
+  background-color: #fff;
+  text-align: left;
+  border: 1px solid #ddd;
+  width: 33px;
+  height: 33px;
+  padding: 7px !important;
+}
 
-  .nav_tabs ul{
-    list-style: none !important;
-    margin-left: -40px;
-  }
+.btnopt4{margin-left: -290px;
+  float: left;
+  background-color: #fff;
+  text-align: left;
+  border: 1px solid #ddd;
+  width: 33px;
+  height: 33px;
+  padding: 7px !important;
+}
 
-  .nav_tabs ul li{
-    float: left;
-  }
+.nav_tabs{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
 
-  .nav_tabs label{
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: block;
-    color: #555;
-    cursor: pointer;
-    text-align: center;
-  }
+.nav_tabs ul{
+  list-style: none !important;
+  margin-left: -40px;
+}
 
-  .rd_tabs:checked ~ label{
-    background-color: #fff;
-  }
+.nav_tabs ul li{
+  float: left;
+}
 
-  .rd_tabs{
-    display: none;
-  }
+.nav_tabs label{
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+}
 
-  .content{
-    margin-top: -0.6em;
-    /* border-top: red 1px solid; */
-    background-color: #fff;
-    display: none;
-    position: absolute;
-    height: 300px;
-    width: 100%;
-    left: 0;
-  }
+.rd_tabs:checked ~ label{
+  background-color: #fff;
+  height: 3.7em;
+  display: flex;
+  align-items: center;
+}
 
-  .content article{
-    padding: 10px;
-    text-align: justify;
-  }
+.rd_tabs{
+  display: none;
+}
 
-  .rd_tabs:checked ~ .content{
-    display: block;
-  }
+.content{
+  margin-top: -0.6em;
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  left: 0;
+}
 
-  .example-tab-icon {
-    margin-right: 8px;
+.content article{
+  padding: 10px;
+  text-align: justify;
+}
 
-  }
+.rd_tabs:checked ~ .content{
+  display: block;
+}
+
+.example-tab-icon {
+  margin-right: 8px;
+
+}
+
+.quadflux{
+  border-radius: 15px;
+  margin-top: -2em;
+  text-align: center !important;
+  box-shadow: 0.3em 0.3em 0.3em #aaa;
+  width: 13%;
+  height: 90px;
+  float:left;
+  display: flex;
+  font-size: 13px;
+  align-items: center !important;
+}
+
+.imgflux{
+  height: 90px;
+  margin-top: -1.5em;
+  float: left;
+}
+
+/* tabs */
+.contid{
+  margin-top: -2em;
+}
+
+.navid{
+  margin-top: -48px;
+}
+
+.litab{
+  font-size: 13px;
+  max-width: 200px;
+}
+
+.liarticle{
+  background-color: #fff;
+  margin-left: -2em;
+  padding-left: 2em;
+}
+
+.divpergunta{
+  width: 100%;
+  float: left;
+  padding-left: -10px;
+}
+
+.larticle{
+  vertical-align: middle;
+  text-align: justify !important;
+  margin-left: -1.5em;
+}
+
+.divcheck{
+  padding-right: 3%;
+  float: left;
+}
+
+.divbtn{
+  float: right;
+  padding-bottom: 5px;
+}
+
+.btnadd{
+  border: 1px solid #dcdcdc;
+  margin-left: 6px;
+  color: #555;
+  font-size: 20px;
+}
+
+.tabalign{
+  text-align: left !important;
+}
+
+.thlg2{
+  width: 2%;
+}
+.thlg3{
+  width: 3%;
+}
+
+.cortbtk{
+  color: #777;
+  font-size: 14px;
+}
+
+.corcanc{
+  color: red;
+  font-size: 16px;
+}
+
+.coredit{
+  color: #777;
+  font-size: 16px;
+}
+
+.tdbco{
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.tdcin{
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #f8f8f8;
+}
+/* tabs */

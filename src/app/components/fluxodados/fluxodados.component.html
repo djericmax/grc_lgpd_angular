@@ -10,410 +10,304 @@
 
   <div class="container">
     <div class="lgdiv" style="border: 1px solid #dcdcdc;">
-      <div style="width: 95%; height: 16em; margin-left: 2em;">
-        <div class="col-lg-4" style="float: left; height: 16em; padding: 0%;">
-          <div style="width: 96%; height: 100%;">
-            <div style="width: 100%; height: 45%;">
+      <div class="lgdivn2">
+        <div class="col-lg-4 lgdivn3">
+          <div class="lgdivn4">
+            <div class="divn45">
               <img [src]="user" title="Henrique Stablin" style="height: 90%; float: left; margin-right: 0.5em;" alt="">
               <small>henrique.stabelin@grcteam.com.br</small>
               <p style="font-size: 13px; font-weight: bold; color: #555;">Henrique Stablin</p>
             </div>
-            <div style="width: 100%; height: 25%;">
+            <div class="divn25">
               <small>15, set. 2021</small>
               <p style="font-size: 23px; font-weight: 100;">Recrutamento Bahia</p>
             </div>
-            <div style="width: 100%; height: 20%;">
-              <img [src]="user" title="Julio Oliveira" style="width: 40px; border-radius: 100%; float: left;" alt="">
-              <img [src]="user" title="Carlos Ligeiro" style="width: 40px; border-radius: 100%; float: left;" alt="">
-              <div style="float: left; width: 20px;">&nbsp;</div>
-              <a href="#" style="text-decoration: none;">
-                <div style="float: left; width: 40px; height: 40px; text-align: center; border-radius: 100%; background-color: #ccc;" title="Adicionar Responsável">
-                  <p style="margin: 10%; font-weight: bold; color: #555; font-size: 22px;">+</p>
+            <div class="divn20">
+              <img [src]="user" title="Julio Oliveira" class="imgus2" alt="">
+              <img [src]="user" title="Carlos Ligeiro" class="imgus2" alt="">
+              <div class="divspace">&nbsp;</div>
+              <a href="#" class="linknone">
+                <div class="addresp" title="Adicionar Responsável">
+                  <p class="addresplus">+</p>
                 </div>
               </a>
             </div>
           </div>
         </div>
-        <div class="col-lg-4" style="float: left; height: 13em; padding: 0%;">
-          <div style="width: 97%; border: 1px #ddd solid; height: 100%;">
-            <div style="height: 40%;">
-              <p style="width: 90%; font-size: 12px; margin-left: 25px; margin-top: 12px !important; color: #555;">
-                Empresa
-              </p>
-              <p style="font-size: 23px; font-weight: 100; margin-left: 7%; margin-top: -2%;">
-                <mat-icon style="color: greenyellow; font-size: 30px; vertical-align: sub;">location_city</mat-icon>
+        <div class="col-lg-4 empres">
+          <div class="empresbox">
+            <div class="empresbalt">
+              <p class="empresp"> Empresa </p>
+              <p class="pconteudo">
+                <mat-icon class="icon">location_city</mat-icon>
                 GRC Team</p>
               </div>
-              <div style="margin-left: 5%; margin-right: 5%; height: 3%;">
-                <hr style="margin-top: 5px;"></div>
-                <div style="height: 47%;">
-                  <p style="width: 90%; font-size: 12px; margin-left: 25px; margin-top: 12px !important; color: #555;">
-                    Processo
-                  </p>
-                  <p style="font-size: 20px; font-weight: 100; margin-left: 7%; margin-top: -2%;">
+              <div class="processbox">
+                <hr class="hrdivis"></div>
+                <div class="processbalt">
+                  <p class="empresp"> Processo </p>
+                  <p class="pconteudo">
                     Dep. Pessoal / RH / Recruramento</p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4" style="float: left; height: 13em; padding: 0%;">
-                <div style="width: 97%; border: 1px #ddd solid; height: 100%; float: right;">
-                  <div style="height: 40%;">
-                    <p style="width: 90%; font-size: 12px; margin-left: 25px; margin-top: 12px !important; color: #555;">
-                      <!-- titulo -->
-                    </p>
-                    <p style="font-size: 23px; font-weight: 100; margin-left: 7%; margin-top: -2%;">
-                      <!-- Recrutamento Bahia -->
-                    </p>
-                  </div>
-                  <div style="margin-left: 5%; margin-right: 5%; height: 3%;">
-                    <hr style="margin-top: 5px;"></div>
-                    <div style="height: 47%;">
-                      <p style="width: 90%; font-size: 12px; margin-left: 25px; margin-top: 12px !important; color: #555;">
-                        <!-- titulo -->
-                      </p>
-                    </div>
+              <div class="col-lg-4 empres">
+                <div class="apontalign empresbox">
+                  <div>
+                    <!-- <p class="empresp"> Apontamentos </p> -->
+                    <div class="divconteudo" style="margin-top: 1em;">
+
+                      <table style="text-align: left !important;" class="  table-hover"
+                      *ngFor="let tab of tabsApontamentos">
+                      <thead>
+                        <tr>
+                          <th style="width: 3%; height: 38px !important;" *ngIf="tab.thTabela != ''"></th>
+                          <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                          <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let dado of tab.tdDados | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
+                        <tr>
+                          <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; padding-left: 0.5em; padding-right: 0.8em;" scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                          <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; padding-left: 0.5em; padding-right: 0.8em;" scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                          <!-- Campos da tabela -->
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.apontamento}}</td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.apontamento}}</td>
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.classif}}</td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.classif}}</td>
+                          <!-- Campos da tabela -->
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="5">
+                            <pagination-controls class="text-right my-pagination"
+                            autoHide="false" maxSize="5" directionLinks="true" responsive="true"
+                            previousLabel="Anterior" nextLabel="Próxima"
+                            (pageChange)="pageApont = $event"></pagination-controls>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+
                   </div>
                 </div>
-
-              </div>
-              <div style="
-              width: 100%;
-              background-color: #F7F9FA;
-              border-top: 1px solid #dcdcdc;
-              height: 3.5em;
-              margin-left: 0em;
-              margin-bottom: -2em;
-              margin-top: -1em;">
-              <div style="margin: 0.6em;">
-                <button class="btn btn-light"
-                style="
-                margin-left: -410px;
-                float: left;
-                background-color: #fff;
-                text-align: left;
-                border: 1px solid #ddd;
-                width: 33px;
-                height: 33px;
-                padding: 7px !important;">
-                <mat-icon style="font-size: 18px;">keyboard_arrow_left</mat-icon>
-              </button>
-              <button class="btn btn-light"
-              style="
-              margin-left: -370px;
-              float: left;
-              background-color: #fff;
-              text-align: left;
-              border: 1px solid #ddd;
-              width: 33px;
-              height: 33px;
-              padding: 7px !important;">
-              <mat-icon style="font-size: 18px;">apps</mat-icon>
-            </button>
-            <button class="btn btn-light"
-            style="
-            margin-left: -330px;
-            float: left;
-            background-color: #fff;
-            text-align: left;
-            border: 1px solid #ddd;
-            width: 33px;
-            height: 33px;
-            padding: 7px !important;">
-            <mat-icon style="font-size: 18px;">menu</mat-icon>
-          </button>
-          <button class="btn btn-light"
-          style="
-          margin-left: -290px;
-          float: left;
-          background-color: #fff;
-          text-align: left;
-          border: 1px solid #ddd;
-          width: 33px;
-          height: 33px;
-          padding: 7px !important;">
-          <mat-icon style="font-size: 18px;">picture_as_pdf</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="lgdivtab" style="height: 400px; border: 1px solid #e8e8e8">
-
-    <!-- tabs -->
-    <div id="content" style="margin-top: -2em;">
-      <nav class="nav_tabs" style="margin-top: -48px;">
-        <ul>
-
-          <!-- começa aqui COLETA DE DADOS          -->
-          <li style="font-size: 13px;">
-            <div id="tab1">
-              <input type="radio" name="tabs" class="rd_tabs" id="t1" checked>
-              <label for="t1">Coleta de dados</label>
-              <div class="content" >
-
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                 <p style="font-size: 16px;">. . .</p>
-                 <div style="width: 92%; float: left;">
-                  <div class="form-check" style="padding-right: 3%; float: left;">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                    <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Dados pessoais faltantes?
-                    </label>
-                  </div>
-                  <div class="form-check" style="padding-right: 3%; float: left;">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked style="vertical-align: middle !important;">
-                    <label class="form-check-label" for="flexCheckChecked" style="text-align: left; vertical-align: middle;">
-                      Documentação estrangeira?
-                    </label>
-                  </div>
-                  <div class="form-check" style="padding-right: 3%; float: left;">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                    <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Aprovado para Seleção?
-                    </label>
-                  </div>
-                 </div>
-                 <div style="float: right; padding-bottom: 5px; ">
-                  <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
-                 </div>
-
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th style="width: 3%;"></th>
-                        <th style="width: 30%;">Dados Pessoais</th>
-                        <th style="width: 20%;">Categoria</th>
-                        <th style="width: 15%;">Faturamento</th>
-                        <th style="width: 15%;">Contas à pagar</th>
-                        <th style="width: 15%;">Cadastro</th>
-                        <th style="width: 2%;"></th>
-                      </tr>
-                    </thead><tbody>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>CPF</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>RG</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>RNE (estrangeiros)</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Passaporte (estrangeiros)</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </td>
-
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Tipo de visto (estrangeiros)</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </td>
-
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </article>
               </div>
             </div>
-          </li>
-          <!-- finaliza aqui -->
+          </div>
 
-          <!-- começa aqui ARMAZENAMENTO DOS DADOS          -->
-          <li style="font-size: 13px;">
-            <div id="tab2">
-              <input type="radio" name="tabs" class="rd_tabs" id="t2">
-              <label for="t2">Armazenamento</label>
-              <div class="content" >
+          <div class="btns">
+            <div style="margin: 0.6em;">
+              <button class="btn btn-light btnopt1">
+                <mat-icon class="tamatico">keyboard_arrow_left</mat-icon>
+              </button>
+              <button class="btn btn-light btnopt2">
+                <mat-icon class="tamatico">apps</mat-icon>
+              </button>
+              <button class="btn btn-light btnopt3">
+                <mat-icon class="tamatico">menu</mat-icon>
+              </button>
+              <button class="btn btn-light btnopt4">
+                <mat-icon class="tamatico">picture_as_pdf</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
 
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <p style="font-size: 16px;">. . .</p>
-                  <div style="width: 92%; float: left;">
-                    <div class="form-check" style="padding-right: 3%; float: left;">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked style="vertical-align: middle !important;">
-                      <label class="form-check-label" for="flexCheckChecked" style="text-align: left; vertical-align: middle;">
-                        Possui senha fraca?
+        <div class="container" style="width: 140%; margin-left: -5%; margin-top: -1em;" >
+          <div *ngFor="let fluxo of fluxos">
+            <div [style.background-color]="fluxo.fundo" [style.color]="fluxo.cor" class="quadflux">  {{fluxo.camada}}
+            </div>
+            <img [src]="seta" alt="" *ngIf="fluxo.seta == true" class="imgflux">
+          </div>
+        </div>
+
+        <div class="lgdivtab">
+
+          <!-- tabs -->
+          <div id="content" class="contid">
+            <nav class="nav_tabs navid">
+              <ul>
+
+                <!-- começa aqui Array COLETA DE DADOS        -->
+                <li class="litab" *ngFor="let tab of tabsColeta">
+                  <div [id]="tab.tab" class="tab-pane">
+                    <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for" checked>
+                    <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
+                    <div class="content" >
+
+                      <article class="liarticle">
+                        <div class="divcheck">
+                          <h3>...</h3>
+                        </div>
+                        <div class="divbtn">
+                          <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+                          <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
+                          <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+                          <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+                        </div>
+
+                        <div class="divpergunta">
+                          <div class="form-check" *ngFor="let perg of tab.perguntas">
+                            <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
+                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+                          </div>
+                          <div style="height: 15px;"></div>
+                        </div>
+
+                        <table class="table table-hover tabalign">
+                          <thead>
+                            <tr>
+                              <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                              <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                              <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                              <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let dado of tab.tdDados" class="table table-striped table-hover">
+                            <tr>
+                              <th scope="row" *ngIf="dado.id % 2 === 0" class="tdbco"><i class="fa fa-thumb-tack thumbtk"></i></th>
+                              <th scope="row" *ngIf="dado.id % 2 === 1" class="tdcin"><i class="fa fa-thumb-tack thumbtk"></i></th>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.dadosPessoais}}</td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.dadosPessoais}}</td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.categoria}}</td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.categoria}}</td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                      </article>
+                    </div>
+                  </div>
+                </li>
+                <!-- finaliza aqui -->
+
+                <!-- começa aqui Array ARMAZENAMENTO DOS DADOS         -->
+                <li class="litab" *ngFor="let tab of tabsArmazenamento">
+                  <div [id]="tab.tab" class="tab-pane">
+                    <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
+                    <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
+                    <div class="content" >
+
+                      <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
+                        <h3>...</h3>
+                        <div style="width: 90%; float: left;">
+                          <div class="form-check" style="padding-right: 3%; float: left;" *ngFor="let perg of tab.perguntas">
+                            <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
+                            style="vertical-align: middle !important;" *ngIf="perg != ''">
+                            <label class="form-check-label" for="flexCheckDefault"
+                            style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
+                          </label>
+                        </div>
+                      </div>
+
+                      <div style="float: right; padding-bottom: 5px; ">
+                        <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
+                          <i class="fa fa-plus-circle"></i> Adicionar
+                        </button>
+                      </div>
+
+                      <table style="text-align: left !important;" class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                            <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                            <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let dado of tab.tdDados">
+                          <tr>
+                            <th scope="row" *ngIf="dado.id % 2 === 0" class="tdbco"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                            <th scope="row" *ngIf="dado.id % 2 === 1" class="tdcin"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.subprocesso}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.subprocesso}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.nomegestor}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.nomegestor}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.sistema}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.sistema}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.armazenamento}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.armazenamento}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.integracao}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.integracao}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.ondeesta}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.ondeesta}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.fornece}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.fornece}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.administra}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.administra}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.envolvidos}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.envolvidos}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.registros}}</td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.registros}}</td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </article>
+                  </div>
+                </div>
+              </li>
+              <!-- finaliza aqui -->
+
+              <!-- começa aqui Array PROCESSAMENTO        -->
+              <li class="litab" *ngFor="let tab of tabsProcessamento">
+                <div [id]="tab.tab" class="tab-pane">
+                  <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
+                  <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
+                  <div class="content" >
+
+                    <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
+                      <h3>...</h3>
+                      <div style="width: 90%; float: left;">
+                        <div class="form-check" style="padding-right: 3%; float: left;"
+                        *ngFor="let perg of tab.perguntas">
+                        <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
+                        style="vertical-align: middle !important;" *ngIf="perg != ''">
+                        <label class="form-check-label" for="flexCheckDefault"
+                        style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
                       </label>
                     </div>
-                    <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Armazenamento em nuvem?
-                     </label>
-                   </div>
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Base de dados compartilhada?
-                     </label>
-                   </div>
-                  </div>
-                  <div style="float: right; padding-bottom: 5px; ">
-                   <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
                   </div>
 
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
+                  <div style="float: right; padding-bottom: 5px; ">
+                    <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
+                      <i class="fa fa-plus-circle"></i> Adicionar
+                    </button>
+                  </div>
+
+                  <table style="text-align: left !important;" class="table  table-hover">
                     <thead>
                       <tr>
-                        <th style="width: 3%; text-align: center;"></th>
-                        <th style="width: 10%; text-align: center;">Sub-Processo</th>
-                        <th style="width: 15%; text-align: center;">Nome do Gestor</th>
-                        <th style="width: 25%; text-align: center;">Sistema / BD / Cloud / etc</th>
-                        <th style="width: 7%; text-align: center;">Armazenamento</th>
-                        <th style="width: 7%; text-align: center;">Formas de Integracao</th>
-                        <th style="width: 6%; text-align: center;">Onde Está Hospedado?</th>
-                        <th style="width: 6%; text-align: center;">Quem Fornece?</th>
-                        <th style="width: 6%; text-align: center;">Quem Administra?</th>
-                        <th style="width: 6%; text-align: center;">Parceiros Envolvidos</th>
-                        <th style="width: 6%; text-align: center;">Registros Aproximados</th>
-                        <th style="width: 3%; text-align: center;"></th>
+                        <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                        <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                        <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
                       </tr>
-                    </thead><tbody>
+                    </thead>
+                    <tbody *ngFor="let dado of tab.tdDados">
                       <tr>
                         <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Faturamento</td>
-                        <td></td>
-                        <td>VBS(Cadastro)</td>
-                        <td>Digital</td>
-                        <td>WT</td>
-                        <td>WT</td>
-                        <td>WT</td>
-                        <td>WT</td>
-                        <td>WT</td>
-                        <td>?</td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Faturamento</td>
-                        <td></td>
-                        <td>SGB</td>
-                        <td>Digital</td>
-                        <td>B/e</td>
-                        <td>B/e</td>
-                        <td>B/e</td>
-                        <td>B/e</td>
-                        <td>n/a</td>
-                        <td>?</td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Contas a Pagar</td>
-                        <td></td>
-                        <td>Linkana - Cadastro Fornecedor e Veiculo (Sistema da WT) - para contato com o fornecedor, upload dos doctos</td>
-                        <td>Digital</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Contas a Pagar</td>
-                        <td></td>
-                        <td>Fornecedor Genival - Uso de Whatsapp</td>
-                        <td>Digital</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>RH</td>
-                        <td></td>
-                        <td>Peoplesoft</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>RH</td>
-                        <td></td>
-                        <td>Drive</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>Ambev x PwC</td>
-                        <td></td>
-                        <td></td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>RH</td>
-                        <td></td>
-                        <td>Notebook (HD)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                      </tr>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>RH</td>
-                        <td></td>
-                        <td>Pasta na Rede</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                        <!-- Campos da tabela -->
+                        <td>{{dado.DadosPessoais}}</td>
+                        <!-- Campos da tabela -->
+
+                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -424,268 +318,175 @@
           </li>
           <!-- finaliza aqui -->
 
-          <!-- começa aqui PROCESSAMENTO E COMPARTILHAMENTO           -->
-          <li style="font-size: 13px;">
-            <div id="tab3">
-              <input type="radio" name="tabs" class="rd_tabs" id="t3">
-              <label for="t3">Processamento</label>
+          <!-- começa aqui Array ANÁLISE E APLICAÇÃO DE DADOS        -->
+          <li class="litab" *ngFor="let tab of tabsAnalise">
+            <div [id]="tab.tab" class="tab-pane">
+              <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
+              <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
               <div class="content" >
 
                 <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <p style="font-size: 16px;">. . .</p>
-                  <div style="width: 92%; float: left;">
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Compartilhamento com Seguradora?
-                     </label>
-                   </div>
-                  </div>
-                  <div style="float: right; padding-bottom: 5px; ">
-                   <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
-                  </div>
-
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <!-- <th>nº</th>
-                        <th>Dados Pessoais</th>
-                        <th>Categoria</th>
-                        <th>Faturamento</th>
-                        <th>Contas à pagar</th>
-                        <th>Cadastro</th> -->
-                      </tr>
-                    </thead><tbody>
-                      <tr>
-                        <!-- <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>CPF</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td> -->
-                      </tr>
-
-                    </tbody>
-                  </table>
-
-                </article>
+                  <h3>...</h3>
+                  <div style="width: 90%; float: left;">
+                    <div class="form-check" style="padding-right: 3%; float: left;"
+                    *ngFor="let perg of tab.perguntas">
+                    <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
+                    style="vertical-align: middle !important;" *ngIf="perg != ''">
+                    <label class="form-check-label" for="flexCheckDefault"
+                    style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
+                  </label>
+                </div>
               </div>
-            </div>
-          </li>
-          <!-- finaliza aqui -->
 
-          <!-- começa aqui ANÁLISE E APLICAÇÃO DE DADOS          -->
-          <li style="font-size: 13px;">
-            <div id="tab4">
-              <input type="radio" name="tabs" class="rd_tabs" id="t4">
-              <label for="t4">Análise e Aplicação</label>
-              <div class="content" >
-
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <p style="font-size: 16px;">. . .</p>
-                  <div style="width: 92%; float: left;">
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Segmentação de dados?
-                     </label>
-                   </div>
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckChecked" style="text-align: left; vertical-align: middle;">
-                      Quais dados segmentados?
-                     </label>
-                   </div>
-                  </div>
-                  <div style="float: right; padding-bottom: 5px; ">
-                   <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
-                  </div>
-
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <!-- <th>nº</th>
-                        <th>Dados Pessoais</th>
-                        <th>Categoria</th>
-                        <th>Faturamento</th>
-                        <th>Contas à pagar</th>
-                        <th>Cadastro</th> -->
-                      </tr>
-                    </thead><tbody>
-                      <tr>
-                        <!-- <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>CPF</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td> -->
-                      </tr>
-
-                    </tbody>
-                  </table>
-
-                </article>
+              <div style="float: right; padding-bottom: 5px; ">
+                <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
+                  <i class="fa fa-plus-circle"></i> Adicionar
+                </button>
               </div>
+
+              <table style="text-align: left !important;" class="table  table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                    <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                    <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let dado of tab.tdDados">
+                  <tr>
+                    <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                    <!-- Campos da tabela -->
+                    <td>{{dado.DadosPessoais}}</td>
+                    <!-- Campos da tabela -->
+
+                    <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </article>
+          </div>
+        </div>
+      </li>
+      <!-- finaliza aqui -->
+
+      <!-- começa aqui Array COMUNICAÇÃO RELACIONAMENTO COM O TITULAR DE DADOS        -->
+      <li class="litab" *ngFor="let tab of tabsRelacionamento">
+        <div [id]="tab.tab" class="tab-pane">
+          <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
+          <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
+          <div class="content" >
+
+            <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
+              <h3>...</h3>
+              <div style="width: 90%; float: left;">
+                <div class="form-check" style="padding-right: 3%; float: left;"
+                *ngFor="let perg of tab.perguntas">
+                <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
+                style="vertical-align: middle !important;" *ngIf="perg != ''">
+                <label class="form-check-label" for="flexCheckDefault"
+                style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
+              </label>
             </div>
-          </li>
-          <!-- finaliza aqui -->
+          </div>
 
-          <!-- começa aqui COMUNICAÇÃO  RELACIONAMENTO COM O TITULAR DE DADOS          -->
-          <li style="font-size: 13px;">
-            <div id="tab5">
-              <input type="radio" name="tabs" class="rd_tabs" id="t5">
-              <label for="t5">Relacionamento</label>
-              <div class="content">
+          <div style="float: right; padding-bottom: 5px; ">
+            <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
+              <i class="fa fa-plus-circle"></i> Adicionar
+            </button>
+          </div>
 
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <p style="font-size: 16px;">. . .</p>
-                  <div style="width: 92%; float: left;">
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Campanhas ou msg para o funcionario ou candidato?
-                     </label>
-                   </div>
-                  </div>
-                  <div style="float: right; padding-bottom: 5px; ">
-                   <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
-                  </div>
+          <table style="text-align: left !important;" class="table  table-hover">
+            <thead>
+              <tr>
+                <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let dado of tab.tdDados">
+              <tr>
+                <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                <!-- Campos da tabela -->
+                <td>{{dado.DadosPessoais}}</td>
+                <!-- Campos da tabela -->
 
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <!-- <th>nº</th>
-                        <th>Dados Pessoais</th>
-                        <th>Categoria</th>
-                        <th>Faturamento</th>
-                        <th>Contas à pagar</th>
-                        <th>Cadastro</th> -->
-                      </tr>
-                    </thead><tbody>
-                      <tr>
-                        <!-- <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>CPF</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td> -->
-                      </tr>
+                <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-                    </tbody>
-                  </table>
-
-                </article>
-              </div>
-            </div>
-          </li>
-          <!-- finaliza aqui -->
-
-          <!-- começa aqui EXCLUSÃO DOS DADOS          -->
-          <li style="font-size: 13px;">
-            <div id="tab6">
-              <input type="radio" name="tabs" class="rd_tabs" id="t6">
-              <label for="t6">Exclusão</label>
-              <div class="content" >
-
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <p style="font-size: 16px;">. . .</p>
-                  <div style="width: 92%; float: left;">
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Dados de Candidatos: tempo de retenção?
-                     </label>
-                   </div>
-                  </div>
-                  <div style="float: right; padding-bottom: 5px; ">
-                   <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
-                  </div>
-
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <!-- <th>nº</th>
-                        <th>Dados Pessoais</th>
-                        <th>Categoria</th>
-                        <th>Faturamento</th>
-                        <th>Contas à pagar</th>
-                        <th>Cadastro</th> -->
-                      </tr>
-                    </thead><tbody>
-                      <tr>
-                        <!-- <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>CPF</td>
-                        <td>Dados Comuns</td>
-                        <td>Não</td>
-                        <td></td>
-                        <td></td> -->
-                      </tr>
-
-                    </tbody>
-                  </table>
-
-                </article>
-              </div>
-            </div>
-          </li>
-          <!-- finaliza aqui -->
-
-          <!-- começa aqui INCIDENTES - SE HOUVER ALGUM GAP         -->
-          <li style="font-size: 13px;">
-            <div id="tab7">
-              <input type="radio" name="tabs" class="rd_tabs" id="t7">
-              <label for="t7">Incidentes</label>
-              <div class="content" >
-
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <p style="font-size: 16px;">. . .</p>
-                  <div style="width: 92%; float: left;">
-                   <div class="form-check" style="padding-right: 3%; float: left;">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="vertical-align: middle !important;">
-                     <label class="form-check-label" for="flexCheckDefault" style="text-align: left; vertical-align: middle;">
-                      Houveram incidentes?
-                     </label>
-                   </div>
-                  </div>
-                  <div style="float: right; padding-bottom: 5px; ">
-                   <button class="btn btn-light" style="border: 1px solid #dadada;">Adicionar</button>
-                  </div>
-
-                  <table style="text-align: left !important;" class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Nome</th>
-                        <th>Categoria</th>
-                        <th>Data da ocorrência</th>
-                        <th>Base de Origem</th>
-                        <th></th>
-                      </tr>
-                    </thead><tbody>
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <td>Perda de Acessos</td>
-                        <td>Praticas Trabalhistas</td>
-                        <td>02/03/2021	</td>
-                        <td>czxczxczxczx</td>
-                        <td><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-
-                </article>
-              </div>
-            </div>
-          </li>
-          <!-- finaliza aqui -->
-
-        </ul>
-      </nav>
+        </article>
+      </div>
     </div>
-    <!-- tabs -->
+  </li>
+  <!-- finaliza aqui -->
+
+  <!-- começa aqui Array EXCLUSÃO DOS DADOS        -->
+  <li class="litab" *ngFor="let tab of tabsExclusao">
+    <div [id]="tab.tab" class="tab-pane">
+      <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
+      <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
+      <div class="content" >
+
+        <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
+          <h3>...</h3>
+          <div style="width: 90%; float: left;">
+            <div class="form-check" style="padding-right: 3%; float: left;"
+            *ngFor="let perg of tab.perguntas">
+            <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
+            style="vertical-align: middle !important;" *ngIf="perg != ''">
+            <label class="form-check-label" for="flexCheckDefault"
+            style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
+          </label>
+        </div>
+      </div>
+
+      <div style="float: right; padding-bottom: 5px; ">
+        <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
+          <i class="fa fa-plus-circle"></i> Adicionar
+        </button>
+      </div>
+
+      <table style="text-align: left !important;" class="table  table-hover">
+        <thead>
+          <tr>
+            <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+            <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+            <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let dado of tab.tdDados">
+          <tr>
+            <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+            <!-- Campos da tabela -->
+            <td>{{dado.DadosPessoais}}</td>
+            <!-- Campos da tabela -->
+
+            <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </article>
   </div>
 </div>
+</li>
+<!-- finaliza aqui -->
+
+
+</ul>
+</nav>
+</div>
+<!-- tabs -->
+
+</div>
+</div>
+
+
 </body>
 
 
