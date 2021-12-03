@@ -237,6 +237,9 @@ export class FluxodadosComponent implements OnInit {
 
   pegaNivel(){
     this.empresas.forEach((data) => {
+      if (data.nivel === this.nivelProcess) {
+
+      }
       console.log(data);
       // if (data.) {
 
