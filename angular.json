@@ -63,7 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lgpd-App:build"
+            "browserTarget": "lgpd-App:build",
+            "port": 4208
           },
           "configurations": {
             "production": {

@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FluxodadosComponent implements OnInit {
 
-  empresaSelect = 1;
-  nivelProcess = 4;
+  empresaSelect = 2;
+  nivelProcess = 2;
+  empresaNome;
+  processoCaminho;
+  processoProcesso;
+  processoResponsavel;
+
   titulotela = 'FLUXO DE DADOS';
   subtitulotela ='Mapeamento dos Fluxos de dados';
   caminho = 'Processos / LGPD / Fluxo de Dados';
@@ -49,16 +54,31 @@ export class FluxodadosComponent implements OnInit {
   ];
 
   empresas = [
-    {id:1, nivel:0, empresa:'GRC Team', responsavel:[{id:1, nome:'Henrique Stablin', email:'henrique.stabelin@grcteam.com.br'},{id:2, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'},{id:3, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'}], processo:[
+    {id:1, nivel:0, empresa:'E-xyon',
+    responsavel:[
+      {id:1, nome:'Henrique Stablin', email:'henrique.stabelin@grcteam.com.br'},
+      {id:2, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'},
+      {id:3, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'}
+    ],
+    processo:[
       {id:1, nivel: 1, nomeProcesso:'Rec. Humanos',   subProcessoN1:[{id:1, nivel:2, nomeSPN1:'Gestão de Pessoas', subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Recrutamento', subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Recrutamento Bahia', }, {id:2,nivel:4, nomeSPN3:'Recrutamento São Paulo',  }, {id:3,nivel:4, nomeSPN3:'Recrutamento Rio de Janeiro', }] }, {id:1, nivel:3, nomeSPN2:'Admissão',   subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Admissão Bahia', }, {id:2, nivel:4, nomeSPN3:'Admissão São Paulo' }, {id:3, nivel:4, nomeSPN3:'Admissão Rio de Janeiro'},] },] },] },
       {id:2, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:[{id:1, nivel:2, nomeSPN1:'Contratos de Trab', subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Contratação',  subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Contratação Bahia',  }, {id:2,nivel:4, nomeSPN3:'Contratação São Paulo',   }, {id:3,nivel:4, nomeSPN3:'Contratação Rio de Janeiro',  }] }, {id:1, nivel:3, nomeSPN2:'Documentos', subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Doctos Bahia',   }, {id:2, nivel:4, nomeSPN3:'Doctos São Paulo'   }, {id:3, nivel:4, nomeSPN3:'Doctos Rio de Janeiro'  },] },] },] },
       {id:3, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:[{id:1, nivel:2, nomeSPN1:'Contas à pagar',    subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Orçamento',    subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Orçamento Bahia',    }] }] }] },
     ]},
-    {id:2, nivel:0, empresa:'E-xyon',  responsavel:[{id:1, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'},{id:2, nome:'Henrique Stablin', email:'henrique.stabelin@grcteam.com.br'},{id:3, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'}], processo:[
+    {id:2, nivel:0, empresa:'GRC Team',
+    responsavel:[
+      {id:1, nome:'Henrique Stablin', email:'henrique.stabelin@grcteam.com.br'},
+    ],
+    processo:[
       {id:1, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:[{id:1, nivel:2, nomeSPN1:'RH',             subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Recrutamento', subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Recrutamento Bahia', }] }] }] },
       {id:2, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:[{id:1, nivel:2, nomeSPN1:'Contas à pagar', subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Orçamento',    subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Orçamento Bahia',    }] }] }] },
     ] },
-    {id:3, nivel:0, empresa:'Bradesco', responsavel:[{id:1, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'},{id:2, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'}], processo:[
+    {id:3, nivel:0, empresa:'Bradesco',
+    responsavel:[
+      {id:1, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'},
+      {id:2, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'}
+    ],
+    processo:[
       {id:1, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:[{id:1, nivel:2, nomeSPN1:'RH',             subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Recrutamento', subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Recrutamento Bahia', }] }] }] },
       {id:2, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:[{id:1, nivel:2, nomeSPN1:'Contas à pagar', subProcessoN2: [{id:1, nivel:3, nomeSPN2:'Orçamento',    subProcessoN3: [{id:1, nivel:4, nomeSPN3:'Orçamento Bahia',    }] }] }] },
     ] }
@@ -237,13 +257,32 @@ export class FluxodadosComponent implements OnInit {
 
   pegaNivel(){
     this.empresas.forEach((data) => {
-      if (data.nivel === this.nivelProcess) {
+      if (data.id === this.empresaSelect) {
+        this.empresaNome = data.empresa;
+
+        if (data.nivel === this.nivelProcess) {
+          this.processoProcesso = data.empresa;
+
+        }else{
+          data.processo.forEach((nos) => {
+            if (nos.nivel === this.nivelProcess) {
+              this.processoProcesso = nos.nomeProcesso;
+              console.log('nível processo: ' + nos.nivel);
+
+            }else{
+              nos.subProcessoN1.forEach((mos) => {
+                this.processoProcesso = nos.nomeProcesso;
+                console.log('nível processo: ' + nos.nivel);  
+              });
+            }
+
+
+          });
+        }
 
       }
-      console.log(data);
-      // if (data.) {
 
-      // }
+      console.log('nível selecionado: ' + this.nivelProcess)
     });
   }
 
