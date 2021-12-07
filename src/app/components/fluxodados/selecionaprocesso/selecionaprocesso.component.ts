@@ -172,7 +172,10 @@ export class SelecionaprocessoComponent implements OnInit {
   processoProcesso;
   processoResponsavel;
 
-  processoCarregado: any;
+  processoCarregado: any[];
+  subProcesso1Carregado: any[];
+  subProcesso2Carregado: any[];
+  subProcesso3Carregado: any[];
 
   totalLengthApont: any;
   pageApont: number = 1;
@@ -208,26 +211,26 @@ export class SelecionaprocessoComponent implements OnInit {
 
   empresas = [
     {
-      id:1, nivel:0, empresa:'E-xyon', doc:'00.000.000/0001-00',
+      id:1, nivel:0, define:'Empresa', empresa:'E-xyon', doc:'00.000.000/0001-00',
       responsavel:[{id:1, nome:'Henrique Stablin', email:'henrique.stabelin@grcteam.com.br'},{id:2, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'},{id:3, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'}],
       processo:
       [
-        {id:1, nivel: 1, nomeProcesso:'Rec. Humanos',   subProcessoN1:
+        {id:1, nivel: 1, define:'Processo', nomeProcesso:'Rec. Humanos',   subProcessoN1:
           [
-            {id:1, nivel:2, nomeProcesso:'Gestão de Pessoas', subProcessoN2:
+            {id:1, nivel:2, define:'Sub-Processo', nomeProcesso:'Gestão de Pessoas', subProcessoN2:
               [
-                {id:1, nivel:3, nomeProcesso:'Recrutamento', subProcessoN3:
+                {id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Recrutamento', subProcessoN3:
                   [
-                    {id:1, nivel:4, nomeProcesso:'Recrutamento Bahia',},
-                    {id:2, nivel:4, nomeProcesso:'Recrutamento São Paulo',},
-                    {id:3, nivel:4, nomeProcesso:'Recrutamento Rio de Janeiro',},
+                    {id:1, nivel:4, define:'Sub-Processo', nomeProcesso:'Recrutamento Bahia',},
+                    {id:2, nivel:4, define:'Sub-Processo', nomeProcesso:'Recrutamento São Paulo',},
+                    {id:3, nivel:4, define:'Sub-Processo', nomeProcesso:'Recrutamento Rio de Janeiro',},
                   ]
                 },
-                {id:2, nivel:3, nomeProcesso:'Admissão',   subProcessoN3:
+                {id:2, nivel:3, define:'Sub-Processo', nomeProcesso:'Admissão',   subProcessoN3:
                   [
-                    {id:4, nivel:4, nomeProcesso:'Admissão Bahia',},
-                    {id:5, nivel:4, nomeProcesso:'Admissão São Paulo'},
-                    {id:6, nivel:4, nomeProcesso:'Admissão Rio de Janeiro'},
+                    {id:4, nivel:4, define:'Sub-Processo', nomeProcesso:'Admissão Bahia',},
+                    {id:5, nivel:4, define:'Sub-Processo', nomeProcesso:'Admissão São Paulo'},
+                    {id:6, nivel:4, define:'Sub-Processo', nomeProcesso:'Admissão Rio de Janeiro'},
                   ]
                 },
               ]
@@ -235,22 +238,22 @@ export class SelecionaprocessoComponent implements OnInit {
           ]
         },
 
-        {id:2, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:
+        {id:2, nivel: 1, define:'Processo', nomeProcesso:'Depto Pessoal',  subProcessoN1:
           [
-            {id:2, nivel:2, nomeProcesso:'Contratos de Trab', subProcessoN2:
+            {id:2, nivel:2, define:'Sub-Processo', nomeProcesso:'Contratos de Trab', subProcessoN2:
               [
-                {id:3, nivel:3, nomeProcesso:'Contratação',  subProcessoN3:
+                {id:3, nivel:3, define:'Sub-Processo', nomeProcesso:'Contratação',  subProcessoN3:
                   [
-                    {id:7, nivel:4, nomeProcesso:'Contratação Bahia',},
-                    {id:8, nivel:4, nomeProcesso:'Contratação São Paulo',},
-                    {id:9, nivel:4, nomeProcesso:'Contratação Rio de Janeiro',}
+                    {id:7, nivel:4, define:'Sub-Processo', nomeProcesso:'Contratação Bahia',},
+                    {id:8, nivel:4, define:'Sub-Processo', nomeProcesso:'Contratação São Paulo',},
+                    {id:9, nivel:4, define:'Sub-Processo', nomeProcesso:'Contratação Rio de Janeiro',}
                   ]
                 },
-                {id:4, nivel:3, nomeProcesso:'Documentos', subProcessoN3:
+                {id:4, nivel:3, define:'Sub-Processo', nomeProcesso:'Documentos', subProcessoN3:
                   [
-                    {id:10, nivel:4, nomeProcesso:'Doctos Bahia',},
-                    {id:11, nivel:4, nomeProcesso:'Doctos São Paulo'},
-                    {id:12, nivel:4, nomeProcesso:'Doctos Rio de Janeiro'},
+                    {id:10, nivel:4, define:'Sub-Processo', nomeProcesso:'Doctos Bahia',},
+                    {id:11, nivel:4, define:'Sub-Processo', nomeProcesso:'Doctos São Paulo'},
+                    {id:12, nivel:4, define:'Sub-Processo', nomeProcesso:'Doctos Rio de Janeiro'},
                   ]
                 },
               ]
@@ -258,15 +261,15 @@ export class SelecionaprocessoComponent implements OnInit {
           ]
         },
 
-        {id:3, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:
+        {id:3, nivel: 1, define:'Processo', nomeProcesso:'Contabilidade',  subProcessoN1:
           [
-            {id:3, nivel:2, nomeProcesso:'Contas à pagar',    subProcessoN2:
+            {id:3, nivel:2, define:'Sub-Processo', nomeProcesso:'Contas à pagar',    subProcessoN2:
               [
-                {id:5, nivel:3, nomeProcesso:'Orçamento',    subProcessoN3:
+                {id:5, nivel:3, define:'Sub-Processo', nomeProcesso:'Orçamento',    subProcessoN3:
                   [
-                    {id:13, nivel:4, nomeProcesso:'Orçamento Bahia',},
-                    {id:14, nivel:4, nomeProcesso:'Orçamento São Paulo',},
-                    {id:14, nivel:4, nomeProcesso:'Orçamento Rio de Janeiro',},
+                    {id:13, nivel:4, define:'Sub-Processo', nomeProcesso:'Orçamento Bahia',},
+                    {id:14, nivel:4, define:'Sub-Processo', nomeProcesso:'Orçamento São Paulo',},
+                    {id:14, nivel:4, define:'Sub-Processo', nomeProcesso:'Orçamento Rio de Janeiro',},
                   ]
                 }
               ]
@@ -276,34 +279,34 @@ export class SelecionaprocessoComponent implements OnInit {
       ]
     },
     {
-      id:2, nivel:0, empresa:'GRC Team', doc:'00.000.000/0001-00',
+      id:2, nivel:0, define:'Empresa', empresa:'GRC Team', doc:'00.000.000/0001-00',
       responsavel:[{id:1, nome:'Henrique Stablin', email:'henrique.stabelin@grcteam.com.br'},],
       processo:
       [
-        {id:1, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:
+        {id:1, nivel: 1, define:'Processo', nomeProcesso:'Depto Pessoal',  subProcessoN1:
           [
             {
-              id:1, nivel:2, nomeProcesso:'RH',             subProcessoN2:
+              id:1, nivel:2, define:'Sub-Processo', nomeProcesso:'RH',             subProcessoN2:
               [
                 {
-                  id:1, nivel:3, nomeProcesso:'Recrutamento', subProcessoN3:
+                  id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Recrutamento', subProcessoN3:
                   [
-                    {id:1, nivel:4, nomeProcesso:'Recrutamento Bahia',}
+                    {id:1, nivel:4, define:'Sub-Processo', nomeProcesso:'Recrutamento Bahia',}
                   ]
                 }
               ]
             }
           ]
         },
-        {id:2, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:
+        {id:2, nivel: 1, define:'Processo', nomeProcesso:'Contabilidade',  subProcessoN1:
           [
             {
-              id:2, nivel:2, nomeProcesso:'Contas à pagar', subProcessoN2:
+              id:2, nivel:2, define:'Sub-Processo', nomeProcesso:'Contas à pagar', subProcessoN2:
               [
                 {
-                  id:1, nivel:3, nomeProcesso:'Orçamento',    subProcessoN3:
+                  id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Orçamento',    subProcessoN3:
                   [
-                    {id:2, nivel:4, nomeProcesso:'Orçamento Bahia',}
+                    {id:2, nivel:4, define:'Sub-Processo', nomeProcesso:'Orçamento Bahia',}
                   ]
                 }
               ]
@@ -313,20 +316,20 @@ export class SelecionaprocessoComponent implements OnInit {
       ]
     },
     {
-      id:3, nivel:0, empresa:'Bradesco', doc:'00.000.000/0001-00',
+      id:3, nivel:0, define:'Empresa', empresa:'Bradesco', doc:'00.000.000/0001-00',
       responsavel: [ { id:1, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'},{ id:2, nome:'Carlos Ligeiro', email:'carlos.ligeiro@e-xyon.com.br'} ],
       processo:
       [
-        {id:1, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:
+        {id:1, nivel: 1, define:'Processo', nomeProcesso:'Depto Pessoal',  subProcessoN1:
           [
             {
-              id:1, nivel:2, nomeProcesso:'RH',             subProcessoN2:
+              id:1, nivel:2, define:'Sub-Processo', nomeProcesso:'RH',             subProcessoN2:
               [
                 {
-                  id:1, nivel:3, nomeProcesso:'Recrutamento', subProcessoN3:
+                  id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Recrutamento', subProcessoN3:
                   [
                     {
-                      id:1, nivel:4, nomeProcesso:'Recrutamento Bahia',
+                      id:1, nivel:4, define:'Sub-Processo', nomeProcesso:'Recrutamento Bahia',
                     }
                   ]
                 }
@@ -334,16 +337,16 @@ export class SelecionaprocessoComponent implements OnInit {
             }
           ]
         },
-        {id:2, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:
+        {id:2, nivel: 1, define:'Processo', nomeProcesso:'Contabilidade',  subProcessoN1:
           [
             {
-              id:2, nivel:2, nomeProcesso:'Contas à pagar', subProcessoN2:
+              id:2, nivel:2, define:'Sub-Processo', nomeProcesso:'Contas à pagar', subProcessoN2:
               [
                 {
-                  id:1, nivel:3, nomeProcesso:'Orçamento',    subProcessoN3:
+                  id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Orçamento',    subProcessoN3:
                   [
                     {
-                      id:2, nivel:4, nomeProcesso:'Orçamento Bahia',
+                      id:2, nivel:4, define:'Sub-Processo', nomeProcesso:'Orçamento Bahia',
                     }
                   ]
                 }
@@ -354,20 +357,20 @@ export class SelecionaprocessoComponent implements OnInit {
       ]
     },
     {
-      id:4, nivel:0, empresa:'Tokyo Marine', doc:'00.000.000/0001-00',
+      id:4, nivel:0, define:'Processo', empresa:'Tokyo Marine', doc:'00.000.000/0001-00',
       responsavel: [ { id:1, nome:'Julio Oliveira', email:'julio.oliveira@gmail.com.br'} ],
       processo:
       [
-        {id:1, nivel: 1, nomeProcesso:'Depto Pessoal',  subProcessoN1:
+        {id:1, nivel: 1, define:'Processo', nomeProcesso:'Depto Pessoal',  subProcessoN1:
           [
             {
-              id:1, nivel:2, nomeProcesso:'RH',             subProcessoN2:
+              id:1, nivel:2, define:'Sub-Processo', nomeProcesso:'RH',             subProcessoN2:
               [
                 {
-                  id:1, nivel:3, nomeProcesso:'Recrutamento', subProcessoN3:
+                  id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Recrutamento', subProcessoN3:
                   [
                     {
-                      id:1, nivel:4, nomeProcesso:'Recrutamento Bahia',
+                      id:1, nivel:4, define:'Sub-Processo', nomeProcesso:'Recrutamento Bahia',
                     }
                   ]
                 }
@@ -375,16 +378,16 @@ export class SelecionaprocessoComponent implements OnInit {
             }
           ]
         },
-        {id:2, nivel: 1, nomeProcesso:'Contabilidade',  subProcessoN1:
+        {id:2, nivel: 1, define:'Processo', nomeProcesso:'Contabilidade',  subProcessoN1:
           [
             {
-              id:2, nivel:2, nomeProcesso:'Contas à pagar', subProcessoN2:
+              id:2, nivel:2, define:'Sub-Processo', nomeProcesso:'Contas à pagar', subProcessoN2:
               [
                 {
-                  id:1, nivel:3, nomeProcesso:'Orçamento',    subProcessoN3:
+                  id:1, nivel:3, define:'Sub-Processo', nomeProcesso:'Orçamento',    subProcessoN3:
                   [
                     {
-                      id:2, nivel:4, nomeProcesso:'Orçamento Bahia',
+                      id:2, nivel:4, define:'Sub-Processo', nomeProcesso:'Orçamento Bahia',
                     }
                   ]
                 }
@@ -432,14 +435,35 @@ export class SelecionaprocessoComponent implements OnInit {
   mostraProcessos(id: number){
     this.empresas.forEach((nos) => {
       if (nos.id === id) {
+        this.processoCarregado = nos.processo;
+        console.log(this.processoCarregado);
+      }
+    });
+  }
 
-        // nos.subProcessoN1.forEach((mos) => {
-        //   processoCarregado = ;
+  mostraSubProcesso1(id: number){
+    this.processoCarregado.forEach((nos) => {
+      if (nos.id === id) {
+        this.subProcesso1Carregado = nos.subProcessoN1;
+        console.log(this.subProcesso1Carregado);
+      }
+    });
+  }
 
-        // });
+  mostraSubProcesso2(id: number){
+    this.subProcesso1Carregado.forEach((nos) => {
+      if (nos.id === id) {
+        this.subProcesso2Carregado = nos.subProcessoN2;
+        console.log(this.subProcesso2Carregado);
+      }
+    });
+  }
 
-          console.log('empresa'+id);
-
+  mostraSubProcesso3(id: number){
+    this.subProcesso2Carregado.forEach((nos) => {
+      if (nos.id === id) {
+        this.subProcesso3Carregado = nos.subProcessoN3;
+        console.log(this.subProcesso3Carregado);
       }
     });
   }
