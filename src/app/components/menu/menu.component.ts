@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
     {id: 6, rota: '',                     titulo: 'Direitos',             img: 'icoTestes.png',     cor:'#4169E1',  rodape: 'Direitos do Titular'},
     {id: 7, rota: '',                     titulo: 'Discovery',            img: 'icoIncidentes.png', cor:'#808000',  rodape: 'Data Discovery'},
     {id: 8, rota: '',                     titulo: 'Regulamentação',       img: 'icoPlanos.png',     cor:'#00CED1',  rodape: 'Cadastro de Regulamentações e Normas'}, //(LGPD, GDPR, ISO27001, Trabalhista, Marco Civil, IA)
-    {id: 9, rota: '',                     titulo: 'Administração',        img: 'icoCompliance.png', cor:'#8B008B',  rodape: 'Módulo de Administração, Setup e Segurança'},
+    {id: 9, rota: 'seleciona_processo',   titulo: 'Administração',        img: 'icoCompliance.png', cor:'#8B008B',  rodape: 'Módulo de Administração, Setup e Segurança'},
     // {id: 10, rota: '', titulo: 'LGPD',             img: 'icoLgpd.png',       cor:'#F023EB',  rodape: 'Normas | Leis | Políticas'},
   ];
 

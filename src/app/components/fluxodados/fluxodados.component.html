@@ -1,15 +1,17 @@
-<div class="content">
-  <div>
-    <h4 class="titulotela"> {{titulotela}} </h4>
-    <p class="subtitulotela">{{subtitulotela}}</p>
-    <p class="crumbs">{{caminho}}</p>
-  </div>
-</div>
 
 <body class="body">
+  <div style="background-color: #fff; padding-left: 2em; width: 100%; border-bottom: 1px solid #ddd; height: 80px; padding-top: 0.9em;">
+    <div>
+      <h4 style="font-weight: bold; color: #444;"> {{titulotela}} </h4>
+      <p style="font-size: 12px; color: #777; margin-top: -1.5em;">{{subtitulotela}}</p>
+      <p style="font-size: 12px; color: #777; margin-top: -1.5em; padding-right: 2em; text-align: right;">
+        {{caminho}}</p>
+    </div>
+  </div>
 
   <div class="container">
     <div class="lgdiv" style="border: 1px solid #dcdcdc;">
+
       <div class="lgdivn2">
         <div class="col-lg-4 lgdivn3">
           <div class="lgdivn4">
@@ -61,9 +63,10 @@
                       *ngFor="let tab of tabsApontamentos">
                       <thead>
                         <tr>
-                          <th style="width: 3%; height: 38px !important;" *ngIf="tab.thTabela != ''"></th>
+                          <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                           <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                          <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                          <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                          <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                         </tr>
                       </thead>
                       <tbody *ngFor="let dado of tab.tdDados | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
@@ -86,7 +89,7 @@
                         <tr>
                           <td colspan="5">
                             <pagination-controls class="text-right my-pagination"
-                            autoHide="false" maxSize="5" directionLinks="true" responsive="true"
+                            autoHide="true" maxSize="5" directionLinks="true" responsive="true"
                             previousLabel="Anterior" nextLabel="Próxima"
                             (pageChange)="pageApont = $event"></pagination-controls>
                           </td>
@@ -116,6 +119,7 @@
               </button>
             </div>
           </div>
+
         </div>
 
         <div class="container" style="width: 140%; margin-left: -5%; margin-top: -1em;" >
@@ -202,22 +206,25 @@
                     <div class="content" >
 
                       <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                        <h3>...</h3>
-                        <div style="width: 90%; float: left;">
-                          <div class="form-check" style="padding-right: 3%; float: left;" *ngFor="let perg of tab.perguntas">
-                            <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
-                            style="vertical-align: middle !important;" *ngIf="perg != ''">
-                            <label class="form-check-label" for="flexCheckDefault"
-                            style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
-                          </label>
+                        <div class="divcheck">
+                          <h3>...</h3>
                         </div>
-                      </div>
+                        <div class="divbtn">
+                          <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+                          <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
+                          <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+                          <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+                        </div>
 
-                      <div style="float: right; padding-bottom: 5px; ">
-                        <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
-                          <i class="fa fa-plus-circle"></i> Adicionar
-                        </button>
-                      </div>
+                        <div class="divpergunta">
+                          <div class="form-check" *ngFor="let perg of tab.perguntas">
+                            <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
+                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+                          </div>
+                          <div style="height: 15px;"></div>
+                        </div>
 
                       <table style="text-align: left !important;" class="table table-hover">
                         <thead>
@@ -273,30 +280,33 @@
                   <div class="content" >
 
                     <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                      <h3>...</h3>
-                      <div style="width: 90%; float: left;">
-                        <div class="form-check" style="padding-right: 3%; float: left;"
-                        *ngFor="let perg of tab.perguntas">
-                        <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
-                        style="vertical-align: middle !important;" *ngIf="perg != ''">
-                        <label class="form-check-label" for="flexCheckDefault"
-                        style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
-                      </label>
-                    </div>
-                  </div>
+                      <div class="divcheck">
+                        <h3>...</h3>
+                      </div>
+                      <div class="divbtn">
+                        <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+                        <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
+                        <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+                        <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+                      </div>
 
-                  <div style="float: right; padding-bottom: 5px; ">
-                    <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
-                      <i class="fa fa-plus-circle"></i> Adicionar
-                    </button>
-                  </div>
+                      <div class="divpergunta">
+                        <div class="form-check" *ngFor="let perg of tab.perguntas">
+                          <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                          <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                          <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
+                          <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+                        </div>
+                        <div style="height: 15px;"></div>
+                      </div>
 
                   <table style="text-align: left !important;" class="table  table-hover">
                     <thead>
                       <tr>
-                        <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                        <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                         <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                        <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                        <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                        <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                       </tr>
                     </thead>
                     <tbody *ngFor="let dado of tab.tdDados">
@@ -326,30 +336,33 @@
               <div class="content" >
 
                 <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <h3>...</h3>
-                  <div style="width: 90%; float: left;">
-                    <div class="form-check" style="padding-right: 3%; float: left;"
-                    *ngFor="let perg of tab.perguntas">
-                    <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
-                    style="vertical-align: middle !important;" *ngIf="perg != ''">
-                    <label class="form-check-label" for="flexCheckDefault"
-                    style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
-                  </label>
-                </div>
-              </div>
+                  <div class="divcheck">
+                    <h3>...</h3>
+                  </div>
+                  <div class="divbtn">
+                    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+                    <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
+                    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+                    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+                  </div>
 
-              <div style="float: right; padding-bottom: 5px; ">
-                <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
-                  <i class="fa fa-plus-circle"></i> Adicionar
-                </button>
-              </div>
+                  <div class="divpergunta">
+                    <div class="form-check" *ngFor="let perg of tab.perguntas">
+                      <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                      <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                      <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
+                      <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+                    </div>
+                    <div style="height: 15px;"></div>
+                  </div>
 
               <table style="text-align: left !important;" class="table  table-hover">
                 <thead>
                   <tr>
-                    <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                     <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                    <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                   </tr>
                 </thead>
                 <tbody *ngFor="let dado of tab.tdDados">
@@ -379,30 +392,33 @@
           <div class="content" >
 
             <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-              <h3>...</h3>
-              <div style="width: 90%; float: left;">
-                <div class="form-check" style="padding-right: 3%; float: left;"
-                *ngFor="let perg of tab.perguntas">
-                <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
-                style="vertical-align: middle !important;" *ngIf="perg != ''">
-                <label class="form-check-label" for="flexCheckDefault"
-                style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
-              </label>
-            </div>
-          </div>
+              <div class="divcheck">
+                <h3>...</h3>
+              </div>
+              <div class="divbtn">
+                <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+                <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
+                <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+                <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+              </div>
 
-          <div style="float: right; padding-bottom: 5px; ">
-            <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
-              <i class="fa fa-plus-circle"></i> Adicionar
-            </button>
-          </div>
+              <div class="divpergunta">
+                <div class="form-check" *ngFor="let perg of tab.perguntas">
+                  <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                  <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                  <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
+                  <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+                </div>
+                <div style="height: 15px;"></div>
+              </div>
 
           <table style="text-align: left !important;" class="table  table-hover">
             <thead>
               <tr>
-                <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+                <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
                 <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+                <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
               </tr>
             </thead>
             <tbody *ngFor="let dado of tab.tdDados">
@@ -432,30 +448,33 @@
       <div class="content" >
 
         <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-          <h3>...</h3>
-          <div style="width: 90%; float: left;">
-            <div class="form-check" style="padding-right: 3%; float: left;"
-            *ngFor="let perg of tab.perguntas">
-            <input class="form-check-input" type="checkbox" value="" [checked]="perg.checked"
-            style="vertical-align: middle !important;" *ngIf="perg != ''">
-            <label class="form-check-label" for="flexCheckDefault"
-            style="text-align: left; vertical-align: middle;" *ngIf="perg != ''">{{perg.perg}}
-          </label>
-        </div>
-      </div>
+          <div class="divcheck">
+            <h3>...</h3>
+          </div>
+          <div class="divbtn">
+            <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+            <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
+            <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+            <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+          </div>
 
-      <div style="float: right; padding-bottom: 5px; ">
-        <button class="btn btn-light" style="border: 1px solid #dadada; color: #777;">
-          <i class="fa fa-plus-circle"></i> Adicionar
-        </button>
-      </div>
+          <div class="divpergunta">
+            <div class="form-check" *ngFor="let perg of tab.perguntas">
+              <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+              <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+              <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
+              <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+            </div>
+            <div style="height: 15px;"></div>
+          </div>
 
       <table style="text-align: left !important;" class="table  table-hover">
         <thead>
           <tr>
-            <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+            <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
             <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-            <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+            <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+            <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
           </tr>
         </thead>
         <tbody *ngFor="let dado of tab.tdDados">

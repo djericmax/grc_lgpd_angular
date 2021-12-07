@@ -7,6 +7,7 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { DadoinventarioComponent } from './components/dadoinventario/dadoinventario.component';
 import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
 import { FluxodadosComponent } from './components/fluxodados/fluxodados.component';
+import { SelecionaprocessoComponent } from './components/fluxodados/selecionaprocesso/selecionaprocesso.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'cadastro_inventario', component: CadinventarioComponent},
   {path: 'dados_inventario',    component: DadoinventarioComponent},
   {path: 'sistema_repositorio', component: SistrepoComponent},
+  {path: 'seleciona_processo',  component: SelecionaprocessoComponent},
   {path: 'fluxo_dados',         component: FluxodadosComponent},
 ];
 

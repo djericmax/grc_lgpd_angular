@@ -28,6 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FluxodadosComponent } from './components/fluxodados/fluxodados.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { MatTreeModule } from '@angular/material/tree';
+import { SelecionaprocessoComponent } from './components/fluxodados/selecionaprocesso/selecionaprocesso.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CadinventarioComponent,
     DadoinventarioComponent,
     SistrepoComponent,
-    FluxodadosComponent
+    FluxodadosComponent,
+    SelecionaprocessoComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatMenuModule,
     MatDialogModule,
     MatTabsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
