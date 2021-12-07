@@ -28,7 +28,7 @@
               <img [src]="user" title="Julio Oliveira" class="imgus2" alt="">
               <img [src]="user" title="Carlos Ligeiro" class="imgus2" alt="">
               <div class="divspace">&nbsp;</div>
-              <a href="#" class="linknone">
+              <a [routerLink]="['#']" class="linknone">
                 <div class="addresp" title="Adicionar Responsável">
                   <p class="addresplus">+</p>
                 </div>
@@ -79,10 +79,10 @@
                           <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.classif}}</td>
                           <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.classif}}</td>
                           <!-- Campos da tabela -->
-                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
-                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
-                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
-                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a href="#"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
                         </tr>
                       </tbody>
                       <tfoot>
@@ -157,8 +157,8 @@
 
                         <div class="divpergunta">
                           <div class="form-check" *ngFor="let perg of tab.perguntas">
-                            <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                            <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
                             <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
                             <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
                           </div>
@@ -184,10 +184,10 @@
                               <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.categoria}}</td>
                               <td *ngIf="dado.id % 2 === 0" class="tdbco"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
                               <td *ngIf="dado.id % 2 === 1" class="tdcin"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
                             </tr>
                           </tbody>
                         </table>
@@ -218,8 +218,8 @@
 
                         <div class="divpergunta">
                           <div class="form-check" *ngFor="let perg of tab.perguntas">
-                            <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                            <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                            <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
                             <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
                             <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
                           </div>
@@ -258,10 +258,10 @@
                             <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.envolvidos}}</td>
                             <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.registros}}</td>
                             <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.registros}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a href="#" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a href="#" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
                           </tr>
                         </tbody>
                       </table>
@@ -292,8 +292,8 @@
 
                       <div class="divpergunta">
                         <div class="form-check" *ngFor="let perg of tab.perguntas">
-                          <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                          <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                          <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                          <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
                           <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
                           <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
                         </div>
@@ -316,7 +316,7 @@
                         <td>{{dado.DadosPessoais}}</td>
                         <!-- Campos da tabela -->
 
-                        <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                        <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
                         </td>
                       </tr>
                     </tbody>
@@ -348,8 +348,8 @@
 
                   <div class="divpergunta">
                     <div class="form-check" *ngFor="let perg of tab.perguntas">
-                      <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                      <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                      <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                      <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
                       <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
                       <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
                     </div>
@@ -372,7 +372,7 @@
                     <td>{{dado.DadosPessoais}}</td>
                     <!-- Campos da tabela -->
 
-                    <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                    <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -404,8 +404,8 @@
 
               <div class="divpergunta">
                 <div class="form-check" *ngFor="let perg of tab.perguntas">
-                  <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                  <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                  <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+                  <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
                   <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
                   <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
                 </div>
@@ -428,7 +428,7 @@
                 <td>{{dado.DadosPessoais}}</td>
                 <!-- Campos da tabela -->
 
-                <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+                <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -460,8 +460,8 @@
 
           <div class="divpergunta">
             <div class="form-check" *ngFor="let perg of tab.perguntas">
-              <a href="#" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-              <a href="#" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+              <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
+              <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
               <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
               <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
             </div>
@@ -484,7 +484,7 @@
             <td>{{dado.DadosPessoais}}</td>
             <!-- Campos da tabela -->
 
-            <td><a href="#"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+            <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
             </td>
           </tr>
         </tbody>

@@ -16,12 +16,12 @@
             <div class="hpanel">
               <div>
                 <div>
-                  <a [href]="param.rota" style="text-decoration: none;">
+                  <a [routerLink]="param.rota" style="text-decoration: none;">
                     <h4 class="text-danger" style="font-size: 12px; font-weight: bold;">{{param.titulo}}</h4>
                   </a>
                 <p style="font-size: 11px; margin-top: -10px;">{{param.rodape}}</p>
                 <div class="stats-icon pull-right" style="float: right; margin-top: -60px;">
-                  <a [href]="param.rota">
+                  <a [routerLink]="param.rota">
                     <img [src]="'/assets/imgs/' + param.img" alt="">
                   </a>
                 </div>
@@ -38,7 +38,7 @@
           <div class="hpanel">
             <div class="panel-body text-center h-100">
 
-            <a [href]="link.rota" class="links">
+            <a [routerLink]="link.rota" class="links">
                 <img [src]="'/assets/imgs/' + link.img" alt="">
                 <h3 [style.color]="link.cor" style="font-weight: 900; font-size: 22px;">{{link.titulo}}</h3>
               </a>

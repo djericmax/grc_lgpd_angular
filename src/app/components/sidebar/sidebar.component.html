@@ -20,7 +20,7 @@
   </div>
   <div class="divs" *ngFor="let item of links">&nbsp;
   <p class="usercon">
-    <a [href]="item.rota"  routerLinkActive="active" class="btns">
+    <a [routerLink]="item.rota"  routerLinkActive="active" class="btns">
       <mat-icon style="width: 30%; margin-top: 4px; float: right;">{{item.ico}}</mat-icon>
        <p style="padding-left: 1em; width: 70%; text-align: right !important;">{{item.nome | uppercase}}</p>
     </a>

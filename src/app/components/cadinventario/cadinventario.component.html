@@ -14,7 +14,7 @@
       <p></p>
 
   <div style="padding-top: 2%;">
-    <a href="inventario" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
+    <a [routerLink]="['/inventario']" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
       Cadastrar Ativo
     </a>
 
@@ -22,12 +22,12 @@
     <table style="width: 100%;" *ngFor="let item of botoes">
       <tr>
         <td style="width: 25%; padding-top: 10px;">
-          <a href="#" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
+          <a [routerLink]="['/#']" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
             {{item.btA}}
           </a>
         </td>
         <td style="width: 25%; padding-top: 10px;">
-          <a href="#" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
+          <a [routerLink]="['/#']" style="width: 200px;" routerLinkActive="active" class="btn btn-primary large">
             {{item.btB}}
           </a>
         </td>
