@@ -224,11 +224,11 @@ export class FluxodadosComponent implements OnInit {
 
       {id:4,
         perg:'E quando a finalidade muda? O que a empresa deve fazer?',
-        resp:'Se a sua empresa precisa de um dado pessoal já coletado com o consentimento do titular para outra finalidade de uso, é necessário informar à pessoa sobre este novo intuito. Mas somente informar não basta: em casos assim, você deve atualizar o consentimento do titular.'
+        resp:''
       },
       {id:5,
         perg:'Quem fiscaliza o cumprimento da lei?',
-        resp:'O controle da LGPD será feito pela Autoridade Nacional de Proteção de Dados (ANPD). Este órgão será criado para fiscalizar o cumprimento da lei, zelar pela proteção de dados pessoais, elaborar diretrizes e também aplicar as sanções em casos de irregularidade.'
+        resp:''
       },
     ],
     thTabela: [
@@ -256,7 +256,7 @@ tabsArmazenamento = [
       },
       {id:5,
         perg:'Quais são as principais diretrizes da LGPD?',
-        resp:'A LGPD traz alguns princípios que devem ser respeitados no tratamento de dados pessoais, como: finalidade, necessidade, não discriminação e segurança. Isto significa que a empresa precisa seguir algumas determinações. Em resumo, os dados pessoais só podem ser coletados com o consentimento do titular, que precisa ser informado da finalidade da coleta. É do titular o direito de acesso aos dados coletados, assim como a solicitação de correção de informações, de exclusão, de portabilidade ou de revogação do consentimento.'
+        resp:''
       },
       {id:6,
         perg:'E o que a lei entende por “consentimento”?',
@@ -298,7 +298,7 @@ tabsProcessamento = [
       },
       {id:5,
         perg:'Quem fiscaliza o cumprimento da lei?',
-        resp:'O controle da LGPD será feito pela Autoridade Nacional de Proteção de Dados (ANPD). Este órgão será criado para fiscalizar o cumprimento da lei, zelar pela proteção de dados pessoais, elaborar diretrizes e também aplicar as sanções em casos de irregularidade.'
+        resp:''
       },
     ],
     thTabela: [
@@ -324,7 +324,7 @@ tabsAnalise = [
       },
       {id:6,
         perg:'E o que a lei entende por “consentimento”?',
-        resp:'O consentimento do titular é a permissão dada por meio de uma declaração para que a empresa possa coletar e utilizar dados específicos para uma finalidade previamente determinada e esclarecida. Ou seja, é preciso ser sempre claro quando se explica como os dados serão utilizados e também se ater à finalidade prevista.'
+        resp:''
       },
     ],
     thTabela: [
@@ -364,15 +364,15 @@ tabsExclusao = [
     perguntas:[
       {id:4,
         perg:'Em quais casos de tratamento de dados pessoais a lei é aplicada?',
-        resp:'A lei se aplica a qualquer operação que envolve o tratamento de dados pessoais e que seja realizada em território brasileiro. Mas e se a empresa for sediada no exterior? Caso ela ofereça bens ou serviços para pessoas localizadas no Brasil e, para isso, coletar dados de usuários, a LGPD também se aplica!'
+        resp:''
       },
       {id:5,
         perg:'Quais são as principais diretrizes da LGPD?',
-        resp:'A LGPD traz alguns princípios que devem ser respeitados no tratamento de dados pessoais, como: finalidade, necessidade, não discriminação e segurança. Isto significa que a empresa precisa seguir algumas determinações. Em resumo, os dados pessoais só podem ser coletados com o consentimento do titular, que precisa ser informado da finalidade da coleta. É do titular o direito de acesso aos dados coletados, assim como a solicitação de correção de informações, de exclusão, de portabilidade ou de revogação do consentimento.'
+        resp:''
       },
       {id:6,
         perg:'E o que a lei entende por “consentimento”?',
-        resp:'O consentimento do titular é a permissão dada por meio de uma declaração para que a empresa possa coletar e utilizar dados específicos para uma finalidade previamente determinada e esclarecida. Ou seja, é preciso ser sempre claro quando se explica como os dados serão utilizados e também se ater à finalidade prevista.'
+        resp:''
       },
     ],
     thTabela: [

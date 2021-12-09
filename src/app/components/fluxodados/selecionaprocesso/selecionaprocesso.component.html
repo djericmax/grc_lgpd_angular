@@ -1,158 +1,321 @@
-  <div style="background-color: #fff; padding-left: 2em; width: 100%; border-bottom: 1px solid #ddd; height: 80px; padding-top: 0.9em;">
-    <div>
-      <h4 style="font-weight: bold; color: #444;"> {{titulotela}} </h4>
-      <p style="font-size: 12px; color: #777; margin-top: -1.5em;">{{subtitulotela}}</p>
-      <p style="font-size: 12px; color: #777; margin-top: -1.5em; padding-right: 2em; text-align: right;">
-        {{caminho}}</p>
-      </div>
+<div style="
+  background-color: #fff;
+  padding-left: 2em;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  height: 80px;
+  padding-top: 0.9em;
+  ">
+  <div>
+    <h4 style="
+      font-weight: bold;
+      color: #444;
+      "> {{titulotela}} </h4>
+    <p style="
+    font-size: 12px;
+    color: #777;
+    margin-top: -1.5em;
+    ">{{subtitulotela}}</p>
+    <p style="
+    font-size: 12px;
+    color: #777;
+    margin-top: -1.5em;
+    padding-right: 2em;
+    text-align: right;">
+      {{caminho}}</p>
     </div>
+  </div>
 
-    <body class="body">
 
-      <div class="lgdiv">
 
-        <div class="container">
-          <!--    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-              <button mat-icon-button disabled></button>
-              {{node.name}} - testeSSS
-            </mat-tree-node>
+<div style="
+background-color: #F1F3F6;
+padding: 2em;">
 
-            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-              <button mat-icon-button matTreeNodeToggle
-              [attr.aria-label]="'Toggle ' + node.name">
-              <mat-icon class="mat-icon-rtl-mirror">
-                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-              </mat-icon>
-            </button>
-            {{node.name}} - teste
-          </mat-tree-node>
-        </mat-tree> -->
 
-        <div style="float: left; background-color: #fff; border: 1px solid #e5e5e5; height: 17.5em;  margin-left: -6.7em; margin-right: 2em;" class="col-md-5">
-          <h5 style="font-weight: 50; margin: 0.5em; margin-top: 1em; color: #777; float: right;">Empresas: <strong>{{empresas.length}}</strong></h5>
-          <h1 style="font-weight: 50; margin: 0.5em; margin-top: 1em; color: #777; ">Empresas</h1>
+      <!-- Empresas -->
+      <div style="
+      float: left;
+      background-color: #fff;
+      border: 1px solid #e5e5e5;
+      height: 17.5em;
+      margin-right: 2em;
+      " class="col-md-4">
 
-          <div style="height: 12.4em; margin: 0.5em; margin-top: 1.2em; ">
-            <table style="text-align: left !important; width: 100% !important;" class="table-hover">
+        <h5 style="font-weight: 50; margin: 0.5em; margin-top: 1em; color: #777; float: right;">Empresas: <strong>{{empresas.length}}</strong></h5>
+        <h1 style="font-weight: 50; margin: 0.5em; margin-top: 1em; color: #777; ">Empresas</h1>
+
+        <div style="height: 12.4em; margin: 0.5em; margin-top: 1.2em; ">
+          <table style="text-align: left !important; width: 100% !important;" class="table-hover">
             <tbody *ngFor="let dado of empresas | paginate: { itemsPerPage: 4, currentPage: pageApont, totalItems: totalLengthApont }">
               <tr>
                 <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
                   <input class="form-check-input pull-right" (click)="mostraProcessos(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="empresa" id="empresa"></th>
-                <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
-                  <input class="form-check-input pull-right" (click)="mostraProcessos(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="empresa" id="empresa"></th>
-                <!-- Campos da tabela -->
-                <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 57%;">{{dado.empresa}}</td>
-                <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 57%;">{{dado.empresa}}</td>
-                <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 30%; text-align: right;">{{dado.doc}}</td>
-                <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 30%; text-align: right;">{{dado.doc}}</td>
-                <!-- Campos da tabela -->
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="5">
-                  <pagination-controls class="text-right my-pagination"
-                  autoHide="true" maxSize="5" directionLinks="true" responsive="true"
-                  previousLabel="Anterior" nextLabel="Próxima"
-                  (pageChange)="pageApont = $event"></pagination-controls>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-      </div>
-
-      <div style="float: right; background-color: #fff; border: 1px solid #e5e5e5; height: 34em; margin-right: -7em;" class="col-md-9">
-        <h1 style="font-weight: 50; margin: 1em; color: #777; float: left;">PROCESSOS</h1>
-
-        <div style="height: 12.4em; margin: 0.5em; margin-top: 1.2em; ">
-          <table style="text-align: left !important; width: 100% !important;" class="table-hover">
-            <thead *ngIf="processoCarregado  != undefined">
-              <tr>
-                <th class="thlg3"></th>
-                <th class="thlg3">Nome</th>
-                <th class="thlg3">Nível</th>
-                <th class="thlg3"></th>
-                <th class="thlg3"></th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let dado of processoCarregado | paginate: { itemsPerPage: 4, currentPage: pageApont, totalItems: totalLengthApont }">
-            <tr>
-              <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
-                <input class="form-check-input pull-right" (click)="mostraSubProcesso1(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="processo" id="processo"></th>
-              <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
-                <input class="form-check-input pull-right" (click)="mostraSubProcesso1(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="processo" id="processo"></th>
-              <!-- Campos da tabela -->
-              <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.nomeProcesso}}</td>
-              <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.nomeProcesso}}</td>
-              <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.define}}</td>
-              <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.define}}</td>
-              <!-- Campos da tabela -->
-            </tr>
-            <tr>
-              <td colspan="3">
-                <!-- subProcesso 1 -->
-                <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
-                  <!-- <thead *ngIf="subProcesso1Carregado  != undefined">
-                    <tr>
-                      <th class="thlg3"></th>
-                      <th class="thlg3">Nome</th>
-                      <th class="thlg3">Nível</th>
-                      <th class="thlg3"></th>
-                      <th class="thlg3"></th>
-                    </tr>
-                  </thead> -->
-                  <tbody *ngFor="let dado of subProcesso1Carregado | paginate: { itemsPerPage: 4, currentPage: pageApont, totalItems: totalLengthApont }">
-                  <tr>
-                    <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
-                      <input class="form-check-input pull-right" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="processo" id="processo"></th>
-                    <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
-                      <input class="form-check-input pull-right" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="processo" id="processo"></th>
+                  <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                    <input class="form-check-input pull-right" (click)="mostraProcessos(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="empresa" id="empresa"></th>
                     <!-- Campos da tabela -->
-                    <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.nomeProcesso}}</td>
-                    <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.nomeProcesso}}</td>
-                    <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.define}}</td>
-                    <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.define}}</td>
+                    <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 57%;">{{dado.empresa}}</td>
+                    <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 57%;">{{dado.empresa}}</td>
+                    <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 30%; text-align: right;">{{dado.doc}}</td>
+                    <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 30%; text-align: right;">{{dado.doc}}</td>
                     <!-- Campos da tabela -->
                   </tr>
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="5">
+                      <pagination-controls class="text-right my-pagination"
+                      autoHide="true" maxSize="5" directionLinks="true" responsive="true"
+                      previousLabel="Anterior" nextLabel="Próxima"
+                      (pageChange)="pageApont = $event"></pagination-controls>
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
-                <!-- subProcesso 1 -->
+            </div>
 
-              </td>
+          </div>
+          <!-- Empresas -->
+
+          <div style="
+          float: left;
+          width: 64%;
+          background-color: #fff;
+          border: 1px solid #e5e5e5;
+          padding-bottom: 2em;
+          margin-bottom: 2em;
+          min-height: 7em;
+          " class="col-md-7">
+
+            <h1 style="font-weight: 50; margin: 1em; margin-bottom: 0.1em; color: #777; float: left;">PROCESSOS</h1>
+
+            <!-- Processos -->
+            <div>
+
+              <table style="text-align: left !important; width: 100% !important; top: -2em !important; " class="table-hover"
+              *ngIf="processoCarregado  != undefined">
+              <thead>
+                <tr>
+                  <th class="thlg3" style="font-size: 13px;"></th>
+                  <th class="thlg3" style="font-size: 13px;">Nome</th>
+                  <th class="thlg3" style="font-size: 13px;">Nível</th>
+                  <th class="thlg3" style="font-size: 13px;"></th>
+                  <th class="thlg3" style="font-size: 13px;"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let dado of processoCarregado | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
+                <tr>
+                  <th *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 2%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                    <input class="form-check-input pull-right" (click)="mostraSubProcesso1(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="processo" id="processo"></th>
+                    <th *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                      <input class="form-check-input pull-right" (click)="mostraSubProcesso1(dado.id)" style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="processo" id="processo"></th>
+                      <!-- Campos da tabela -->
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 48%;">{{dado.define}}</td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 48%;">{{dado.define}}</td>
+                      <!-- menu opções -->
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 2%;">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                          <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                          <mat-divider></mat-divider>
+                          <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                        </mat-menu>
+                      </td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%;">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                          <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                          <mat-divider></mat-divider>
+                          <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                        </mat-menu>
+                      </td>
+                      <!-- menu opções -->
+                      <!-- Campos da tabela -->
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="5">
+                        <pagination-controls class="text-right my-pagination"
+                        autoHide="true" maxSize="5" directionLinks="true" responsive="true"
+                        previousLabel="Anterior" nextLabel="Próxima"
+                        (pageChange)="pageApont = $event"></pagination-controls>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- Processos -->
+
+              <!-- Sub-processos 1 -->
+              <div style="margin: 0.5em; margin-top: 1.5em;" *ngIf="subProcesso1Carregado  != undefined">
+                <h5 style="font-weight: 50; margin: 0; color: #777; float: left;">SUB-PROCESSOS NÍVEL 1</h5>
+                <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
+                  <tbody *ngFor="let dado of subProcesso1Carregado | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
+                    <tr>
+                      <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                        <input class="form-check-input pull-right" (click)="mostraSubProcesso2(dado.id)"style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="subprocesso1" id="subprocesso1"></th>
+                        <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                          <input class="form-check-input pull-right" (click)="mostraSubProcesso2(dado.id)"style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="subprocesso1" id="subprocesso1"></th>
+                          <!-- Campos da tabela -->
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.define}}</td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.define}}</td>
+                          <!-- menu opções -->
+                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 2%;">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                              <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                              <mat-divider></mat-divider>
+                              <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                            </mat-menu>
+                          </td>
+                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; font-size: 13px;">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                              <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                              <mat-divider></mat-divider>
+                              <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                            </mat-menu>
+                          </td>
+                          <!-- menu opções -->
+                          <!-- Campos da tabela -->
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="5">
+                            <pagination-controls class="text-right my-pagination"
+                            autoHide="true" maxSize="5" directionLinks="true" responsive="true"
+                            previousLabel="Anterior" nextLabel="Próxima"
+                            (pageChange)="pageApont = $event"></pagination-controls>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- Sub-processos 1 -->
+
+                  <!-- Sub-processos 2 -->
+                  <div style="margin: 0.5em; margin-top: 1.2em;" *ngIf="subProcesso2Carregado  != undefined">
+                    <h5 style="font-weight: 50; margin: 0; color: #777; float: left;">SUB-PROCESSOS NÍVEL 2</h5>
+                    <!-- subProcesso 2 -->
+                    <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
+                      <tbody *ngFor="let dado of subProcesso2Carregado">
+                        <tr>
+                          <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                            <input class="form-check-input pull-right" (click)="mostraSubProcesso3(dado.id)"style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="subprocesso2" id="subprocesso2"></th>
+                            <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                              <input class="form-check-input pull-right" (click)="mostraSubProcesso3(dado.id)"style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="subprocesso2" id="subprocesso2"></th>
+                              <!-- Campos da tabela -->
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.define}}</td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.define}}</td>
+                              <!-- menu opções -->
+                              <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 2%;">
+                                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                                  <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                                  <mat-divider></mat-divider>
+                                  <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                </mat-menu>
+                              </td>
+                              <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; font-size: 13px;">
+                                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                                  <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                                  <mat-divider></mat-divider>
+                                  <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                </mat-menu>
+                              </td>
+                              <!-- menu opções -->
+                              <!-- Campos da tabela -->
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td colspan="5">
+                                <pagination-controls class="text-right my-pagination"
+                                autoHide="true" maxSize="5" directionLinks="true" responsive="true"
+                                previousLabel="Anterior" nextLabel="Próxima"
+                                (pageChange)="pageApont = $event"></pagination-controls>
+                              </td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                        <!-- subProcesso 3 -->
+                      </div>
+                      <!-- Sub-processos 2 -->
+
+                      <!-- Sub-processos 3 -->
+                      <div style="margin: 0.5em; margin-top: 1.2em;" *ngIf="subProcesso3Carregado  != undefined">
+                        <h5 style="font-weight: 50; margin: 0; color: #777; float: left;">SUB-PROCESSOS NÍVEL 3</h5>
+                        <!-- subProcesso 2 -->
+                        <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
+                          <tbody *ngFor="let dado of subProcesso3Carregado">
+                            <tr>
+                              <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                                <!-- <input class="form-check-input pull-right" (click)="mostraSubProcesso3(dado.id)"style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="subprocesso3" id="subprocesso3"></th> -->
+                                <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
+                                  <!-- <input class="form-check-input pull-right" (click)="mostraSubProcesso3(dado.id)"style="margin-top: -0.4em; margin-left: -0.2em;" type="radio" name="subprocesso3" id="subprocesso3"></th> -->
+                                  <!-- Campos da tabela -->
+                                  <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                                  <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.nomeProcesso}}</td>
+                                  <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 50%;">{{dado.define}}</td>
+                                  <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 50%;">{{dado.define}}</td>
+                                  <!-- menu opções -->
+                                  <td *ngIf="dado.id % 2 === 0" class="tdbco" style="width: 2%;">
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                                    <mat-menu #menu="matMenu">
+                                      <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                                      <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                                      <mat-divider></mat-divider>
+                                      <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                    </mat-menu>
+                                  </td>
+                                  <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; font-size: 13px;">
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon style="font-size: 13px;">more_vert</mat-icon></button>
+                                    <mat-menu #menu="matMenu">
+                                      <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
+                                      <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
+                                      <mat-divider></mat-divider>
+                                      <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                    </mat-menu>
+                                  </td>
+                                  <!-- menu opções -->
+                                  <!-- Campos da tabela -->
+                                </tr>
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <td colspan="5">
+                                    <pagination-controls class="text-right my-pagination"
+                                    autoHide="true" maxSize="5" directionLinks="true" responsive="true"
+                                    previousLabel="Anterior" nextLabel="Próxima"
+                                    (pageChange)="pageApont = $event"></pagination-controls>
+                                  </td>
+                                </tr>
+                              </tfoot>
+                            </table>
+                            <!-- subProcesso 3 -->
+                          </div>
+                          <!-- Sub-processos 3 -->
+
+                        </div>
+
+                      </div>
 
 
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="5">
-                <pagination-controls class="text-right my-pagination"
-                autoHide="true" maxSize="5" directionLinks="true" responsive="true"
-                previousLabel="Anterior" nextLabel="Próxima"
-                (pageChange)="pageApont = $event"></pagination-controls>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-
-
-      </div>
-
-
-
-
-
-
-    </div>
-
-  </div>
-
-</body>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+                  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">

@@ -30,6 +30,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { MatTreeModule } from '@angular/material/tree';
 import { SelecionaprocessoComponent } from './components/fluxodados/selecionaprocesso/selecionaprocesso.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +68,8 @@ import { SelecionaprocessoComponent } from './components/fluxodados/selecionapro
     MatTabsModule,
     NgxPaginationModule,
     MatTreeModule,
+    MatDividerModule,
+    TabsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

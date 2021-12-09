@@ -1,474 +1,214 @@
-
-<body class="body">
-  <div style="background-color: #fff; padding-left: 2em; width: 100%; border-bottom: 1px solid #ddd; height: 80px; padding-top: 0.9em;">
-    <div>
-      <h4 style="font-weight: bold; color: #444;"> {{titulotela}} </h4>
-      <p style="font-size: 12px; color: #777; margin-top: -1.5em;">{{subtitulotela}}</p>
-      <p style="font-size: 12px; color: #777; margin-top: -1.5em; padding-right: 2em; text-align: right;">
-        {{caminho}}</p>
+<div style="background-color: #fff; padding-left: 2em; width: 100%; border-bottom: 1px solid #ddd; height: 80px; padding-top: 0.9em;">
+  <div>
+    <h4 style="font-weight: bold; color: #444;"> {{titulotela}} </h4>
+    <p style="font-size: 12px; color: #777; margin-top: -1.5em;">{{subtitulotela}}</p>
+    <p style="font-size: 12px; color: #777; margin-top: -1.5em; padding-right: 2em; text-align: right;">
+      {{caminho}}</p>
     </div>
   </div>
 
-  <div class="container">
-    <div class="lgdiv" style="border: 1px solid #dcdcdc;">
+  <div style="
+  background-color: #F1F3F6;
+  padding: 2.5em 2.5em 1em 2.5em !important;
+  overflow: hidden;
+  ">
 
-      <div class="lgdivn2">
-        <div class="col-lg-4 lgdivn3">
-          <div class="lgdivn4">
-            <div class="divn45">
-              <img [src]="user" title="Henrique Stablin" style="height: 90%; float: left; margin-right: 0.5em;" alt="">
-              <small>henrique.stabelin@grcteam.com.br</small>
-              <p style="font-size: 13px; font-weight: bold; color: #555;">Henrique Stablin</p>
-            </div>
-            <div class="divn25">
-              <small>15, set. 2021</small>
-              <p style="font-size: 23px; font-weight: 100;">{{processoProcesso}}</p>
-            </div>
-            <div class="divn20">
-              <img [src]="user" title="Julio Oliveira" class="imgus2" alt="">
-              <img [src]="user" title="Carlos Ligeiro" class="imgus2" alt="">
-              <div class="divspace">&nbsp;</div>
-              <a [routerLink]="['#']" class="linknone">
-                <div class="addresp" title="Adicionar Responsável">
-                  <p class="addresplus">+</p>
-                </div>
-              </a>
-            </div>
-          </div>
+  <div style="
+  width: 100% !important;
+  ">
+
+  <div style="
+  padding-top: 2em;
+  height: 20.6em !important;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  width: 100% !important;
+  ">
+
+  <div class="lgdivn2">
+    <div class="col-lg-4 lgdivn3">
+      <div class="lgdivn4">
+        <div class="divn45">
+          <img [src]="user" title="Henrique Stablin" style="height: 90%; float: left; margin-right: 0.5em;" alt="">
+          <small>henrique.stabelin@grcteam.com.br</small>
+          <p style="font-size: 13px; font-weight: bold; color: #555;">Henrique Stablin</p>
         </div>
-        <div class="col-lg-4 empres">
-          <div class="empresbox">
-            <div class="empresbalt">
-              <p class="empresp"> Empresa </p>
-              <p class="pconteudo">
-                <mat-icon class="icon">location_city</mat-icon>
-                {{empresaNome}}</p>
-              </div>
-              <div class="processbox">
-                <hr class="hrdivis"></div>
-                <div class="processbalt">
-                  <p class="empresp"> Processo </p>
-                  <p class="pconteudo" style="font-size: 16px;">
-                    {{processoCaminho}}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 empres">
-                <div class="apontalign empresbox">
-                  <div>
-                    <!-- <p class="empresp"> Apontamentos </p> -->
-                    <div class="divconteudo" style="margin-top: 1em;">
-
-                      <table style="text-align: left !important;" class="  table-hover"
-                      *ngFor="let tab of tabsApontamentos">
-                      <thead>
-                        <tr>
-                          <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                          <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                          <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                          <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                        </tr>
-                      </thead>
-                      <tbody *ngFor="let dado of tab.tdDados | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
-                        <tr>
-                          <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; padding-left: 0.5em; padding-right: 0.8em;" scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                          <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; padding-left: 0.5em; padding-right: 0.8em;" scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                          <!-- Campos da tabela -->
-                          <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.apontamento}}</td>
-                          <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.apontamento}}</td>
-                          <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.classif}}</td>
-                          <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.classif}}</td>
-                          <!-- Campos da tabela -->
-                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
-                          <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
-                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
-                          <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td colspan="5">
-                            <pagination-controls class="text-right my-pagination"
-                            autoHide="true" maxSize="5" directionLinks="true" responsive="true"
-                            previousLabel="Anterior" nextLabel="Próxima"
-                            (pageChange)="pageApont = $event"></pagination-controls>
-                          </td>
-                        </tr>
-                      </tfoot>
-                    </table>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="btns">
-            <div style="margin: 0.6em;">
-              <button class="btn btn-light btnopt1">
-                <mat-icon class="tamatico">keyboard_arrow_left</mat-icon>
-              </button>
-              <button class="btn btn-light btnopt2">
-                <mat-icon class="tamatico">apps</mat-icon>
-              </button>
-              <button class="btn btn-light btnopt3">
-                <mat-icon class="tamatico">menu</mat-icon>
-              </button>
-              <button class="btn btn-light btnopt4">
-                <mat-icon class="tamatico">picture_as_pdf</mat-icon>
-              </button>
-            </div>
-          </div>
-
+        <div class="divn25">
+          <small>15, set. 2021</small>
+          <p style="font-size: 23px; font-weight: 100;">{{processoProcesso}}</p>
         </div>
-
-        <div class="container" style="width: 140%; margin-left: -5%; margin-top: -1em;" >
-          <div *ngFor="let fluxo of fluxos">
-            <div [style.background-color]="fluxo.fundo" [style.color]="fluxo.cor" class="quadflux">  {{fluxo.camada}}
+        <div class="divn20">
+          <img [src]="user" title="Julio Oliveira" class="imgus2" alt="">
+          <img [src]="user" title="Carlos Ligeiro" class="imgus2" alt="">
+          <div class="divspace">&nbsp;</div>
+          <a [routerLink]="['#']" class="linknone">
+            <div class="addresp" title="Adicionar Responsável">
+              <p class="addresplus">+</p>
             </div>
-            <img [src]="seta" alt="" *ngIf="fluxo.seta == true" class="imgflux">
-          </div>
+          </a>
         </div>
-
-        <div class="lgdivtab">
-
-          <!-- tabs -->
-          <div id="content" class="contid">
-            <nav class="nav_tabs navid">
-              <ul>
-
-                <!-- começa aqui Array COLETA DE DADOS        -->
-                <li class="litab" *ngFor="let tab of tabsColeta">
-                  <div [id]="tab.tab" class="tab-pane">
-                    <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for" checked>
-                    <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
-                    <div class="content" >
-
-                      <article class="liarticle">
-                        <div class="divcheck">
-                          <h3>...</h3>
-                        </div>
-                        <div class="divbtn">
-                          <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
-                          <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
-                          <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
-                          <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
-                        </div>
-
-                        <div class="divpergunta">
-                          <div class="form-check" *ngFor="let perg of tab.perguntas">
-                            <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                            <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
-                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
-                          </div>
-                          <div style="height: 15px;"></div>
-                        </div>
-
-                        <table class="table table-hover tabalign">
-                          <thead>
-                            <tr>
-                              <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                              <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                              <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                              <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                            </tr>
-                          </thead>
-                          <tbody *ngFor="let dado of tab.tdDados" class="table table-striped table-hover">
-                            <tr>
-                              <th scope="row" *ngIf="dado.id % 2 === 0" class="tdbco"><i class="fa fa-thumb-tack thumbtk"></i></th>
-                              <th scope="row" *ngIf="dado.id % 2 === 1" class="tdcin"><i class="fa fa-thumb-tack thumbtk"></i></th>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.dadosPessoais}}</td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.dadosPessoais}}</td>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.categoria}}</td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.categoria}}</td>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                              <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                              <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
-                            </tr>
-                          </tbody>
-                        </table>
-
-                      </article>
-                    </div>
-                  </div>
-                </li>
-                <!-- finaliza aqui -->
-
-                <!-- começa aqui Array ARMAZENAMENTO DOS DADOS         -->
-                <li class="litab" *ngFor="let tab of tabsArmazenamento">
-                  <div [id]="tab.tab" class="tab-pane">
-                    <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
-                    <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
-                    <div class="content" >
-
-                      <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                        <div class="divcheck">
-                          <h3>...</h3>
-                        </div>
-                        <div class="divbtn">
-                          <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
-                          <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
-                          <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
-                          <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
-                        </div>
-
-                        <div class="divpergunta">
-                          <div class="form-check" *ngFor="let perg of tab.perguntas">
-                            <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                            <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
-                            <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
-                          </div>
-                          <div style="height: 15px;"></div>
-                        </div>
-
-                      <table style="text-align: left !important;" class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
-                            <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                            <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
-                          </tr>
-                        </thead>
-                        <tbody *ngFor="let dado of tab.tdDados">
-                          <tr>
-                            <th scope="row" *ngIf="dado.id % 2 === 0" class="tdbco"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                            <th scope="row" *ngIf="dado.id % 2 === 1" class="tdcin"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.subprocesso}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.subprocesso}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.nomegestor}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.nomegestor}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.sistema}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.sistema}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.armazenamento}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.armazenamento}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.integracao}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.integracao}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.ondeesta}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.ondeesta}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.fornece}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.fornece}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.administra}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.administra}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.envolvidos}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.envolvidos}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.registros}}</td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.registros}}</td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
-                            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                    </article>
-                  </div>
-                </div>
-              </li>
-              <!-- finaliza aqui -->
-
-              <!-- começa aqui Array PROCESSAMENTO        -->
-              <li class="litab" *ngFor="let tab of tabsProcessamento">
-                <div [id]="tab.tab" class="tab-pane">
-                  <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
-                  <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
-                  <div class="content" >
-
-                    <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                      <div class="divcheck">
-                        <h3>...</h3>
-                      </div>
-                      <div class="divbtn">
-                        <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
-                        <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
-                        <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
-                        <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
-                      </div>
-
-                      <div class="divpergunta">
-                        <div class="form-check" *ngFor="let perg of tab.perguntas">
-                          <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                          <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                          <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
-                          <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
-                        </div>
-                        <div style="height: 15px;"></div>
-                      </div>
-
-                  <table style="text-align: left !important;" class="table  table-hover">
-                    <thead>
-                      <tr>
-                        <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                        <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                        <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                        <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let dado of tab.tdDados">
-                      <tr>
-                        <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                        <!-- Campos da tabela -->
-                        <td>{{dado.DadosPessoais}}</td>
-                        <!-- Campos da tabela -->
-
-                        <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </article>
-              </div>
-            </div>
-          </li>
-          <!-- finaliza aqui -->
-
-          <!-- começa aqui Array ANÁLISE E APLICAÇÃO DE DADOS        -->
-          <li class="litab" *ngFor="let tab of tabsAnalise">
-            <div [id]="tab.tab" class="tab-pane">
-              <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
-              <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
-              <div class="content" >
-
-                <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-                  <div class="divcheck">
-                    <h3>...</h3>
-                  </div>
-                  <div class="divbtn">
-                    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
-                    <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
-                    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
-                    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
-                  </div>
-
-                  <div class="divpergunta">
-                    <div class="form-check" *ngFor="let perg of tab.perguntas">
-                      <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                      <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                      <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
-                      <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
-                    </div>
-                    <div style="height: 15px;"></div>
-                  </div>
-
-              <table style="text-align: left !important;" class="table  table-hover">
-                <thead>
-                  <tr>
-                    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                    <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let dado of tab.tdDados">
-                  <tr>
-                    <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                    <!-- Campos da tabela -->
-                    <td>{{dado.DadosPessoais}}</td>
-                    <!-- Campos da tabela -->
-
-                    <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-            </article>
-          </div>
-        </div>
-      </li>
-      <!-- finaliza aqui -->
-
-      <!-- começa aqui Array COMUNICAÇÃO RELACIONAMENTO COM O TITULAR DE DADOS        -->
-      <li class="litab" *ngFor="let tab of tabsRelacionamento">
-        <div [id]="tab.tab" class="tab-pane">
-          <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
-          <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
-          <div class="content" >
-
-            <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-              <div class="divcheck">
-                <h3>...</h3>
-              </div>
-              <div class="divbtn">
-                <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
-                <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
-                <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
-                <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
-              </div>
-
-              <div class="divpergunta">
-                <div class="form-check" *ngFor="let perg of tab.perguntas">
-                  <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                  <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-                  <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
-                  <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
-                </div>
-                <div style="height: 15px;"></div>
-              </div>
-
-          <table style="text-align: left !important;" class="table  table-hover">
-            <thead>
-              <tr>
-                <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
-                <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-                <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let dado of tab.tdDados">
-              <tr>
-                <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-                <!-- Campos da tabela -->
-                <td>{{dado.DadosPessoais}}</td>
-                <!-- Campos da tabela -->
-
-                <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-        </article>
       </div>
     </div>
-  </li>
-  <!-- finaliza aqui -->
-
-  <!-- começa aqui Array EXCLUSÃO DOS DADOS        -->
-  <li class="litab" *ngFor="let tab of tabsExclusao">
-    <div [id]="tab.tab" class="tab-pane">
-      <input type="radio" name="tabs" class="rd_tabs" [id]="tab.for">
-      <label [for]="tab.for" style="height: 50px; display: flex; align-items: center;">{{tab.title}}</label>
-      <div class="content" >
-
-        <article style="background-color: #fff; margin-left: -2em; padding-left: 2em;">
-          <div class="divcheck">
-            <h3>...</h3>
+    <div class="col-lg-4 empres">
+      <div class="empresbox">
+        <div class="empresbalt">
+          <p class="empresp"> Empresa </p>
+          <p class="pconteudo">
+            <mat-icon class="icon">location_city</mat-icon>
+            {{empresaNome}}</p>
           </div>
-          <div class="divbtn">
-            <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
-            <button class="btn btn-light btnadd" title="Responder perguntas"><i class="fa fa-share-square-o"></i>  </button>
-            <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
-            <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
-          </div>
-
-          <div class="divpergunta">
-            <div class="form-check" *ngFor="let perg of tab.perguntas">
-              <a [routerLink]="['#']" class="text-danger  pull-right fa fa-times-circle" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-              <a [routerLink]="['#']" class="text-dark  pull-right fa fa-pencil" style="float: right; margin-top: 0.5em; margin-right: 0.5em; text-decoration: none;"></a>
-              <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="font-weight: bold;">{{perg.perg}}</label>
-              <label class="form-check-label larticle" for="flexCheckDefault" *ngIf="perg != ''" style="border-bottom: 1px solid #eee;" >{{perg.resp}}</label>
+          <div class="processbox">
+            <hr class="hrdivis"></div>
+            <div class="processbalt">
+              <p class="empresp"> Processo </p>
+              <p class="pconteudo" style="font-size: 16px;">
+                {{processoCaminho}}</p>
+              </div>
             </div>
-            <div style="height: 15px;"></div>
           </div>
+          <div class="col-lg-4 empres">
+            <div class="apontalign empresbox">
+              <div>
+                <!-- <p class="empresp"> Apontamentos </p> -->
+                <div class="divconteudo" style="margin-top: 1em;">
 
-      <table style="text-align: left !important;" class="table  table-hover">
+                  <table style="text-align: left !important;" class="  table-hover"
+                  *ngFor="let tab of tabsApontamentos">
+                  <thead>
+                    <tr>
+                      <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                      <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+                      <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                      <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let dado of tab.tdDados | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
+                    <tr>
+                      <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; padding-left: 0.5em; padding-right: 0.8em;" scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                      <th *ngIf="dado.id % 2 === 1" class="tdcin" style="height: 38px !important; padding-left: 0.5em; padding-right: 0.8em;" scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+                      <!-- Campos da tabela -->
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.apontamento}}</td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.apontamento}}</td>
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.classif}}</td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.classif}}</td>
+                      <!-- Campos da tabela -->
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
+                      <td *ngIf="dado.id % 2 === 0" class="tdbco" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
+                      <td *ngIf="dado.id % 2 === 1" class="tdcin" style="padding-left: 0.5em; padding-right: 0.8em;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle" ></i></a></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="5">
+                        <pagination-controls class="text-right my-pagination"
+                        autoHide="true" maxSize="5" directionLinks="true" responsive="true"
+                        previousLabel="Anterior" nextLabel="Próxima"
+                        (pageChange)="pageApont = $event"></pagination-controls>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btns">
+        <div style="margin: 0.6em;">
+          <button class="btn btn-light btnopt1">
+            <mat-icon class="tamatico">keyboard_arrow_left</mat-icon>
+          </button>
+          <button class="btn btn-light btnopt2">
+            <mat-icon class="tamatico">apps</mat-icon>
+          </button>
+          <button class="btn btn-light btnopt3">
+            <mat-icon class="tamatico">menu</mat-icon>
+          </button>
+          <button class="btn btn-light btnopt4">
+            <mat-icon class="tamatico">picture_as_pdf</mat-icon>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="
+    width: 100% !important;
+    padding: 2em 0 2em 4em;
+    margin-top: 2em;
+    display: flex;
+    align-items: center !important;
+    " >
+
+
+    <div *ngFor="let fluxo of fluxos" style="
+    display: flex;
+    align-items: center !important;">
+
+    <div [style.background-color]="fluxo.fundo" [style.color]="fluxo.cor"
+    style="
+    width: 12.5em;
+    border-radius: 15px;
+    margin-top: -2em;
+    text-align: center !important;
+    padding: 15px;
+    box-shadow: 0.3em 0.3em 0.3em #aaa;
+    height: 90px;
+    float:left;
+    font-size: 13px;
+    display: flex;
+    align-items: center !important;
+    ">  {{fluxo.camada}}
+  </div>
+  <img [src]="seta" alt="" *ngIf="fluxo.seta == true" class="imgflux">
+</div>
+
+</div>
+
+
+<div style="
+  width: 100% !important;
+  border: 1px solid #e8e8e8;
+  background-color: #F1F3F6;
+  ">
+
+
+<!-- Nova tabs -->
+<div>
+  <tabset>
+    <!-- COLETA DE DADOS    -->
+    <tab [id]="tab.tab" class="tabs" *ngFor="let tab of tabsColeta">
+    <ng-template tabHeading >
+      <span class="titulotab">{{tab.title}}</span>
+    </ng-template>
+
+    <article class="liarticle">
+      <div class="divcheck">
+        <h3>...</h3>
+      </div>
+      <div class="divbtn">
+        <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+        <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+        <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+      </div>
+
+      <div class="divpergunta">
+        <div class="form-check top" *ngFor="let perg of tab.perguntas">
+          <a [routerLink]="['#']" class="text-danger  pull-right editpergunta fa fa-times-circle"></a>
+          <a [routerLink]="['#']" class="text-dark  pull-right editpergunta fa fa-pencil"></a>
+          <label class="form-check-label larticle perg" for="flexCheckDefault" *ngIf="perg != ''">{{perg.perg}}</label>
+          <p>
+            <a href="#" class="btn-light" title="Responder esta pergunta" *ngIf="perg.resp === ''"><i class="fa fa-share-square-o"></i>  </a>
+          </p>
+          <p class="form-check-label larticle resp" for="flexCheckDefault" *ngIf="perg != ''">{{perg.resp}}</p>
+        </div>
+        <div style="height: 15px;"></div>
+      </div>
+
+      <table class="table table-hover tabalign">
         <thead>
           <tr>
             <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
@@ -477,39 +217,340 @@
             <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
           </tr>
         </thead>
-        <tbody *ngFor="let dado of tab.tdDados">
+        <tbody *ngFor="let dado of tab.tdDados" class="table table-striped table-hover">
           <tr>
-            <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
-            <!-- Campos da tabela -->
-            <td>{{dado.DadosPessoais}}</td>
-            <!-- Campos da tabela -->
-
-            <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
-            </td>
+            <th scope="row" *ngIf="dado.id % 2 === 0" class="tdbco"><i class="fa fa-thumb-tack thumbtk"></i></th>
+            <th scope="row" *ngIf="dado.id % 2 === 1" class="tdcin"><i class="fa fa-thumb-tack thumbtk"></i></th>
+            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.dadosPessoais}}</td>
+            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.dadosPessoais}}</td>
+            <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.categoria}}</td>
+            <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.categoria}}</td>
+            <td *ngIf="dado.id % 2 === 0" class="tdbco"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
+            <td *ngIf="dado.id % 2 === 1" class="tdcin"><input class="form-check-input" style="margin-left: 2em;" type="checkbox" value="" [checked]="dado.coletado"></td>
+            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+            <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+            <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
           </tr>
         </tbody>
       </table>
 
     </article>
+
+    </tab>
+    <!-- COLETA DE DADOS    -->
+
+<!-- ARMAZENAMENTO DOS DADOS -->
+<tab [id]="tab.tab" class="tabs" *ngFor="let tab of tabsArmazenamento">
+
+<ng-template tabHeading >
+  <span class="titulotab">{{tab.title}}</span>
+</ng-template>
+
+<article class="liarticle">
+  <div class="divcheck">
+    <h3>...</h3>
   </div>
+  <div class="divbtn">
+    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+  </div>
+
+  <div class="divpergunta">
+    <div class="form-check top" *ngFor="let perg of tab.perguntas">
+      <a [routerLink]="['#']" class="text-danger  pull-right editpergunta fa fa-times-circle"></a>
+      <a [routerLink]="['#']" class="text-dark  pull-right editpergunta fa fa-pencil"></a>
+      <label class="form-check-label larticle perg" for="flexCheckDefault" *ngIf="perg != ''">{{perg.perg}}</label>
+      <p>
+        <a href="#" class="btn-light" title="Responder esta pergunta" *ngIf="perg.resp === ''"><i class="fa fa-share-square-o"></i>  </a>
+      </p>
+      <p class="form-check-label larticle resp" for="flexCheckDefault" *ngIf="perg != ''">{{perg.resp}}</p>
+    </div>
+    <div style="height: 15px;"></div>
+  </div>
+
+<table class="table table-hover tabalign">
+  <thead>
+    <tr>
+      <th style="width: 3%;" *ngIf="tab.thTabela != ''"></th>
+      <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+      <th style="width: 2%;" *ngIf="tab.thTabela != ''"></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let dado of tab.tdDados">
+    <tr>
+      <th scope="row" *ngIf="dado.id % 2 === 0" class="tdbco"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+      <th scope="row" *ngIf="dado.id % 2 === 1" class="tdcin"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.subprocesso}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.subprocesso}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.nomegestor}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.nomegestor}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.sistema}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.sistema}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.armazenamento}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.armazenamento}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.integracao}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.integracao}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.ondeesta}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.ondeesta}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.fornece}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.fornece}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.administra}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.administra}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.envolvidos}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.envolvidos}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco">{{dado.registros}}</td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin">{{dado.registros}}</td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+      <td *ngIf="dado.id % 2 === 0" class="tdbco"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 0"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-dark  pull-right fa fa-pencil"></i></a></td>
+      <td *ngIf="dado.id % 2 === 1" class="tdcin"><a [routerLink]="['#']" *ngIf="dado.id % 2 === 1"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+
+</tab>
+<!-- ARMAZENAMENTO DOS DADOS -->
+
+<!-- PROCESSAMENTO -->
+<tab [id]="tab.tab" class="tabs" *ngFor="let tab of tabsProcessamento">
+
+<ng-template tabHeading >
+  <span class="titulotab">{{tab.title}}</span>
+</ng-template>
+
+<article class="liarticle">
+  <div class="divcheck">
+    <h3>...</h3>
+  </div>
+  <div class="divbtn">
+    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+  </div>
+
+  <div class="divpergunta">
+    <div class="form-check top" *ngFor="let perg of tab.perguntas">
+      <a [routerLink]="['#']" class="text-danger  pull-right editpergunta fa fa-times-circle"></a>
+      <a [routerLink]="['#']" class="text-dark  pull-right editpergunta fa fa-pencil"></a>
+      <label class="form-check-label larticle perg" for="flexCheckDefault" *ngIf="perg != ''">{{perg.perg}}</label>
+      <p>
+        <a href="#" class="btn-light" title="Responder esta pergunta" *ngIf="perg.resp === ''"><i class="fa fa-share-square-o"></i>  </a>
+      </p>
+      <p class="form-check-label larticle resp" for="flexCheckDefault" *ngIf="perg != ''">{{perg.resp}}</p>
+    </div>
+    <div style="height: 15px;"></div>
+  </div>
+<table style="text-align: left !important;" class="table  table-hover">
+<thead>
+  <tr>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+  </tr>
+</thead>
+<tbody *ngFor="let dado of tab.tdDados">
+  <tr>
+    <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+    <!-- Campos da tabela -->
+    <td>{{dado.DadosPessoais}}</td>
+    <!-- Campos da tabela -->
+
+    <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</article>
+
+</tab>
+<!-- PROCESSAMENTO -->
+
+<!-- ANÁLISE E APLICAÇÃO DE DADOS -->
+<tab [id]="tab.tab" class="tabs" *ngFor="let tab of tabsAnalise">
+
+<ng-template tabHeading >
+  <span class="titulotab">{{tab.title}}</span>
+</ng-template>
+
+<article class="liarticle">
+  <div class="divcheck">
+    <h3>...</h3>
+  </div>
+  <div class="divbtn">
+    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+  </div>
+
+  <div class="divpergunta">
+    <div class="form-check top" *ngFor="let perg of tab.perguntas">
+      <a [routerLink]="['#']" class="text-danger  pull-right editpergunta fa fa-times-circle"></a>
+      <a [routerLink]="['#']" class="text-dark  pull-right editpergunta fa fa-pencil"></a>
+      <label class="form-check-label larticle perg" for="flexCheckDefault" *ngIf="perg != ''">{{perg.perg}}</label>
+      <p>
+        <a href="#" class="btn-light" title="Responder esta pergunta" *ngIf="perg.resp === ''"><i class="fa fa-share-square-o"></i>  </a>
+      </p>
+      <p class="form-check-label larticle resp" for="flexCheckDefault" *ngIf="perg != ''">{{perg.resp}}</p>
+    </div>
+    <div style="height: 15px;"></div>
+  </div>
+
+<table style="text-align: left !important;" class="table  table-hover">
+<thead>
+  <tr>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+  </tr>
+</thead>
+<tbody *ngFor="let dado of tab.tdDados">
+  <tr>
+    <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+    <!-- Campos da tabela -->
+    <td>{{dado.DadosPessoais}}</td>
+    <!-- Campos da tabela -->
+
+    <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</article>
+
+</tab>
+<!-- ANÁLISE E APLICAÇÃO DE DADOS -->
+
+<!-- COMUNICAÇÃO RELACIONAMENTO COM O TITULAR DE DADOS -->
+<tab [id]="tab.tab" class="tabs" *ngFor="let tab of tabsRelacionamento">
+
+<ng-template tabHeading >
+  <span class="titulotab">{{tab.title}}</span>
+</ng-template>
+
+<article class="liarticle">
+  <div class="divcheck">
+    <h3>...</h3>
+  </div>
+  <div class="divbtn">
+    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+  </div>
+
+  <div class="divpergunta">
+    <div class="form-check top" *ngFor="let perg of tab.perguntas">
+      <a [routerLink]="['#']" class="text-danger  pull-right editpergunta fa fa-times-circle"></a>
+      <a [routerLink]="['#']" class="text-dark  pull-right editpergunta fa fa-pencil"></a>
+      <label class="form-check-label larticle perg" for="flexCheckDefault" *ngIf="perg != ''">{{perg.perg}}</label>
+      <p>
+        <a href="#" class="btn-light" title="Responder esta pergunta" *ngIf="perg.resp === ''"><i class="fa fa-share-square-o"></i>  </a>
+      </p>
+      <p class="form-check-label larticle resp" for="flexCheckDefault" *ngIf="perg != ''">{{perg.resp}}</p>
+    </div>
+    <div style="height: 15px;"></div>
+  </div>
+
+<table style="text-align: left !important;" class="table  table-hover">
+<thead>
+  <tr>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+  </tr>
+</thead>
+<tbody *ngFor="let dado of tab.tdDados">
+  <tr>
+    <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+    <!-- Campos da tabela -->
+    <td>{{dado.DadosPessoais}}</td>
+    <!-- Campos da tabela -->
+
+    <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</article>
+
+</tab>
+<!-- COMUNICAÇÃO RELACIONAMENTO COM O TITULAR DE DADOS -->
+
+<!-- EXCLUSÃO DOS DADOS -->
+<tab [id]="tab.tab" class="tabs" *ngFor="let tab of tabsExclusao">
+
+<ng-template tabHeading >
+  <span class="titulotab">{{tab.title}}</span>
+</ng-template>
+
+<article class="liarticle">
+  <div class="divcheck">
+    <h3>...</h3>
+  </div>
+  <div class="divbtn">
+    <button class="btn btn-light btnadd" title="Adicionar perguntas"><i class="fa fa-question-circle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar apontamentos"><i class="fa fa-exclamation-triangle"></i>  </button>
+    <button class="btn btn-light btnadd" title="Adicionar dados pessoais"><i class="fa fa-plus-circle"></i>  </button>
+  </div>
+
+  <div class="divpergunta">
+    <div class="form-check top" *ngFor="let perg of tab.perguntas">
+      <a [routerLink]="['#']" class="text-danger  pull-right editpergunta fa fa-times-circle"></a>
+      <a [routerLink]="['#']" class="text-dark  pull-right editpergunta fa fa-pencil"></a>
+      <label class="form-check-label larticle perg" for="flexCheckDefault" *ngIf="perg != ''">{{perg.perg}}</label>
+      <p>
+        <a href="#" class="btn-light" title="Responder esta pergunta" *ngIf="perg.resp === ''"><i class="fa fa-share-square-o"></i>  </a>
+      </p>
+      <p class="form-check-label larticle resp" for="flexCheckDefault" *ngIf="perg != ''">{{perg.resp}}</p>
+    </div>
+    <div style="height: 15px;"></div>
+  </div>
+
+<table style="text-align: left !important;" class="table  table-hover">
+<thead>
+  <tr>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th *ngFor="let thtab of tab.thTabela" [style.width]="thtab.width">{{thtab.campo}}</th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+    <th class="thlg3" *ngIf="tab.thTabela != ''"></th>
+  </tr>
+</thead>
+<tbody *ngFor="let dado of tab.tdDados">
+  <tr>
+    <th scope="row"><i class="fa fa-thumb-tack" style="color: #777; font-size: 14px;"></i></th>
+    <!-- Campos da tabela -->
+    <td>{{dado.DadosPessoais}}</td>
+    <!-- Campos da tabela -->
+
+    <td><a [routerLink]="['#']"><i class="fa fa-times-circle" style="color: red; font-size: 16px;"></i></a>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</article>
+
+</tab>
+<!-- EXCLUSÃO DOS DADOS -->
+
+
+  </tabset>
 </div>
-</li>
-<!-- finaliza aqui -->
+<!-- Nova tabs -->
 
-
-</ul>
-</nav>
-</div>
-<!-- tabs -->
 
 </div>
 </div>
-
-
-</body>
-
-
-
+</div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">

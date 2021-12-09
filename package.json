@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~9.1.13",
     "@angular/router": "~9.1.13",
     "bootstrap": "^4.6.1",
+    "ngx-bootstrap": "^6.2.0",
     "ngx-pagination": "^5.1.1",
     "pixeden-stroke-7-icon": "^1.2.3",
     "rxjs": "~6.5.4",

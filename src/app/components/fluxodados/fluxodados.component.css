@@ -1,13 +1,3 @@
-.lgdiv{
-  border: 1px solid #eee;
-  background-color: #fff;
-  width: 130% !important;
-  margin-left: -15% !important;
-  margin-bottom: 2em;
-  padding-top: 2em;
-  padding-bottom: 2em !important;
-}
-
 .lgdivn2{
   width: 95%;
   height: 16em;
@@ -112,7 +102,6 @@
 }
 
 .divconteudo{
-  /* overflow-y: scroll; */
   width: 98%;
   height: 170px;
   font-size: 14px;
@@ -137,26 +126,7 @@
 }
 
 .lgdivtab{
-  width: 130% !important;
-  height: 400px;
-  margin-top: 3em;
-  margin-left: -15% !important;
-  margin-bottom: 2em;
-  border: 1px solid #e8e8e8;
-  background-color: #F1F3F6;
-  padding-top: 2em;
-  padding-bottom: 2em !important;
-}
 
-.body{
-  background-color: #F1F3F6;
-  overflow-x:hidden !important;
-}
-
-.container{
-  padding-top: 2em;
-  width: 1000px;
-  padding-bottom: 3em;
 }
 
 .content{
@@ -308,16 +278,7 @@
 }
 
 .quadflux{
-  border-radius: 15px;
-  margin-top: -2em;
-  text-align: center !important;
-  box-shadow: 0.3em 0.3em 0.3em #aaa;
-  width: 13%;
-  height: 90px;
-  float:left;
-  display: flex;
-  font-size: 13px;
-  align-items: center !important;
+
 }
 
 .imgflux{
@@ -342,20 +303,44 @@
 
 .liarticle{
   background-color: #fff;
-  margin-left: -2em;
   padding-left: 2em;
 }
 
 .divpergunta{
   width: 100%;
   float: left;
-  padding-left: -10px;
+  padding: 1em;
+}
+
+.editpergunta{
+  float: right;
+  margin: 0.5em;
+  text-decoration: none;
 }
 
 .larticle{
   vertical-align: middle;
   text-align: justify !important;
-  margin-left: -1.5em;
+  margin-left: -2.5em;
+}
+
+.perg{
+  font-weight: bold;
+}
+
+.resp{
+  /* border-bottom: 1px solid #eee; */
+  padding: 0em 4em 0em 1em;
+}
+
+.titulotab{
+  font-size: 13px; color: #555;
+}
+
+.tabs{
+  background-color: #fff;
+  font-size: 13px;
+  padding-bottom: 1em;
 }
 
 .divcheck{
@@ -365,7 +350,7 @@
 
 .divbtn{
   float: right;
-  padding-bottom: 5px;
+  padding: 1em;
 }
 
 .btnadd{
@@ -376,6 +361,7 @@
 }
 
 .tabalign{
+  width: 98%;
   text-align: left !important;
 }
 
@@ -412,5 +398,9 @@
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #f8f8f8;
+}
+
+.top{
+  border-top: 1px solid #eee;
 }
 /* tabs */

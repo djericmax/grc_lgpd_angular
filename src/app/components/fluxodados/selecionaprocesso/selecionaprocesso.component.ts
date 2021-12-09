@@ -433,6 +433,10 @@ export class SelecionaprocessoComponent implements OnInit {
   }
 
   mostraProcessos(id: number){
+    this.processoCarregado = undefined;
+this.subProcesso1Carregado = undefined;
+this.subProcesso2Carregado = undefined;
+this.subProcesso3Carregado = undefined;
     this.empresas.forEach((nos) => {
       if (nos.id === id) {
         this.processoCarregado = nos.processo;
@@ -442,6 +446,9 @@ export class SelecionaprocessoComponent implements OnInit {
   }
 
   mostraSubProcesso1(id: number){
+this.subProcesso1Carregado = undefined;
+this.subProcesso2Carregado = undefined;
+this.subProcesso3Carregado = undefined;
     this.processoCarregado.forEach((nos) => {
       if (nos.id === id) {
         this.subProcesso1Carregado = nos.subProcessoN1;
@@ -451,6 +458,8 @@ export class SelecionaprocessoComponent implements OnInit {
   }
 
   mostraSubProcesso2(id: number){
+this.subProcesso2Carregado = undefined;
+this.subProcesso3Carregado = undefined;
     this.subProcesso1Carregado.forEach((nos) => {
       if (nos.id === id) {
         this.subProcesso2Carregado = nos.subProcessoN2;
@@ -460,6 +469,7 @@ export class SelecionaprocessoComponent implements OnInit {
   }
 
   mostraSubProcesso3(id: number){
+// this.subProcesso3Carregado = undefined;
     this.subProcesso2Carregado.forEach((nos) => {
       if (nos.id === id) {
         this.subProcesso3Carregado = nos.subProcessoN3;
