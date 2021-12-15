@@ -35,7 +35,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ProcessosComponent } from './components/processos/processos.component';
 import { RiscosAvaliacaoComponent } from './components/riscos-avaliacao/riscos-avaliacao.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [
@@ -76,6 +76,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatDividerModule,
     TabsModule.forRoot(),
     ModalModule.forRoot(),
+    AccordionModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

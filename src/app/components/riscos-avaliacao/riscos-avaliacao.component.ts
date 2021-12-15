@@ -217,18 +217,20 @@ tabsControles = [
   {
     id: 1, tab: 'tab2', for:'t2', title:'Controles',
     thTabela: [
-      {id:1, campo:'Controles',   width:'18%'},
-      {id:2, campo:'Categoria',   width:'15%'},
-      {id:3, campo:'Objetivo',    width:'15%'},
-      {id:4, campo:'Tipo',        width:'16%'},
-      {id:5, campo:'Frequência',  width:'15%'},
-      {id:6, campo:'CustoCusto',  width:'16%'},
+      {id:1, campo:'Controles',       width:'22%'},
+      {id:2, campo:'Categoria',       width:'10%'},
+      {id:3, campo:'Objetivo',        width:'10%'},
+      {id:4, campo:'Tipo',            width:'11%'},
+      {id:5, campo:'Frequência',      width:'11%'},
+      {id:6, campo:'Último teste',    width:'11%'},
+      {id:6, campo:'Teste operação',  width:'11%'},
+      {id:6, campo:'Teste desenho',   width:'11%'},
     ],
     tdDados: [
-      {id:1, Controles:'ÁREA01 - C1 - Conciliação	',   Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  CustoCusto:'R$2,122,230.00',},
-      {id:2, Controles:'ÁREA01 - C2 - Normatização	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   CustoCusto:'R$0.00',        },
-      {id:3, Controles:'ÁREA01 - C3 - Alçadas	',       Categoria:'Preventivo', Objetivo:'Operacional',  Tipo:'Key Control', Frequencia:'Contínuo',   CustoCusto:'R$0.00',        },
-      {id:4, Controles:'ÁREA01 - C4 - Monitoramento	', Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     CustoCusto:'R$0.00',        },
+      {id:1, Controles:'ÁREA01 - C1 - Conciliação	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  ultimoteste:'15/05/2021', operacao:'Melhoria', desenho:'Divergência'},
+      {id:2, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
+      {id:3, Controles:'ÁREA01 - C3 - Alçadas	',     Categoria:'Preventivo', Objetivo:'Operacional',  Tipo:'Key Control', Frequencia:'Contínuo',   ultimoteste:'',           operacao:'',         desenho:''},
+      {id:4, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
     ]
   }
 ];
@@ -324,7 +326,7 @@ tabsProbabilidade = [
   {
     id: 1, tab: 'tab10', title:'Probabilidade',
     thTabela: [
-      {id:1, campo:'Nome da Causa',   width:'18%'},
+      // {id:1, campo:'Nome da Causa',   width:'18%'},
     ],
     tdDados: [
       {id:1, Causa:'Histórico de Eventos',  title:'Probabilidade',
@@ -335,7 +337,29 @@ tabsProbabilidade = [
       {id:4, valor:'40%',  prob:'Pequeno',       check:false},
       {id:5, valor:'20%',  prob:'Minímo',        check:false},
       {id:6, valor:'0%',   prob:'Não Aplicável', check:false},
+    ], descricao:'Aqui vai a descrição da ação tomada a cima, apresentando o porquê de ter sido escolhido tal percentual, '+
+    'Podendo até aparecer um conteúdo maior como descrição, onde a quantidade de caracteres não será pouca e poderá ser ajustada '+
+    'de acordo com o texto que foi escrito na descrição.',
+    controles: [
+  {
+    id: 1,
+    thTab: [
+      {id:1, campo:'Controles',       width:'22%'},
+      {id:2, campo:'Categoria',       width:'10%'},
+      {id:3, campo:'Objetivo',        width:'10%'},
+      {id:4, campo:'Tipo',            width:'11%'},
+      {id:5, campo:'Frequência',      width:'11%'},
+      {id:6, campo:'Último teste',    width:'11%'},
+      {id:6, campo:'Teste operação',  width:'11%'},
+      {id:6, campo:'Teste desenho',   width:'11%'},
+    ],
+    tdControles: [
+      {id:1, Controles:'ÁREA01 - C1 - Conciliação	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  ultimoteste:'15/05/2021', operacao:'Melhoria', desenho:'Divergência'},
+      {id:2, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
+      {id:3, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
     ]
+  }
+],
   },
       {id:2, Causa:'Frequência do Processo',title:'Probabilidade',
       porcents: [
@@ -345,6 +369,24 @@ tabsProbabilidade = [
       {id:10, valor:'40%',  prob:'Pequeno',       check:false},
       {id:11, valor:'20%',  prob:'Minímo',        check:true},
       {id:12, valor:'0%',   prob:'Não Aplicável', check:false},
+    ], descricao:'',
+    controles: [
+      {
+        id: 1,
+        thTab: [
+          {id:1, campo:'Controles',       width:'22%'},
+          {id:2, campo:'Categoria',       width:'10%'},
+          {id:3, campo:'Objetivo',        width:'10%'},
+          {id:4, campo:'Tipo',            width:'11%'},
+          {id:5, campo:'Frequência',      width:'11%'},
+          {id:6, campo:'Último teste',    width:'11%'},
+          {id:6, campo:'Teste operação',  width:'11%'},
+          {id:6, campo:'Teste desenho',   width:'11%'},
+        ],
+        tdControles: [
+          {id:1, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
+        ]
+      }
     ]
   },
     ],
@@ -356,18 +398,19 @@ tabsImpactos = [
   {
     id: 1, tab: 'tab11', title:'Impactos',
     thTabela: [
-      {id:1, campo:'Nome do Impacto',   width:'18%'},
+      // {id:1, campo:'Nome do Impacto',   width:'18%'},
     ],
     tdDados: [
       {id:1, Impacto:'Reputacional',      title:'Impacto',
       porcents: [
         {id:1, valor:'0%',   prob:'Não Aplicável', check:false},
-        {id:2, valor:'20%',  prob:'Muito',         check:false},
+        {id:2, valor:'20%',  prob:'Muito',         check:true},
         {id:3, valor:'40%',  prob:'Remota',        check:false},
-        {id:4, valor:'60%',  prob:'Possível',      check:true},
+        {id:4, valor:'60%',  prob:'Possível',      check:false},
         {id:5, valor:'80%',  prob:'Provável',      check:false},
         {id:6, valor:'100%', prob:'Muito Provável',check:false},
-    ]},
+    ], descricao:'Apresentando o porquê de ter sido escolhido o % de Reputacional',
+  },
       {id:2, Impacto:'Legal Regulatório',     title:'Impacto',
       porcents: [
         {id:7, valor:'0%',   prob:'Não Aplicável', check:false},
@@ -376,35 +419,38 @@ tabsImpactos = [
         {id:10, valor:'60%',  prob:'Possível',      check:true},
         {id:11, valor:'80%',  prob:'Provável',      check:false},
         {id:12, valor:'100%', prob:'Muito Provável',check:false},
-    ]},
+    ], descricao:'',
+  },
       {id:3, Impacto:'Continuidade Operacional',      title:'Impacto',
       porcents: [
         {id:13, valor:'0%',   prob:'Não Aplicável', check:false},
         {id:14, valor:'20%',  prob:'Muito',         check:false},
-        {id:15, valor:'40%',  prob:'Remota',        check:false},
-        {id:16, valor:'60%',  prob:'Possível',      check:true},
+        {id:15, valor:'40%',  prob:'Remota',        check:true},
+        {id:16, valor:'60%',  prob:'Possível',      check:false},
         {id:17, valor:'80%',  prob:'Provável',      check:false},
         {id:18, valor:'100%', prob:'Muito Provável',check:false},
-    ]},
+    ], descricao:'Eis o porquê de ter sido escolhido o % de Continuidade Operacional',
+  },
       {id:4, Impacto:'Prestação de Serviços a Clientes e Corretores',     title:'Impacto',
       porcents: [
-        {id:19, valor:'0%',   prob:'Não Aplicável', check:false},
+        {id:19, valor:'0%',   prob:'Não Aplicável', check:true},
         {id:20, valor:'20%',  prob:'Muito',         check:false},
         {id:21, valor:'40%',  prob:'Remota',        check:false},
-        {id:22, valor:'60%',  prob:'Possível',      check:true},
+        {id:22, valor:'60%',  prob:'Possível',      check:false},
         {id:23, valor:'80%',  prob:'Provável',      check:false},
         {id:24, valor:'100%', prob:'Muito Provável',check:false},
-    ]},
+    ], descricao:'',
+  },
     ]
   }
 ];
 
 
 tratamento=[
-  {id:1, nome:'Evitar'},
-  {id:2, nome:'Mitigar'},
-  {id:3, nome:'Compartilhar'},
-  {id:4, nome:'Aceitar'},
+  {id:1, nome:'Evitar',       check:false},
+  {id:2, nome:'Mitigar',      check:true},
+  {id:3, nome:'Compartilhar', check:false},
+  {id:4, nome:'Aceitar',      check:false},
 ];
 
 
@@ -413,6 +459,7 @@ constructor(private modalService: BsModalService) {
 }
 
 ngOnInit(): void {
+console.log(this.tabsProbabilidade);
 
 }
 
