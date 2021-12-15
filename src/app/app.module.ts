@@ -32,6 +32,9 @@ import { MatTreeModule } from '@angular/material/tree';
 import { SelecionaprocessoComponent } from './components/fluxodados/selecionaprocesso/selecionaprocesso.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ProcessosComponent } from './components/processos/processos.component';
+import { RiscosAvaliacaoComponent } from './components/riscos-avaliacao/riscos-avaliacao.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -49,6 +52,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     SistrepoComponent,
     FluxodadosComponent,
     SelecionaprocessoComponent,
+    ProcessosComponent,
+    RiscosAvaliacaoComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +75,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     MatTreeModule,
     MatDividerModule,
     TabsModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

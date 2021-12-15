@@ -27,20 +27,15 @@
 }
 
 .lgdivn2{
-  width: 95%;
-  height: 16em;
-  margin-left: 2em;
+
 }
 
 .lgdivn3{
-  float: left;
-  height: 16em;
-  padding: 0%;
+
 }
 
 .lgdivn4{
-  width: 96%;
-  height: 100%;
+
 }
 
 .divn20{
@@ -52,8 +47,7 @@
   height: 25%;
 }
 .divn45{
-  width: 100%;
-  height: 45%;
+
 }
 
 .imgus2{
@@ -73,8 +67,8 @@
 
 .addresp{
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 10px;
+  height: 10px;
   text-align: center;
   border-radius: 100%;
   background-color: #ccc;
@@ -84,7 +78,7 @@
   margin: 10%;
   font-weight: bold;
   color: #555;
-  font-size: 22px;
+  font-size: 5px;
 }
 
 .empres{
@@ -193,46 +187,12 @@
 }
 
 .btns{
-  width: 100%;
-  background-color: #F7F9FA;
-  border-top: 1px solid #dcdcdc;
-  height: 3.5em;
-  margin-left: 0em;
-  margin-bottom: -2em;
-  margin-top: -1em;
+
 }
 
-.btnopt1{margin-left: -410px;
-  float: left;
-  background-color: #fff;
-  text-align: left;
-  border: 1px solid #ddd;
-  width: 33px;
-  height: 33px;
-  padding: 7px !important;
-}
-
-.btnopt2{margin-left: -370px;
-  float: left;
-  background-color: #fff;
-  text-align: left;
-  border: 1px solid #ddd;
-  width: 33px;
-  height: 33px;
-  padding: 7px !important;
-}
-
-.btnopt3{margin-left: -330px;
-  float: left;
-  background-color: #fff;
-  text-align: left;
-  border: 1px solid #ddd;
-  width: 33px;
-  height: 33px;
-  padding: 7px !important;
-}
-
-.btnopt4{margin-left: -290px;
+.btnopt1{
+  color: #777;
+  margin-left: 0.3em;
   float: left;
   background-color: #fff;
   text-align: left;
@@ -256,6 +216,12 @@
 
 .nav_tabs ul li{
   float: left;
+}
+
+.imgp{
+  width: 100%;
+  height: 8px;
+  margin: -24px 0px 0px 0px;
 }
 
 .nav_tabs label{

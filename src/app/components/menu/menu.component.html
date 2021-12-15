@@ -1,34 +1,41 @@
-<style>
-  .skin-option { position: fixed; text-align: center; right: -1px; padding: 10px; top: 80px; width: 150px; height: 133px; text-transform: uppercase; background-color: #ffffff; box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, .1); border-radius: 4px 0 0 4px; z-index: 100; }
-</style>
 <script>
   setInterval(function(){ $('#demo-star').toggleClass('text-success'); }, 300)
 </script>
+
 <body style="background-color: #F1F3F6;">
-  <div id="wrapper" style="background-color: #F1F3F6;  padding: 3%;">
+
+  <div class="divtitpag">
+    <div>
+      <h4 class="h4titela"> {{titulotela}} </h4>
+      <p class="psubtitela">{{subtitulotela}}</p>
+      <p class="psubticaminho">{{caminho}}</p>
+    </div>
+  </div>
+
+  <div id="wrapper" style="background-color: #F1F3F6;  padding: 0 3%;">
 
     <div class="content animate-panel">
 
       <!-- Mural -->
       <div class="row">
 
-          <div class="col-lg-3" *ngFor="let param of parametrizacao">
-            <div class="hpanel">
+        <div class="col-lg-3" *ngFor="let param of parametrizacao">
+          <div class="hpanel">
+            <div>
               <div>
-                <div>
-                  <a [routerLink]="param.rota" style="text-decoration: none;">
-                    <h4 class="text-danger" style="font-size: 12px; font-weight: bold;">{{param.titulo}}</h4>
-                  </a>
+                <a [routerLink]="param.rota" style="text-decoration: none;">
+                  <h4 class="text-danger" style="font-size: 12px; font-weight: bold;">{{param.titulo}}</h4>
+                </a>
                 <p style="font-size: 11px; margin-top: -10px;">{{param.rodape}}</p>
                 <div class="stats-icon pull-right" style="float: right; margin-top: -60px;">
                   <a [routerLink]="param.rota">
                     <img [src]="'/assets/imgs/' + param.img" alt="">
                   </a>
                 </div>
-                </div>
               </div>
             </div>
           </div>
+        </div>
 
       </div>
 
@@ -38,7 +45,7 @@
           <div class="hpanel">
             <div class="panel-body text-center h-100">
 
-            <a [routerLink]="link.rota" class="links">
+              <a [routerLink]="link.rota" class="links">
                 <img [src]="'/assets/imgs/' + link.img" alt="">
                 <h3 [style.color]="link.cor" style="font-weight: 900; font-size: 22px;">{{link.titulo}}</h3>
               </a>
@@ -47,14 +54,9 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
       <!-- Mural -->
 
     </div>
-
   </div>
-
 </body>

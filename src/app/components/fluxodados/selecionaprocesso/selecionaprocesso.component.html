@@ -1,53 +1,22 @@
-<div style="
-  background-color: #fff;
-  padding-left: 2em;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  height: 80px;
-  padding-top: 0.9em;
-  ">
+<div class="divtitpag">
   <div>
-    <h4 style="
-      font-weight: bold;
-      color: #444;
-      "> {{titulotela}} </h4>
-    <p style="
-    font-size: 12px;
-    color: #777;
-    margin-top: -1.5em;
-    ">{{subtitulotela}}</p>
-    <p style="
-    font-size: 12px;
-    color: #777;
-    margin-top: -1.5em;
-    padding-right: 2em;
-    text-align: right;">
+    <h4 class="h4titela"> {{titulotela}} </h4>
+    <p class="psubtitela">{{subtitulotela}}</p>
+    <p class="psubticaminho">
       {{caminho}}</p>
     </div>
   </div>
 
-
-
-
-<div style="
-background-color: #F1F3F6;
-padding: 2em;">
-
+<div class="divbody">
 
       <!-- Empresas -->
-      <div style="
-      float: left;
-      background-color: #fff;
-      border: 1px solid #e5e5e5;
-      height: 17.5em;
-      margin-right: 2em;
-      " class="col-md-4">
+      <div class="divempresa col-md-4">
 
-        <h5 style="font-weight: 50; margin: 0.5em; margin-top: 1em; color: #777; float: right;">Empresas: <strong>{{empresas.length}}</strong></h5>
-        <h1 style="font-weight: 50; margin: 0.5em; margin-top: 1em; color: #777; ">Empresas</h1>
+        <h5 class="titempresa dir">Empresas: <strong>{{empresas.length}}</strong></h5>
+        <h1 class="titempresa">Empresas</h1>
 
         <div style="height: 12.4em; margin: 0.5em; margin-top: 1.2em; ">
-          <table style="text-align: left !important; width: 100% !important;" class="table-hover">
+          <table class="table-hover tabels">
             <tbody *ngFor="let dado of empresas | paginate: { itemsPerPage: 4, currentPage: pageApont, totalItems: totalLengthApont }">
               <tr>
                 <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
@@ -93,7 +62,7 @@ padding: 2em;">
             <!-- Processos -->
             <div>
 
-              <table style="text-align: left !important; width: 100% !important; top: -2em !important; " class="table-hover"
+              <table class="table-hover tabels top2"
               *ngIf="processoCarregado  != undefined">
               <thead>
                 <tr>
@@ -122,7 +91,7 @@ padding: 2em;">
                           <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                           <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                           <mat-divider></mat-divider>
-                          <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                          <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                         </mat-menu>
                       </td>
                       <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%;">
@@ -131,7 +100,7 @@ padding: 2em;">
                           <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                           <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                           <mat-divider></mat-divider>
-                          <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                          <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                         </mat-menu>
                       </td>
                       <!-- menu opções -->
@@ -155,7 +124,7 @@ padding: 2em;">
               <!-- Sub-processos 1 -->
               <div style="margin: 0.5em; margin-top: 1.5em;" *ngIf="subProcesso1Carregado  != undefined">
                 <h5 style="font-weight: 50; margin: 0; color: #777; float: left;">SUB-PROCESSOS NÍVEL 1</h5>
-                <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
+                <table class="table-hover tabels margl1em">
                   <tbody *ngFor="let dado of subProcesso1Carregado | paginate: { itemsPerPage: 3, currentPage: pageApont, totalItems: totalLengthApont }">
                     <tr>
                       <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
@@ -174,7 +143,7 @@ padding: 2em;">
                               <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                               <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                               <mat-divider></mat-divider>
-                              <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                              <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                             </mat-menu>
                           </td>
                           <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; font-size: 13px;">
@@ -183,7 +152,7 @@ padding: 2em;">
                               <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                               <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                               <mat-divider></mat-divider>
-                              <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                              <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                             </mat-menu>
                           </td>
                           <!-- menu opções -->
@@ -208,7 +177,7 @@ padding: 2em;">
                   <div style="margin: 0.5em; margin-top: 1.2em;" *ngIf="subProcesso2Carregado  != undefined">
                     <h5 style="font-weight: 50; margin: 0; color: #777; float: left;">SUB-PROCESSOS NÍVEL 2</h5>
                     <!-- subProcesso 2 -->
-                    <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
+                    <table class="table-hover tabels margl1em">
                       <tbody *ngFor="let dado of subProcesso2Carregado">
                         <tr>
                           <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
@@ -227,7 +196,7 @@ padding: 2em;">
                                   <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                                   <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                                   <mat-divider></mat-divider>
-                                  <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                  <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                                 </mat-menu>
                               </td>
                               <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; font-size: 13px;">
@@ -236,7 +205,7 @@ padding: 2em;">
                                   <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                                   <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                                   <mat-divider></mat-divider>
-                                  <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                  <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                                 </mat-menu>
                               </td>
                               <!-- menu opções -->
@@ -262,7 +231,7 @@ padding: 2em;">
                       <div style="margin: 0.5em; margin-top: 1.2em;" *ngIf="subProcesso3Carregado  != undefined">
                         <h5 style="font-weight: 50; margin: 0; color: #777; float: left;">SUB-PROCESSOS NÍVEL 3</h5>
                         <!-- subProcesso 2 -->
-                        <table style="margin-left: 1em; text-align: left !important; width: 100% !important;" class="table-hover">
+                        <table class="table-hover tabels margl1em">
                           <tbody *ngFor="let dado of subProcesso3Carregado">
                             <tr>
                               <th *ngIf="dado.id % 2 === 0" class="tdbco" style="height: 38px !important; width: 4%; padding-left: 0.5em; padding-right: 0.8em;" scope="row">
@@ -281,7 +250,7 @@ padding: 2em;">
                                       <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                                       <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                                       <mat-divider></mat-divider>
-                                      <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                      <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                                     </mat-menu>
                                   </td>
                                   <td *ngIf="dado.id % 2 === 1" class="tdcin" style="width: 2%; font-size: 13px;">
@@ -290,7 +259,7 @@ padding: 2em;">
                                       <button mat-menu-item disabled><mat-icon style="font-size: 18px;">edit</mat-icon><span>Editar</span></button>
                                       <button mat-menu-item disabled><mat-icon style="font-size: 18px;">cancel</mat-icon><span>Excluir</span></button>
                                       <mat-divider></mat-divider>
-                                      <button mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
+                                      <button (click)="abrirfluxo(dado.nivel, dado.id)" mat-menu-item><mat-icon style="font-size: 18px;">streetview</mat-icon><span>Fluxo de dados</span></button>
                                     </mat-menu>
                                   </td>
                                   <!-- menu opções -->

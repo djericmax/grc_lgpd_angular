@@ -14,3 +14,17 @@
 .imgIcom{
   width: 50px !important;
 }
+
+.skin-option { position: fixed;
+  text-align: center;
+  right: -1px;
+  padding: 10px;
+  top: 80px;
+  width: 150px;
+  height: 133px;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, .1);
+  border-radius: 4px 0 0 4px;
+  z-index: 100;
+}

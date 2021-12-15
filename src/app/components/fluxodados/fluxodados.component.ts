@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-fluxodados',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FluxodadosComponent implements OnInit {
 
-  empresaSelect = 1;
-  nivelProcess = 4;
-  processoId = 13;
+  empresaSelect;
+  nivelProcess;
+  processoId;
 
   empresaNome;
   processoCaminho;
@@ -115,7 +116,7 @@ export class FluxodadosComponent implements OnInit {
                   [
                     {id:13, nivel:4, nomeProcesso:'Orçamento Bahia',},
                     {id:14, nivel:4, nomeProcesso:'Orçamento São Paulo',},
-                    {id:14, nivel:4, nomeProcesso:'Orçamento Rio de Janeiro',},
+                    {id:15, nivel:4, nomeProcesso:'Orçamento Rio de Janeiro',},
                   ]
                 }
               ]
@@ -204,8 +205,6 @@ export class FluxodadosComponent implements OnInit {
     }
   ];
 
-
-
   tabsColeta = [
     {id: 1, tab: 'tab1', for:'t1', title:'Coleta de dados',
     perguntas:[
@@ -242,7 +241,21 @@ export class FluxodadosComponent implements OnInit {
       {id:3, dadosPessoais:'RNE (estrangeiros)',          categoria:'Dados Comuns', coletado:false,},
       {id:4, dadosPessoais:'Passaporte (estrangeiros)',   categoria:'Dados Comuns', coletado:false,},
       {id:5, dadosPessoais:'Tipo de visto (estrangeiros)',categoria:'Dados Comuns', coletado:false,},
-    ]
+    ],
+    obervs:[
+      {id:4,
+        observ:'Os dados fora excluídos devido a falta de informações coerentes para a conslusão do processo.',
+        assina:'Eric Figueiredo'
+      },
+      {id:5,
+        observ:'Estas informações parecem inconclusivas, o que pende a este processo sofrer negação, manter apenas para avaliação constante.',
+        assina:'Fernano Bravo'
+      },
+      {id:6,
+        observ:'é necessária a conferência para que todo o processo possa ser concluso sem que isso afete os termos de abertura implícita.',
+        assina:'Henrique Stabelin'
+      },
+    ],
   }
 ];
 
@@ -284,7 +297,21 @@ tabsArmazenamento = [
       {id:6, subprocesso:'RH',            nomegestor:'Fernando Bravo', sistema:'Drive',         armazenamento:'', integracao:'', ondeesta:'', fornece:'', administra:'Ambev x PwC', envolvidos:'', registros:''},
       {id:7, subprocesso:'RH',            nomegestor:'Fernando Bravo', sistema:'Notebook (HD)', armazenamento:'', integracao:'', ondeesta:'', fornece:'', administra:'', envolvidos:'', registros:''},
       {id:8, subprocesso:'RH',            nomegestor:'Fernando Bravo', sistema:'Pasta na Rede', armazenamento:'', integracao:'', ondeesta:'', fornece:'', administra:'', envolvidos:'', registros:''},
-    ]
+    ],
+    obervs:[
+      {id:4,
+        observ:'Os dados fora excluídos devido a falta de informações coerentes para a conslusão do processo.',
+        assina:'Eric Figueiredo'
+      },
+      {id:5,
+        observ:'Estas informações parecem inconclusivas, o que pende a este processo sofrer negação, manter apenas para avaliação constante.',
+        assina:'Fernano Bravo'
+      },
+      {id:6,
+        observ:'é necessária a conferência para que todo o processo possa ser concluso sem que isso afete os termos de abertura implícita.',
+        assina:'Henrique Stabelin'
+      },
+    ],
   }
 ];
 
@@ -306,7 +333,21 @@ tabsProcessamento = [
     ],
     tdDados: [
       // {id:1, Dados:'',},
-    ]
+    ],
+    obervs:[
+      {id:4,
+        observ:'Os dados fora excluídos devido a falta de informações coerentes para a conslusão do processo.',
+        assina:'Eric Figueiredo'
+      },
+      {id:5,
+        observ:'Estas informações parecem inconclusivas, o que pende a este processo sofrer negação, manter apenas para avaliação constante.',
+        assina:'Fernano Bravo'
+      },
+      {id:6,
+        observ:'é necessária a conferência para que todo o processo possa ser concluso sem que isso afete os termos de abertura implícita.',
+        assina:'Henrique Stabelin'
+      },
+    ],
   }
 ];
 
@@ -332,7 +373,21 @@ tabsAnalise = [
     ],
     tdDados: [
       // {id:1, Dados:'',},
-    ]
+    ],
+    obervs:[
+      {id:4,
+        observ:'Os dados fora excluídos devido a falta de informações coerentes para a conslusão do processo.',
+        assina:'Eric Figueiredo'
+      },
+      {id:5,
+        observ:'Estas informações parecem inconclusivas, o que pende a este processo sofrer negação, manter apenas para avaliação constante.',
+        assina:'Fernano Bravo'
+      },
+      {id:6,
+        observ:'é necessária a conferência para que todo o processo possa ser concluso sem que isso afete os termos de abertura implícita.',
+        assina:'Henrique Stabelin'
+      },
+    ],
   }
 ];
 
@@ -354,7 +409,21 @@ tabsRelacionamento = [
     ],
     tdDados: [
       // {id:1, Dados:'',},
-    ]
+    ],
+    obervs:[
+      {id:4,
+        observ:'Os dados fora excluídos devido a falta de informações coerentes para a conslusão do processo.',
+        assina:'Eric Figueiredo'
+      },
+      {id:5,
+        observ:'Estas informações parecem inconclusivas, o que pende a este processo sofrer negação, manter apenas para avaliação constante.',
+        assina:'Fernano Bravo'
+      },
+      {id:6,
+        observ:'é necessária a conferência para que todo o processo possa ser concluso sem que isso afete os termos de abertura implícita.',
+        assina:'Henrique Stabelin'
+      },
+    ],
   }
 ];
 
@@ -380,16 +449,28 @@ tabsExclusao = [
     ],
     tdDados: [
       // {id:1, Dados:'',},
-    ]
+    ],
+    obervs:[
+      {id:4,
+        observ:'Os dados fora excluídos devido a falta de informações coerentes para a conslusão do processo.',
+        assina:'Eric Figueiredo'
+      },
+      {id:5,
+        observ:'Estas informações parecem inconclusivas, o que pende a este processo sofrer negação, manter apenas para avaliação constante.',
+        assina:'Fernano Bravo'
+      },
+      {id:6,
+        observ:'é necessária a conferência para que todo o processo possa ser concluso sem que isso afete os termos de abertura implícita.',
+        assina:'Henrique Stabelin'
+      },
+    ],
   }
 ];
 
-constructor() { }
+constructor(private route: ActivatedRoute) { }
 
 ngOnInit() {
-  console.log(this.tabsColeta);
-  console.log(this.empresas);
-
+  this.carregaDados();
   this.contaAponts();
   this.pegaNivel();
 
@@ -399,6 +480,14 @@ ngOnInit() {
 contaAponts(){
   this.tabsApontamentos.forEach((data) => {
     this.totalLengthApont = data.tdDados.length;
+  });
+}
+
+carregaDados(){
+  this.route.params.subscribe((obj: any) =>{
+    this.empresaSelect = +obj['empresa'];
+    this.nivelProcess = +obj['nivel'];
+    this.processoId = +obj['id'];
   });
 }
 
