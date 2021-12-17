@@ -1,4 +1,4 @@
-.divtitpag{
+.divtitpag {
   background-color: #fff;
   padding-left: 2em;
   width: 100%;
@@ -7,18 +7,18 @@
   padding-top: 0.9em;
 }
 
-.h4titela{
+.h4titela {
   font-weight: bold;
   color: #666;
 }
 
-.psubtitela{
+.psubtitela {
   font-size: 12px;
   color: #777;
   margin-top: -1.5em;
 }
 
-.psubticaminho{
+.psubticaminho {
   font-size: 12px;
   color: #777;
   margin-top: -1.5em;
@@ -26,46 +26,42 @@
   text-align: right;
 }
 
-.lgdivn2{
-
+.lgdivn2 {
 }
 
-.lgdivn3{
-
+.lgdivn3 {
 }
 
-.lgdivn4{
-
+.lgdivn4 {
 }
 
-.divn20{
+.divn20 {
   width: 100%;
   height: 20%;
 }
-.divn25{
+.divn25 {
   width: 100%;
   height: 25%;
 }
-.divn45{
-
+.divn45 {
 }
 
-.imgus2{
+.imgus2 {
   width: 40px;
   border-radius: 100%;
   float: left;
 }
 
-.divspace{
+.divspace {
   float: left;
   width: 20px;
 }
 
-.linknone{
+.linknone {
   text-decoration: none;
 }
 
-.addresp{
+.addresp {
   float: left;
   width: 10px;
   height: 10px;
@@ -74,48 +70,48 @@
   background-color: #ccc;
 }
 
-.addresplus{
+.addresplus {
   margin: 10%;
   font-weight: bold;
   color: #555;
   font-size: 5px;
 }
 
-.empres{
+.empres {
   float: left;
   height: 13em;
   padding: 0%;
 }
 
-.empresbox{
+.empresbox {
   width: 97%;
   border: 1px #ddd solid;
   height: 100%;
 }
 
-.apontalign{
+.apontalign {
   float: right;
 }
 
-.processbox{
+.processbox {
   margin-left: 5%;
   margin-right: 5%;
   height: 3%;
 }
 
-.empresbalt{
+.empresbalt {
   height: 40%;
 }
 
-.hrdivis{
+.hrdivis {
   margin-top: 5px;
 }
 
-.processbalt{
+.processbalt {
   height: 47%;
 }
 
-.empresp{
+.empresp {
   width: 90%;
   font-size: 12px;
   margin-left: 25px;
@@ -123,7 +119,7 @@
   color: #555;
 }
 
-.divconteudo{
+.divconteudo {
   width: 98%;
   height: 170px;
   font-size: 14px;
@@ -132,7 +128,7 @@
   margin-top: -2%;
 }
 
-.pconteudo{
+.pconteudo {
   width: 98%;
   height: 170px;
   font-size: 22px;
@@ -141,29 +137,28 @@
   margin-top: -2%;
 }
 
-.icon{
+.icon {
   color: greenyellow;
   font-size: 30px;
   vertical-align: sub;
 }
 
-.lgdivtab{
-
+.lgdivtab {
 }
 
-.content{
+.content {
   background-color: #fff;
   padding-left: 2em;
   width: 100%;
   padding-top: 0.9em;
 }
 
-.titulotela{
+.titulotela {
   font-weight: bold;
   color: #444;
 }
 
-.subtitulotela{
+.subtitulotela {
   font-size: 12px;
   color: #777;
   margin-top: -1.5em;
@@ -182,15 +177,14 @@
   margin-bottom: 48px;
 }
 
-.tamatico{
+.tamatico {
   font-size: 18px;
 }
 
-.btns{
-
+.btns {
 }
 
-.btnopt1{
+.btnopt1 {
   color: #777;
   margin-left: 0.3em;
   float: left;
@@ -202,29 +196,29 @@
   padding: 7px !important;
 }
 
-.nav_tabs{
+.nav_tabs {
   width: 100%;
   height: 100%;
   margin: 0;
   position: relative;
 }
 
-.nav_tabs ul{
+.nav_tabs ul {
   list-style: none !important;
   margin-left: -40px;
 }
 
-.nav_tabs ul li{
+.nav_tabs ul li {
   float: left;
 }
 
-.imgp{
+.imgp {
   width: 100%;
   height: 8px;
   margin: -24px 0px 0px 0px;
 }
 
-.nav_tabs label{
+.nav_tabs label {
   width: 100%;
   padding-top: 5px;
   padding-bottom: 10px;
@@ -236,18 +230,18 @@
   text-align: center;
 }
 
-.rd_tabs:checked ~ label{
+.rd_tabs:checked ~ label {
   background-color: #fff;
   height: 3.7em;
   display: flex;
   align-items: center;
 }
 
-.rd_tabs{
+.rd_tabs {
   display: none;
 }
 
-.content{
+.content {
   margin-top: -0.6em;
   background-color: #fff;
   display: none;
@@ -257,144 +251,143 @@
   left: 0;
 }
 
-.content article{
+.content article {
   padding: 10px;
   text-align: justify;
 }
 
-.rd_tabs:checked ~ .content{
+.rd_tabs:checked ~ .content {
   display: block;
 }
 
 .example-tab-icon {
   margin-right: 8px;
-
 }
 
-.quadflux{
-
+.quadflux {
 }
 
-.imgflux{
+.imgflux {
   height: 90px;
   margin-top: -1.5em;
   float: left;
 }
 
 /* tabs */
-.contid{
+.contid {
   margin-top: -2em;
 }
 
-.navid{
+.navid {
   margin-top: -48px;
 }
 
-.litab{
+.litab {
   font-size: 13px;
   max-width: 200px;
 }
 
-.liarticle{
+.liarticle {
   background-color: #fff;
   padding-left: 2em;
 }
 
-.divpergunta{
+.divpergunta {
   width: 100%;
   float: left;
   padding: 1em;
 }
 
-.editpergunta{
+.editpergunta {
   float: right;
   margin: 0.5em;
   text-decoration: none;
 }
 
-.larticle{
+.larticle {
   vertical-align: middle;
   text-align: justify !important;
   margin-left: -2.5em;
 }
 
-.perg{
+.perg {
   font-weight: bold;
 }
 
-.resp{
+.resp {
   /* border-bottom: 1px solid #eee; */
   padding: 0em 4em 0em 1em;
 }
 
-.titulotab{
-  font-size: 13px; color: #555;
+.titulotab {
+  font-size: 13px;
+  color: #555;
 }
 
-.tabs{
+.tabs {
   background-color: #fff;
   font-size: 13px;
   padding-bottom: 1em;
 }
 
-.divcheck{
+.divcheck {
   padding-right: 3%;
   float: left;
 }
 
-.divbtn{
+.divbtn {
   float: right;
   padding: 1em;
 }
 
-.btnadd{
+.btnadd {
   border: 1px solid #dcdcdc;
   margin-left: 6px;
   color: #555;
   font-size: 20px;
 }
 
-.tabalign{
+.tabalign {
   width: 98%;
   text-align: left !important;
 }
 
-.thlg2{
+.thlg2 {
   width: 2%;
 }
 
-.thlg3{
+.thlg3 {
   width: 3%;
 }
 
-.cortbtk{
+.cortbtk {
   color: #777;
   font-size: 14px;
 }
 
-.corcanc{
+.corcanc {
   color: red;
   font-size: 16px;
 }
 
-.coredit{
+.coredit {
   color: #777;
   font-size: 16px;
 }
 
-.tdbco{
+.tdbco {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #fff;
 }
 
-.tdcin{
+.tdcin {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #f8f8f8;
 }
 
-.top{
+.top {
   border-top: 1px solid #eee;
 }
 /* tabs */

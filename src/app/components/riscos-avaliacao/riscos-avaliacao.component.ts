@@ -7,38 +7,38 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./riscos-avaliacao.component.css']
 })
 export class RiscosAvaliacaoComponent implements OnInit {
-
+  
   modalRef?: BsModalRef;
   items: any[];
-
-
-
+  
+  
+  
   titulotela = 'RISCOS';
   subtitulotela ='Perfil de Análise | Avaliações | Controles | Processos';
   caminho = 'Mural / RISCOS';
-
+  
   user =      '/assets/imgs/user.png';
   workflow =  '/assets/imgs/workflow1.png';
   seta =      '/assets/imgs/fluxo/seta.png';
   colorbar = '/assets/imgs/colorbar.png';
-
+  
   empresaSelect;
   nivelProcess;
   processoId;
-
+  
   empresaNome;
   processoCaminho;
   processoProcesso;
   processoResponsavel;
-
+  
   totalLengthApont: any;
   pageApont: number = 1;
-
+  
   parametrizacao = [
     {id:1, float:'left',  rota: '', titulo:'PERFIL EXYON', date:'',           img:'icoPerfilEx.png', cor:'#f00', rodape:'Bowtie', result:'Inerente - Residual'},
     {id:2, float:'right', rota: '', titulo:'ÍNDICE EXYON', date:'10/09/2021', img:'icoIndiceEx.png', cor:'#f00', rodape:'...',    result:'R$250.000,00'},
   ];
-
+  
   fluxos = [
     {id: 1, camada:'Riscos Relacionados',  fundo:'#8E4311', cor:'#fff', seta:true},
     {id: 2, camada:'Controles',            fundo:'#D26317', cor:'#fff', seta:true},
@@ -50,7 +50,7 @@ export class RiscosAvaliacaoComponent implements OnInit {
     {id: 8, camada:'Probabilidade',        fundo:'#FFF3E3', cor:'#333', seta:false},
     {id: 9, camada:'Impactos',             fundo:'#FFF3E3', cor:'#333', seta:false},
   ];
-
+  
   empresas = [
     {
       id:1, nivel:0, empresa:'E-xyon',
@@ -331,38 +331,38 @@ tabsProbabilidade = [
     tdDados: [
       {id:1, Causa:'Histórico de Eventos',  title:'Probabilidade',
       porcents: [
-      {id:1, valor:'100%', prob:'Extremo',       check:false},
-      {id:2, valor:'80%',  prob:'Significativo', check:false},
-      {id:3, valor:'60%',  prob:'Moderado',      check:true},
-      {id:4, valor:'40%',  prob:'Pequeno',       check:false},
-      {id:5, valor:'20%',  prob:'Minímo',        check:false},
-      {id:6, valor:'0%',   prob:'Não Aplicável', check:false},
-    ], descricao:'Aqui vai a descrição da ação tomada a cima, apresentando o porquê de ter sido escolhido tal percentual, '+
-    'Podendo até aparecer um conteúdo maior como descrição, onde a quantidade de caracteres não será pouca e poderá ser ajustada '+
-    'de acordo com o texto que foi escrito na descrição.',
-    controles: [
-  {
-    id: 1,
-    thTab: [
-      {id:1, campo:'Controles',       width:'22%'},
-      {id:2, campo:'Categoria',       width:'10%'},
-      {id:3, campo:'Objetivo',        width:'10%'},
-      {id:4, campo:'Tipo',            width:'11%'},
-      {id:5, campo:'Frequência',      width:'11%'},
-      {id:6, campo:'Último teste',    width:'11%'},
-      {id:6, campo:'Teste operação',  width:'11%'},
-      {id:6, campo:'Teste desenho',   width:'11%'},
-    ],
-    tdControles: [
-      {id:1, Controles:'ÁREA01 - C1 - Conciliação	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  ultimoteste:'15/05/2021', operacao:'Melhoria', desenho:'Divergência'},
-      {id:2, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
-      {id:3, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
-    ]
-  }
-],
-  },
-      {id:2, Causa:'Frequência do Processo',title:'Probabilidade',
-      porcents: [
+        {id:1, valor:'100%', prob:'Extremo',       check:false},
+        {id:2, valor:'80%',  prob:'Significativo', check:false},
+        {id:3, valor:'60%',  prob:'Moderado',      check:true},
+        {id:4, valor:'40%',  prob:'Pequeno',       check:false},
+        {id:5, valor:'20%',  prob:'Minímo',        check:false},
+        {id:6, valor:'0%',   prob:'Não Aplicável', check:false},
+      ], descricao:'Aqui vai a descrição da ação tomada a cima, apresentando o porquê de ter sido escolhido tal percentual, '+
+      'Podendo até aparecer um conteúdo maior como descrição, onde a quantidade de caracteres não será pouca e poderá ser ajustada '+
+      'de acordo com o texto que foi escrito na descrição.',
+      controles: [
+        {
+          id: 1,
+          thTab: [
+            {id:1, campo:'Controles',       width:'22%'},
+            {id:2, campo:'Categoria',       width:'10%'},
+            {id:3, campo:'Objetivo',        width:'10%'},
+            {id:4, campo:'Tipo',            width:'11%'},
+            {id:5, campo:'Frequência',      width:'11%'},
+            {id:6, campo:'Último teste',    width:'11%'},
+            {id:6, campo:'Teste operação',  width:'11%'},
+            {id:6, campo:'Teste desenho',   width:'11%'},
+          ],
+          tdControles: [
+            {id:1, Controles:'ÁREA01 - C1 - Conciliação	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  ultimoteste:'15/05/2021', operacao:'Melhoria', desenho:'Divergência'},
+            {id:2, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
+            {id:3, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
+          ]
+        }
+      ],
+    },
+    {id:2, Causa:'Frequência do Processo',title:'Probabilidade',
+    porcents: [
       {id:7, valor:'100%', prob:'Extremo',       check:false},
       {id:8, valor:'80%',  prob:'Significativo', check:false},
       {id:9, valor:'60%',  prob:'Moderado',      check:false},
@@ -389,9 +389,9 @@ tabsProbabilidade = [
       }
     ]
   },
-    ],
+],
 
-  }
+}
 ];
 
 tabsImpactos = [
@@ -409,40 +409,117 @@ tabsImpactos = [
         {id:4, valor:'60%',  prob:'Possível',      check:false},
         {id:5, valor:'80%',  prob:'Provável',      check:false},
         {id:6, valor:'100%', prob:'Muito Provável',check:false},
-    ], descricao:'Apresentando o porquê de ter sido escolhido o % de Reputacional',
-  },
-      {id:2, Impacto:'Legal Regulatório',     title:'Impacto',
-      porcents: [
-        {id:7, valor:'0%',   prob:'Não Aplicável', check:false},
-        {id:8, valor:'20%',  prob:'Muito',         check:false},
-        {id:9, valor:'40%',  prob:'Remota',        check:false},
-        {id:10, valor:'60%',  prob:'Possível',      check:true},
-        {id:11, valor:'80%',  prob:'Provável',      check:false},
-        {id:12, valor:'100%', prob:'Muito Provável',check:false},
+      ], descricao:'Apresentando o porquê de ter sido escolhido o % de Reputacional',
+      controles: [
+        {
+          id: 1,
+          thTab: [
+            {id:1, campo:'Controles',       width:'22%'},
+            {id:2, campo:'Categoria',       width:'10%'},
+            {id:3, campo:'Objetivo',        width:'10%'},
+            {id:4, campo:'Tipo',            width:'11%'},
+            {id:5, campo:'Frequência',      width:'11%'},
+            {id:6, campo:'Último teste',    width:'11%'},
+            {id:7, campo:'Teste operação',  width:'11%'},
+            {id:8, campo:'Teste desenho',   width:'11%'},
+          ],
+          tdControles: [
+            {id:1, Controles:'ÁREA01 - C1 - Conciliação	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  ultimoteste:'15/05/2021', operacao:'Melhoria', desenho:'Divergência'},
+            {id:2, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
+          ]
+        }
+      ],
+    },
+    {id:2, Impacto:'Legal Regulatório',     title:'Impacto',
+    porcents: [
+      {id:7, valor:'0%',   prob:'Não Aplicável', check:false},
+      {id:8, valor:'20%',  prob:'Muito',         check:false},
+      {id:9, valor:'40%',  prob:'Remota',        check:false},
+      {id:10, valor:'60%',  prob:'Possível',      check:true},
+      {id:11, valor:'80%',  prob:'Provável',      check:false},
+      {id:12, valor:'100%', prob:'Muito Provável',check:false},
     ], descricao:'',
+    controles: [
+      {
+        id: 1,
+        thTab: [
+          {id:1, campo:'Controles',       width:'22%'},
+          {id:2, campo:'Categoria',       width:'10%'},
+          {id:3, campo:'Objetivo',        width:'10%'},
+          {id:4, campo:'Tipo',            width:'11%'},
+          {id:5, campo:'Frequência',      width:'11%'},
+          {id:6, campo:'Último teste',    width:'11%'},
+          {id:7, campo:'Teste operação',  width:'11%'},
+          {id:8, campo:'Teste desenho',   width:'11%'},
+        ],
+        tdControles: [
+          {id:1, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
+        ]
+      }
+    ],
   },
-      {id:3, Impacto:'Continuidade Operacional',      title:'Impacto',
-      porcents: [
-        {id:13, valor:'0%',   prob:'Não Aplicável', check:false},
-        {id:14, valor:'20%',  prob:'Muito',         check:false},
-        {id:15, valor:'40%',  prob:'Remota',        check:true},
-        {id:16, valor:'60%',  prob:'Possível',      check:false},
-        {id:17, valor:'80%',  prob:'Provável',      check:false},
-        {id:18, valor:'100%', prob:'Muito Provável',check:false},
-    ], descricao:'Eis o porquê de ter sido escolhido o % de Continuidade Operacional',
-  },
-      {id:4, Impacto:'Prestação de Serviços a Clientes e Corretores',     title:'Impacto',
-      porcents: [
-        {id:19, valor:'0%',   prob:'Não Aplicável', check:true},
-        {id:20, valor:'20%',  prob:'Muito',         check:false},
-        {id:21, valor:'40%',  prob:'Remota',        check:false},
-        {id:22, valor:'60%',  prob:'Possível',      check:false},
-        {id:23, valor:'80%',  prob:'Provável',      check:false},
-        {id:24, valor:'100%', prob:'Muito Provável',check:false},
-    ], descricao:'',
-  },
+  {id:3, Impacto:'Continuidade Operacional',      title:'Impacto',
+  porcents: [
+    {id:13, valor:'0%',   prob:'Não Aplicável', check:false},
+    {id:14, valor:'20%',  prob:'Muito',         check:false},
+    {id:15, valor:'40%',  prob:'Remota',        check:true},
+    {id:16, valor:'60%',  prob:'Possível',      check:false},
+    {id:17, valor:'80%',  prob:'Provável',      check:false},
+    {id:18, valor:'100%', prob:'Muito Provável',check:false},
+  ], descricao:'Eis o porquê de ter sido escolhido o % de Continuidade Operacional',
+  controles: [
+    {
+      id: 1,
+      thTab: [
+        {id:1, campo:'Controles',       width:'22%'},
+        {id:2, campo:'Categoria',       width:'10%'},
+        {id:3, campo:'Objetivo',        width:'10%'},
+        {id:4, campo:'Tipo',            width:'11%'},
+        {id:5, campo:'Frequência',      width:'11%'},
+        {id:6, campo:'Último teste',    width:'11%'},
+        {id:7, campo:'Teste operação',  width:'11%'},
+        {id:8, campo:'Teste desenho',   width:'11%'},
+      ],
+      tdControles: [
+        {id:1, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
+        {id:2, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
+      ]
+    }
+  ],
+},
+{id:4, Impacto:'Prestação de Serviços a Clientes e Corretores',     title:'Impacto',
+porcents: [
+  {id:19, valor:'0%',   prob:'Não Aplicável', check:true},
+  {id:20, valor:'20%',  prob:'Muito',         check:false},
+  {id:21, valor:'40%',  prob:'Remota',        check:false},
+  {id:22, valor:'60%',  prob:'Possível',      check:false},
+  {id:23, valor:'80%',  prob:'Provável',      check:false},
+  {id:24, valor:'100%', prob:'Muito Provável',check:false},
+], descricao:'',
+controles: [
+  {
+    id: 1,
+    thTab: [
+      {id:1, campo:'Controles',       width:'22%'},
+      {id:2, campo:'Categoria',       width:'10%'},
+      {id:3, campo:'Objetivo',        width:'10%'},
+      {id:4, campo:'Tipo',            width:'11%'},
+      {id:5, campo:'Frequência',      width:'11%'},
+      {id:6, campo:'Último teste',    width:'11%'},
+      {id:7, campo:'Teste operação',  width:'11%'},
+      {id:8, campo:'Teste desenho',   width:'11%'},
+    ],
+    tdControles: [
+      {id:1, Controles:'ÁREA01 - C1 - Conciliação	', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Quinzenal',  ultimoteste:'15/05/2021', operacao:'Melhoria', desenho:'Divergência'},
+      {id:2, Controles:'ÁREA01 - C2 - Normatização', Categoria:'Preventivo', Objetivo:'Conformidade', Tipo:'ELC',         Frequencia:'Contínuo',   ultimoteste:'01/09/2021', operacao:'Ok',       desenho:'Ok'},
+      {id:3, Controles:'ÁREA01 - C3 - Alçadas	',     Categoria:'Preventivo', Objetivo:'Operacional',  Tipo:'Key Control', Frequencia:'Contínuo',   ultimoteste:'',           operacao:'',         desenho:''},
+      {id:4, Controles:'ÁREA01 - C4 - Monitoramento',Categoria:'Detectivo',  Objetivo:'Conformidade', Tipo:'Key Control', Frequencia:'Mensal',     ultimoteste:'18/10/2021', operacao:'Ok',       desenho:'Ok'},
     ]
   }
+],
+},
+]
+}
 ];
 
 
@@ -451,7 +528,58 @@ tratamento=[
   {id:2, nome:'Mitigar',      check:true},
   {id:3, nome:'Compartilhar', check:false},
   {id:4, nome:'Aceitar',      check:false},
+  ];
+  
+  tabDesenhoProb = [
+  {
+    id: 1, tab: 'tab15', for:'t15', title:'Probabilidade',
+    thTabela: [
+      {id:1, campo:'Desenho do Controle',   width:'32%'},
+      {id:2, campo:'Operação do Controle',  width:'32%'},
+      {id:3, campo:'Rating',                width:'32%'},
+    ],
+    tdDesenho: [
+      {id:1, Desenho:'Excelente',    valDesenho:10,  selected:false,   },
+      {id:2, Desenho:'Bom',          valDesenho:8,   selected:false,  },
+      {id:3, Desenho:'Razoável',     valDesenho:6,   selected:true,   },
+      {id:4, Desenho:'Insuficiente', valDesenho:4,   selected:false,  },
+      {id:5, Desenho:'Inexistente',  valDesenho:2,   selected:false,  },
+      ],
+    tdOperacao: [
+      {id:1, Operacao:'Totalmente Efetivo',   valOperacao:5, selected:false,  },
+      {id:2, Operacao:'Efetivo',              valOperacao:4,  selected:false, },
+      {id:3, Operacao:'Parcialmente Efetivo', valOperacao:3,  selected:true,  },
+      {id:4, Operacao:'Inefetivo',            valOperacao:2,  selected:false, },
+      {id:5, Operacao:'Inexistente',          valOperacao:1,  selected:false, },
+    ]
+  }
 ];
+
+  tabDesenhoImpac = [
+  {
+    id: 1, tab: 'tab15', for:'t15', title:'Impacto',
+    thTabela: [
+      {id:1, campo:'Desenho do Controle',   width:'32%'},
+      {id:2, campo:'Operação do Controle',  width:'32%'},
+      {id:3, campo:'Rating',                width:'32%'},
+    ],
+    tdDesenho: [
+      {id:1, Desenho:'Excelente',    valDesenho:10,  selected:false,   },
+      {id:2, Desenho:'Bom',          valDesenho:8,   selected:false,  },
+      {id:3, Desenho:'Razoável',     valDesenho:6,   selected:false,  },
+      {id:4, Desenho:'Insuficiente', valDesenho:4,   selected:true,   },
+      {id:5, Desenho:'Inexistente',  valDesenho:2,   selected:false,  },
+      ],
+    tdOperacao: [
+      {id:1, Operacao:'Totalmente Efetivo',   valOperacao:5, selected:false,  },
+      {id:2, Operacao:'Efetivo',              valOperacao:4,  selected:false  },
+      {id:3, Operacao:'Parcialmente Efetivo', valOperacao:3,  selected:false, },
+      {id:4, Operacao:'Inefetivo',            valOperacao:2,  selected:true   },
+      {id:5, Operacao:'Inexistente',          valOperacao:1,  selected:false  },
+    ]
+  }
+  ];
+  
 
 
 constructor(private modalService: BsModalService) {
@@ -459,13 +587,124 @@ constructor(private modalService: BsModalService) {
 }
 
 ngOnInit(): void {
-console.log(this.tabsProbabilidade);
-
+  
 }
 
 openModal(template: TemplateRef<any>) {
   this.modalRef = this.modalService.show(template,
     Object.assign({}, { class: 'gray modal-lg' }));
-}
+  }
+  
+  desenhoIner = 'Razoável';
+  desenhoResid = 'Parcialmente Efetivo';
+  operacaoIner = '';
+  operacaoResid = '';
+  ratingProb='A';
+  ratingImpa='A';
+  
+  probDesenho(valor) {
+    this.desenhoIner = valor;
+    console.log('probDesenho: ' + this.desenhoIner);
+    this.calcRatingProb();
+  }
+  probOperacao(valor) {
+    this.operacaoIner = valor;
+    console.log('probOperacao: '+this.operacaoIner);
+    this.calcRatingProb();
+  }
+  impaDesenho(valor) {
+    this.desenhoResid = valor;
+    console.log('impaDesenho: '+this.desenhoResid);
+    this.calcRatingImpa();
+  }
+  impaOperacao(valor) {
+    this.operacaoResid = valor;
+    console.log('impaOperacao: '+this.operacaoResid);
+    this.calcRatingImpa();
+  }
 
+  calcRatingProb() {
+    if (this.desenhoIner === 'Excelente' && this.operacaoIner === 'Totalmente Efetivo') {
+      this.ratingProb = 'A+'
+
+    }  
+    if ((this.desenhoIner === 'Excelente' && this.operacaoIner === 'Efetivo') ||
+      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Efetivo') ||
+      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Totalmente Efetivo') ) {
+      this.ratingProb = 'A'
+
+    }  
+    if ((this.desenhoIner === 'Razoável' && this.operacaoIner === 'Totalmente Efetivo') ||
+      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Efetivo') ||
+      (this.desenhoIner === 'Excelente' && this.operacaoIner === 'Parcialmente Efetivo') ||
+      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Parcialmente Efetivo') ) {
+      this.ratingProb = 'B'
+
+    }  
+    if ((this.desenhoIner === 'Excelente' && this.operacaoIner === 'Inefetivo') ||
+      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Inefetivo') ||
+      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Parcialmente Efetivo') ||
+      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Totalmente Efetivo') ||
+      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Efetivo') ||
+      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Parcialmente Efetivo') ||
+      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Inefetivo') ) {
+      this.ratingProb = 'C'
+    }  
+    if ((this.desenhoIner === 'Excelente' && this.operacaoIner === 'Inexistente') ||
+      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Inexistente') ||
+      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Inexistente') ||
+      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Inefetivo') ||
+      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Totalmente Efetivo') ||
+      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Inexistente') ||
+      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Parcialmente Efetivo') ||
+      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Inefetivo') ||
+      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Inexistente') ||
+      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Efetivo') ) {
+      this.ratingProb = 'D'
+    }
+  }
+
+  calcRatingImpa() {
+    if (this.desenhoResid === 'Excelente' && this.operacaoResid === 'Totalmente Efetivo') {
+      this.ratingImpa = 'A+'
+
+    }  
+    if ((this.desenhoResid === 'Excelente' && this.operacaoResid === 'Efetivo') ||
+      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Efetivo') ||
+      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Totalmente Efetivo') ) {
+      this.ratingImpa = 'A'
+
+    }  
+    if ((this.desenhoResid === 'Razoável' && this.operacaoResid === 'Totalmente Efetivo') ||
+      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Efetivo') ||
+      (this.desenhoResid === 'Excelente' && this.operacaoResid === 'Parcialmente Efetivo') ||
+      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Parcialmente Efetivo') ) {
+      this.ratingImpa = 'B'
+
+    }  
+    if ((this.desenhoResid === 'Excelente' && this.operacaoResid === 'Inefetivo') ||
+      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Inefetivo') ||
+      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Parcialmente Efetivo') ||
+      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Totalmente Efetivo') ||
+      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Efetivo') ||
+      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Parcialmente Efetivo') ||
+      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Inefetivo') ) {
+      this.ratingImpa = 'C'
+    }  
+    if ((this.desenhoResid === 'Excelente' && this.operacaoResid === 'Inexistente') ||
+      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Inexistente') ||
+      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Inexistente') ||
+      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Inefetivo') ||
+      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Totalmente Efetivo') ||
+      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Inexistente') ||
+      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Parcialmente Efetivo') ||
+      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Inefetivo') ||
+      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Inexistente') ||
+      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Efetivo') ) {
+      this.ratingImpa = 'D'
+    }
+  }
+
+  
+  
 }
