@@ -9,33 +9,37 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MuralComponent } from './components/mural/mural.component';
 import { CadinventarioComponent } from './components/cadinventario/cadinventario.component';
 import { DadoinventarioComponent } from './components/dadoinventario/dadoinventario.component';
 import { SistrepoComponent } from './components/sistrepo/sistrepo.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FluxodadosComponent } from './components/fluxodados/fluxodados.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { MatTreeModule } from '@angular/material/tree';
 import { SelecionaprocessoComponent } from './components/fluxodados/selecionaprocesso/selecionaprocesso.component';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ProcessosComponent } from './components/processos/processos.component';
 import { RiscosAvaliacaoComponent } from './components/riscos-avaliacao/riscos-avaliacao.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { EmpresaComponent } from './components/empresa/empresa.component';
+import { CommonModule } from '@angular/common';
+import { NgxOrgChartModule } from 'ngx-org-chart';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +58,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     SelecionaprocessoComponent,
     ProcessosComponent,
     RiscosAvaliacaoComponent,
+    EmpresaComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +82,8 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     TabsModule.forRoot(),
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
+    CommonModule,
+    NgxOrgChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

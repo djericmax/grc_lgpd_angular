@@ -1,0 +1,213 @@
+<div class="divtitpag">
+    <div>
+        <h4 class="h4titela"> {{titulotela}} </h4>
+        <p class="psubtitela">{{subtitulotela}}</p>
+        <p class="psubticaminho">
+            {{caminho}}</p>
+    </div>
+</div>
+
+<div style="
+  background-color: #F1F3F6;
+  padding: 2em 2em 5em 2em !important;
+  /* overflow: hidden; */
+  ">
+
+    <div style="
+  /* width: 100% !important; */
+  ">
+
+        <div style="
+  width: 100% !important; 
+  ">
+
+  <div style="border: 1px red solid; padding: 1.2em 1.2em 1.2em 1.2em; overflow-x: scroll !important; ">
+  
+  
+    <!--
+  ORG CHART
+  =========================================-->
+  
+    <div class="container-fluid" style="margin-top:0px;  padding: 1.2em 1.2em 1.2em 1.2em; overflow-x: scroll !important;">
+      <div class="row" style="margin-top:0px;  padding: 1.2em 1.2em 1.2em 1.2em; overflow-x: scroll !important;">
+        <div style="margin-top:0px;  padding: 1.2em 1.2em 1.2em 1.2em; overflow-x: scroll !important;">
+          <div class="tree" style="margin-top:0px;  padding: 1.2em 1.2em 1.2em 1.2em; overflow-x: scroll !important;">
+  
+            <ul style="margin-top:0px;  padding: 1.2em 1.2em 1.2em 1.2em; overflow-x: scroll !important;">  
+              <li *ngFor="let l1 of nodes">
+                <a href="#" style="width: 10em; max-height: 5em;">
+  
+                  <div class="container-fluid">
+                    <div class="row">
+                      <strong>
+                        {{l1.title}}
+                      </strong>
+                    </div>
+                    <div class="row" style="margin-top: -15px; float: right;">
+                      <i class="fa fa-user fa-2x"></i>
+                    </div>
+                    <div class="row">
+                      {{l1.name}}
+                    </div>
+                  </div>
+  
+                </a>
+                <ul *ngIf="l1.childs">
+  
+                  <li *ngFor="let l2 of l1.childs">
+                    <a href="#" style="width: 10em; max-height: 5em;">
+  
+                      <div class="container-fluid">
+                        <div class="row">
+                          {{l2.title}}
+                        </div>
+                        <div class="row" style="margin-top: -15px; float: right;">
+                          <i class="fa fa-filter fa-2x"></i>
+                        </div>
+                        <div class="row">
+                          {{l2.name}}
+                        </div>
+                      </div>
+  
+                    </a>
+  
+                  <ul *ngIf="l2.childs">
+  
+                      <li *ngFor="let l3 of l2.childs">
+                        <a href="#" style="width: 10em; max-height: 5em;">
+  
+                          <div class="container-fluid">
+                            <div class="row">
+                              {{l3.title}}
+                            </div>
+                            <div class="row" style="margin-top: -15px; float: right;">
+                              <i class="fa fa-level-down fa-2x"></i>
+                            </div>
+                            <div class="row">
+                              {{l3.name}}
+                            </div>
+                          </div>
+  
+                        </a>
+
+                        <ul *ngIf="l3.childs">
+                        
+                          <li *ngFor="let l4 of l3.childs">
+                            <a href="#" style="width: 10em; max-height: 5em;">
+                        
+                              <div class="container-fluid">
+                                <div class="row">
+                                  {{l4.title}}
+                                </div>
+                                <div class="row" style="margin-top: -15px; float: right;">
+                                  <i class="fa fa-level-down fa-2x"></i>
+                                </div>
+                                <div class="row">
+                                  {{l4.name}}
+                                </div>
+                              </div>
+                        
+                            </a>
+
+                          <ul *ngIf="l4.childs">
+                            
+                              <li *ngFor="let l5 of l4.childs">
+                                <a href="#" style="width: 10em; max-height: 5em;">
+                            
+                                  <div class="container-fluid">
+                                    <div class="row">
+                                      {{l5.title}}
+                                    </div>
+                                    <div class="row" style="margin-top: -15px; float: right;">
+                                      <i class="fa fa-level-down fa-2x"></i>
+                                    </div>
+                                    <div class="row">
+                                      {{l5.name}}
+                                    </div>
+                                  </div>
+                            
+                                </a>
+
+                                <ul *ngIf="l5.childs">
+                                
+                                  <li *ngFor="let l6 of l5.childs">
+                                    <a href="#" style="width: 10em; max-height: 5em;">
+                                
+                                      <div class="container-fluid">
+                                        <div class="row">
+                                          {{l6.title}}
+                                        </div>
+                                        <div class="row" style="margin-top: -15px; float: right;">
+                                          <i class="fa fa-level-down fa-2x"></i>
+                                        </div>
+                                        <div class="row">
+                                          {{l6.name}}
+                                        </div>
+                                      </div>
+                                
+                                    </a>
+
+                                  <ul *ngIf="l6.childs">
+                                    
+                                      <li *ngFor="let l7 of l6.childs">
+                                        <a href="#" style="width: 10em; max-height: 5em;">
+                                    
+                                          <div class="container-fluid">
+                                            <div class="row">
+                                              {{l7.title}}
+                                            </div>
+                                            <div class="row" style="margin-top: -15px; float: right;">
+                                              <i class="fa fa-level-down fa-2x"></i>
+                                            </div>
+                                            <div class="row">
+                                              {{l7.name}}
+                                            </div>
+                                          </div>
+                                    
+                                        </a>
+                                      </li>
+                                    
+                                    </ul>
+
+
+                                  </li>
+                                
+                                </ul>
+
+
+                              </li>
+                            
+                            </ul>
+
+
+                          </li>
+                        
+                        </ul>
+
+                      </li>
+  
+                    </ul>
+  
+                  </li>
+  
+                </ul>
+  
+              </li>
+  
+            </ul>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </div>
+  <!-- ORGANOGRAMA -->
+
+
+
+         
+
+  </div></div></div>

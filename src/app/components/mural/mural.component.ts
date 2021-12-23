@@ -14,7 +14,7 @@ export class MuralComponent implements OnInit {
   ];
 
   LinksMural = [
-    {id: 1, rota: '', titulo: 'EMPRESAS',               img: 'icoEmpresas.png',   cor:'#4682B4',  rodape: 'Linhas de Negócio | Acionistas | Órgãos Reguladores | Riscos'},
+    {id: 1, rota: '/empresas', titulo: 'EMPRESAS',               img: 'icoEmpresas.png',   cor:'#4682B4',  rodape: 'Linhas de Negócio | Acionistas | Órgãos Reguladores | Riscos'},
     {id: 2, rota: '', titulo: 'PROCESSOS',              img: 'icoProcessos.png',  cor:'#FF1493',  rodape: 'Parametrizações'},
     {id: 3, rota: '/riscos_avaliacao', titulo: 'RISCOS',img: 'icoRiscos.png',     cor:'#DAA520',  rodape: 'Perfil de Análise | Avaliações | Controles | Processos'},
     {id: 4, rota: '', titulo: 'PERFÍS DE ANÁLISE',      img: 'icoPerfis.png',     cor:'#D2691E',  rodape: 'Matriz | Índices Financeiros'},

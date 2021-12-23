@@ -1,3 +1,5 @@
+@import "~ngx-org-chart/_theming.scss";
+
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons");
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -8,6 +10,5 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #F1F3F6;
+  background-color: #f1f3f6;
 }
-

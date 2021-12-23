@@ -894,7 +894,7 @@ background-color: #F1F3F6;
                   <tr *ngIf="dado.descricao != ''">
                     <td style="width: 98%; border-top: none !important; text-align: justify;"><p>{{dado.descricao}}</p></td>
                     <td style="width: 1%; padding-left: 0.5em; padding-right: 0.8em; border-top: none !important;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
-                    <td style="width: 1%; padding-left: 0.5em; padding-right: 0.8em; border-top: none !important;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                    <!-- <td style="width: 1%; padding-left: 0.5em; padding-right: 0.8em; border-top: none !important;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td> -->
                   </tr>
                   <tr *ngIf="dado.descricao == ''">
                     <td colspan="3" style="border-top: none !important;">Descrição:
@@ -960,7 +960,7 @@ background-color: #F1F3F6;
                   <tr *ngIf="dado.descricao != ''">
                     <td style="width: 98%; border-top: none !important;"><p>{{dado.descricao}}</p></td>
                     <td style="width: 1%; padding-left: 0.5em; padding-right: 0.8em; border-top: none !important;"><a [routerLink]="['#']"><i class="text-dark  pull-right fa fa-pencil" ></i></a></td>
-                    <td style="width: 1%; padding-left: 0.5em; padding-right: 0.8em; border-top: none !important;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td>
+                    <!-- <td style="width: 1%; padding-left: 0.5em; padding-right: 0.8em; border-top: none !important;"><a [routerLink]="['#']"><i class="text-danger  pull-right fa fa-times-circle"></i></a></td> -->
                   </tr>
                   <tr *ngIf="dado.descricao == ''">
                     <td colspan="3" style="border-top: none !important;">Descrição:
@@ -1015,7 +1015,7 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
   color: #888;
   padding: 3em 2em 2em 2em;">
   <div class="col-lg-12" style="width: 85% !important;">
-    <p style="padding: 0em; font-size: 28px; font-weight: 100;">Heat Map residual</p>
+    <p style="padding: 0em; font-size: 28px; font-weight: 100;">Heat Map</p>
     <p style="padding: 0em; font-size: 18px; font-weight: 300;">...</p>
   </div>
   
@@ -1023,26 +1023,30 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
 <div class="modal-body" style="padding: 2em;">
   <div style="width: 100%; height: 15em;">
     <div style="float: left; width: 50%; padding: 1em;">
-      <h1 style=" color: #777;"><strong>RISCO INERENTE</strong></h1>
-      <div class="form-check" style="padding-top: 0.5em;">
+      <div class="form-check">
         
-        <table style="width: 100%;"> 
+        <table style="width: 105%; margin-left: -1.2em;"> 
           <tr>
             <td style="padding: 0 1em 0 1em;"><small><strong>IMPACTO INERENTE</strong></small> </td>
             <td style="border-left: 1px solid #ddd; padding: 0 1em 0 1em;"><small><strong>PROBABILIDADE INERENTE</strong></small></td>
           </tr>
           <tr>
-            <td>
-              <p style=" font-size: 20px; font-weight: 100; padding: 0 1em 0 1em;">Significativo</p>
+            <td style="padding: 0 1em 0 1em;">
+              <p style="font-size: 20px; font-weight: 100;">{{impactoIner}}</p>
             </td>
-            <td>
-              <p style="font-size: 20px; font-weight: 100; border-left: 1px solid #ddd; padding: 0 1em 0 1em;">Muito Provável</p>
+            <td style="border-left: 1px solid #ddd; padding: 0 1em 0 1em;">
+              <p style="font-size: 20px; font-weight: 100;">{{probabilIner}}</p>
             </td>
           </tr>
           <tr><td>&nbsp;</td></tr>
           <tr>
-            <td style="text-align: center;">
-              <p style="font-size: 30px; font-weight: 100;">CRÍTICO</p>
+            <td colspan="2">
+              <h1 style=" color: #777; text-align: center;"><strong>RISCO INERENTE</strong></h1>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">
+              <p style="font-size: 30px; font-weight: 100;">{{resultIner}}</p>
             </td>
           </tr>
         </table>
@@ -1050,30 +1054,34 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
         
       </div>
     </div>
-    <div style="float: left; border-left: 1px solid #ddd; width: 50%; padding: 1em;">
-      <h1 style=" color: #777;"><strong>RISCO RESIDUAL</strong></h1>
-      <div class="form-check" style="padding-top: 0.5em;">
+    <div style="float: left; border-left: 1px solid #ddd; width: 50%; padding: 1em 1em 1em 0em;">
+      <div class="form-check">
         <div>
           
-          <table style="width: 100%;">
+          <table style="width: 105%; margin-left: -1.2em;">
             <tr>
               <td style="padding: 0 1em 0 1em;"><small><strong>IMPACTO RESIDUAL</strong></small></td>
               <td style="border-left: 1px solid #ddd; padding: 0 1em 0 1em;"><small><strong>PROBABILIDADE RESIDUAL</strong></small></td>
             </tr>
             <tr>
-              <td>
-                <p style="font-size: 20px; font-weight: 100; padding: 0 1em 0 1em;">Moderado</p>
+              <td style="padding: 0 1em 0 1em;">
+                <p style="font-size: 20px; font-weight: 100;">{{impactoResid}}</p>
               </td>
-              <td>
-                <p style="font-size: 20px; font-weight: 100; border-left: 1px solid #ddd; padding: 0 1em 0 1em;">Muito Remota</p>
+              <td style="border-left: 1px solid #ddd; padding: 0 1em 0 1em;">
+                <p style="font-size: 20px; font-weight: 100;">{{probabilResid}}</p>
               </td>
             </tr>
             <tr>
               <td>&nbsp;</td>
             </tr>
             <tr>
-              <td style="text-align: center;">
-                <p style="font-size: 30px; font-weight: 100;">ALTO</p>
+              <td colspan="2">
+                <h1 style=" color: #777; text-align: center;"><strong>RISCO RESIDUAL</strong></h1>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align: center;">
+                <p style="font-size: 30px; font-weight: 100;">{{resultResid}}</p>
               </td>
             </tr>
           </table>          
@@ -1119,7 +1127,7 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
           </thead>
           <tbody>
             <tr>
-              
+
               <td>
                 
                 <table style="text-align: center;">
@@ -1131,7 +1139,6 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
                       style="
                       display: block;
                       padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-                      /* border: 1px red solid; */
                       border: none;
                       width: 100% !important;
                       height: 2em;
@@ -1158,7 +1165,6 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
                     style="
                     display: block;
                     padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-                    /* border: 1px red solid; */
                     border: none;
                     width: 100% !important;
                     height: 2em;
@@ -1231,7 +1237,6 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
                   style="
                         display: block;
                         padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-                        /* border: 1px red solid; */
                         border: none;
                         width: 100% !important;
                         height: 2em;
@@ -1259,7 +1264,6 @@ padding: 0.3em 0.3em 0.3em 0.3em;">
                   style="
                       display: block;
                       padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-                      /* border: 1px red solid; */
                       border: none;
                       width: 100% !important;
                       height: 2em;

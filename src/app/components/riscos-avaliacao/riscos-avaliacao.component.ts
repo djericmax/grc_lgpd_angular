@@ -528,9 +528,9 @@ tratamento=[
   {id:2, nome:'Mitigar',      check:true},
   {id:3, nome:'Compartilhar', check:false},
   {id:4, nome:'Aceitar',      check:false},
-  ];
-  
-  tabDesenhoProb = [
+];
+
+tabDesenhoProb = [
   {
     id: 1, tab: 'tab15', for:'t15', title:'Probabilidade',
     thTabela: [
@@ -544,7 +544,7 @@ tratamento=[
       {id:3, Desenho:'Razoável',     valDesenho:6,   selected:true,   },
       {id:4, Desenho:'Insuficiente', valDesenho:4,   selected:false,  },
       {id:5, Desenho:'Inexistente',  valDesenho:2,   selected:false,  },
-      ],
+    ],
     tdOperacao: [
       {id:1, Operacao:'Totalmente Efetivo',   valOperacao:5, selected:false,  },
       {id:2, Operacao:'Efetivo',              valOperacao:4,  selected:false, },
@@ -555,7 +555,7 @@ tratamento=[
   }
 ];
 
-  tabDesenhoImpac = [
+tabDesenhoImpac = [
   {
     id: 1, tab: 'tab15', for:'t15', title:'Impacto',
     thTabela: [
@@ -569,7 +569,7 @@ tratamento=[
       {id:3, Desenho:'Razoável',     valDesenho:6,   selected:false,  },
       {id:4, Desenho:'Insuficiente', valDesenho:4,   selected:true,   },
       {id:5, Desenho:'Inexistente',  valDesenho:2,   selected:false,  },
-      ],
+    ],
     tdOperacao: [
       {id:1, Operacao:'Totalmente Efetivo',   valOperacao:5, selected:false,  },
       {id:2, Operacao:'Efetivo',              valOperacao:4,  selected:false  },
@@ -578,8 +578,8 @@ tratamento=[
       {id:5, Operacao:'Inexistente',          valOperacao:1,  selected:false  },
     ]
   }
-  ];
-  
+];
+
 
 
 constructor(private modalService: BsModalService) {
@@ -587,7 +587,8 @@ constructor(private modalService: BsModalService) {
 }
 
 ngOnInit(): void {
-  
+  this.calcRatingProb();
+  this.calcRatingImpa();
 }
 
 openModal(template: TemplateRef<any>) {
@@ -599,112 +600,279 @@ openModal(template: TemplateRef<any>) {
   desenhoResid = 'Parcialmente Efetivo';
   operacaoIner = '';
   operacaoResid = '';
-  ratingProb='A';
-  ratingImpa='A';
+  ratingProb='C';
+  ratingImpa = 'D';
+  impactoIner = 'Significativo';
+  impactoResid = 'Moderado';
+  probabilIner = 'Muito Provável';
+  probabilResid = 'Muito Remota';
+  resultIner = 'CRÍTICO';
+  resultResid = 'ALTO';
   
   probDesenho(valor) {
     this.desenhoIner = valor;
-    console.log('probDesenho: ' + this.desenhoIner);
     this.calcRatingProb();
+    this.calcHeaderResid();
   }
   probOperacao(valor) {
     this.operacaoIner = valor;
-    console.log('probOperacao: '+this.operacaoIner);
     this.calcRatingProb();
+    this.calcHeaderResid();
   }
   impaDesenho(valor) {
     this.desenhoResid = valor;
-    console.log('impaDesenho: '+this.desenhoResid);
     this.calcRatingImpa();
+    this.calcHeaderResid();
   }
   impaOperacao(valor) {
     this.operacaoResid = valor;
-    console.log('impaOperacao: '+this.operacaoResid);
     this.calcRatingImpa();
+    this.calcHeaderResid();
   }
-
+  
   calcRatingProb() {
     if (this.desenhoIner === 'Excelente' && this.operacaoIner === 'Totalmente Efetivo') {
       this.ratingProb = 'A+'
-
+      
     }  
     if ((this.desenhoIner === 'Excelente' && this.operacaoIner === 'Efetivo') ||
-      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Efetivo') ||
-      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Totalmente Efetivo') ) {
+    (this.desenhoIner === 'Bom' && this.operacaoIner === 'Efetivo') ||
+    (this.desenhoIner === 'Bom' && this.operacaoIner === 'Totalmente Efetivo') ) {
       this.ratingProb = 'A'
-
+      
     }  
     if ((this.desenhoIner === 'Razoável' && this.operacaoIner === 'Totalmente Efetivo') ||
-      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Efetivo') ||
-      (this.desenhoIner === 'Excelente' && this.operacaoIner === 'Parcialmente Efetivo') ||
-      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Parcialmente Efetivo') ) {
+    (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Efetivo') ||
+    (this.desenhoIner === 'Excelente' && this.operacaoIner === 'Parcialmente Efetivo') ||
+    (this.desenhoIner === 'Bom' && this.operacaoIner === 'Parcialmente Efetivo') ) {
       this.ratingProb = 'B'
-
+      
     }  
     if ((this.desenhoIner === 'Excelente' && this.operacaoIner === 'Inefetivo') ||
-      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Inefetivo') ||
-      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Parcialmente Efetivo') ||
-      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Totalmente Efetivo') ||
-      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Efetivo') ||
-      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Parcialmente Efetivo') ||
-      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Inefetivo') ) {
+    (this.desenhoIner === 'Bom' && this.operacaoIner === 'Inefetivo') ||
+    (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Parcialmente Efetivo') ||
+    (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Totalmente Efetivo') ||
+    (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Efetivo') ||
+    (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Parcialmente Efetivo') ||
+    (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Inefetivo') ) {
       this.ratingProb = 'C'
     }  
     if ((this.desenhoIner === 'Excelente' && this.operacaoIner === 'Inexistente') ||
-      (this.desenhoIner === 'Bom' && this.operacaoIner === 'Inexistente') ||
-      (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Inexistente') ||
-      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Inefetivo') ||
-      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Totalmente Efetivo') ||
-      (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Inexistente') ||
-      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Parcialmente Efetivo') ||
-      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Inefetivo') ||
-      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Inexistente') ||
-      (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Efetivo') ) {
+    (this.desenhoIner === 'Bom' && this.operacaoIner === 'Inexistente') ||
+    (this.desenhoIner === 'Razoável' && this.operacaoIner === 'Inexistente') ||
+    (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Inefetivo') ||
+    (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Totalmente Efetivo') ||
+    (this.desenhoIner === 'Insuficiente' && this.operacaoIner === 'Inexistente') ||
+    (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Parcialmente Efetivo') ||
+    (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Inefetivo') ||
+    (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Inexistente') ||
+    (this.desenhoIner === 'Inexistente' && this.operacaoIner === 'Efetivo') ) {
       this.ratingProb = 'D'
     }
   }
-
+  
   calcRatingImpa() {
     if (this.desenhoResid === 'Excelente' && this.operacaoResid === 'Totalmente Efetivo') {
       this.ratingImpa = 'A+'
-
+      
     }  
     if ((this.desenhoResid === 'Excelente' && this.operacaoResid === 'Efetivo') ||
-      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Efetivo') ||
-      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Totalmente Efetivo') ) {
+    (this.desenhoResid === 'Bom' && this.operacaoResid === 'Efetivo') ||
+    (this.desenhoResid === 'Bom' && this.operacaoResid === 'Totalmente Efetivo') ) {
       this.ratingImpa = 'A'
-
+      
     }  
     if ((this.desenhoResid === 'Razoável' && this.operacaoResid === 'Totalmente Efetivo') ||
-      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Efetivo') ||
-      (this.desenhoResid === 'Excelente' && this.operacaoResid === 'Parcialmente Efetivo') ||
-      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Parcialmente Efetivo') ) {
+    (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Efetivo') ||
+    (this.desenhoResid === 'Excelente' && this.operacaoResid === 'Parcialmente Efetivo') ||
+    (this.desenhoResid === 'Bom' && this.operacaoResid === 'Parcialmente Efetivo') ) {
       this.ratingImpa = 'B'
-
+      
     }  
     if ((this.desenhoResid === 'Excelente' && this.operacaoResid === 'Inefetivo') ||
-      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Inefetivo') ||
-      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Parcialmente Efetivo') ||
-      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Totalmente Efetivo') ||
-      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Efetivo') ||
-      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Parcialmente Efetivo') ||
-      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Inefetivo') ) {
+    (this.desenhoResid === 'Bom' && this.operacaoResid === 'Inefetivo') ||
+    (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Parcialmente Efetivo') ||
+    (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Totalmente Efetivo') ||
+    (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Efetivo') ||
+    (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Parcialmente Efetivo') ||
+    (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Inefetivo') ) {
       this.ratingImpa = 'C'
     }  
     if ((this.desenhoResid === 'Excelente' && this.operacaoResid === 'Inexistente') ||
-      (this.desenhoResid === 'Bom' && this.operacaoResid === 'Inexistente') ||
-      (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Inexistente') ||
-      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Inefetivo') ||
-      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Totalmente Efetivo') ||
-      (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Inexistente') ||
-      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Parcialmente Efetivo') ||
-      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Inefetivo') ||
-      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Inexistente') ||
-      (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Efetivo') ) {
+    (this.desenhoResid === 'Bom' && this.operacaoResid === 'Inexistente') ||
+    (this.desenhoResid === 'Razoável' && this.operacaoResid === 'Inexistente') ||
+    (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Inefetivo') ||
+    (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Totalmente Efetivo') ||
+    (this.desenhoResid === 'Insuficiente' && this.operacaoResid === 'Inexistente') ||
+    (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Parcialmente Efetivo') ||
+    (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Inefetivo') ||
+    (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Inexistente') ||
+    (this.desenhoResid === 'Inexistente' && this.operacaoResid === 'Efetivo') ) {
       this.ratingImpa = 'D'
     }
   }
-
   
+  calcHeaderResid() {
+    if (
+      (this.ratingProb == 'A+' && this.ratingImpa == 'A+') ||
+      (this.ratingProb == 'A+' && this.ratingImpa == 'A') ||
+      (this.ratingProb == 'A+' && this.ratingImpa == 'B') ||
+      (this.ratingProb == 'A' && this.ratingImpa == 'A+') ||
+      (this.ratingProb == 'A' && this.ratingImpa == 'A')
+    )
+    { this.resultResid = 'MUITO BAIXO'; }
+
+    if (
+      (this.ratingProb == 'A+' && this.ratingImpa == 'C') ||
+      (this.ratingProb == 'A' && this.ratingImpa == 'B') ||
+      (this.ratingProb == 'B' && this.ratingImpa == 'A+') ||
+      (this.ratingProb == 'B' && this.ratingImpa == 'A') ||
+      (this.ratingProb == 'C' && this.ratingImpa == 'A+') ||
+      (this.ratingProb == 'C' && this.ratingImpa == 'A') ||
+      (this.ratingProb == 'D' && this.ratingImpa == 'A+') ||
+      (this.ratingProb == 'D' && this.ratingImpa == 'A')
+    )
+    { this.resultResid = 'BAIXO'; }
+
+    if (
+      (this.ratingProb == 'A+' && this.ratingImpa == 'D') ||
+      (this.ratingProb == 'A' && this.ratingImpa == 'C') ||
+      (this.ratingProb == 'A' && this.ratingImpa == 'D') ||
+      (this.ratingProb == 'B' && this.ratingImpa == 'C') ||
+      (this.ratingProb == 'B' && this.ratingImpa == 'B') ||
+      (this.ratingProb == 'C' && this.ratingImpa == 'B') ||
+      (this.ratingProb == 'C' && this.ratingImpa == 'C') ||
+      (this.ratingProb == 'D' && this.ratingImpa == 'B')
+    )
+    { this.resultResid = 'MÉDIO'; }
+
+    if (
+      (this.ratingProb == 'B' && this.ratingImpa == 'D') ||
+      (this.ratingProb == 'C' && this.ratingImpa == 'D') ||
+      (this.ratingProb == 'D' && this.ratingImpa == 'C')
+    )
+    { this.resultResid = 'ALTO'; }
+
+    if (
+      (this.ratingProb == 'D' && this.ratingImpa == 'D')
+    )
+    { this.resultResid = 'CRÍTICO'; }
+
+    // --------
+
+    if ((this.ratingProb == 'A+' && this.ratingImpa == 'A+')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Muito Remota';
+    }
+    if ((this.ratingProb == 'A+' && this.ratingImpa == 'A')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Muito Remota';
+    }
+    if ((this.ratingProb == 'A+' && this.ratingImpa == 'B')) {
+      this.impactoResid = 'Pequeno';
+      this.probabilResid = 'Muito Remota';
+    }
+    if ((this.ratingProb == 'A+' && this.ratingImpa == 'C')) {
+      this.impactoResid = 'Moderado';
+      this.probabilResid = 'Muito Remota';
+    }
+    if ((this.ratingProb == 'A+' && this.ratingImpa == 'D')) {
+      this.impactoResid = 'Significativo';
+      this.probabilResid = 'Muito Remota';
+    }
+    if ((this.ratingProb == 'A' && this.ratingImpa == 'A+')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Remota';
+    }
+    if ((this.ratingProb == 'A' && this.ratingImpa == 'A')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Remota';
+    }
+    if ((this.ratingProb == 'A' && this.ratingImpa == 'B')) {
+      this.impactoResid = 'Pequeno';
+      this.probabilResid = 'Remota';
+    }
+    if ((this.ratingProb == 'A' && this.ratingImpa == 'C')) {
+      this.impactoResid = 'Moderado';
+      this.probabilResid = 'Remota';
+    }
+    if ((this.ratingProb == 'A' && this.ratingImpa == 'D')) {
+      this.impactoResid = 'Significativo';
+      this.probabilResid = 'Remota';
+    }
+    if ((this.ratingProb == 'B' && this.ratingImpa == 'A+')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Possível';
+    }
+    if ((this.ratingProb == 'B' && this.ratingImpa == 'A')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Possível';
+    }
+    if ((this.ratingProb == 'B' && this.ratingImpa == 'B')) {
+      this.impactoResid = 'Pequeno';
+      this.probabilResid = 'Possível';
+    }
+    if ((this.ratingProb == 'B' && this.ratingImpa == 'C')) {
+      this.impactoResid = 'Moderado';
+      this.probabilResid = 'Possível';
+    }
+    if ((this.ratingProb == 'B' && this.ratingImpa == 'D')) {
+      this.impactoResid = 'Significativo';
+      this.probabilResid = 'Possível';
+    }
+    if ((this.ratingProb == 'C' && this.ratingImpa == 'A+')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Provável';
+    }
+    if ((this.ratingProb == 'C' && this.ratingImpa == 'A')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Provável';
+    }
+    if ((this.ratingProb == 'C' && this.ratingImpa == 'B')) {
+      this.impactoResid = 'Pequeno';
+      this.probabilResid = 'Provável';
+    }
+    if ((this.ratingProb == 'C' && this.ratingImpa == 'C')) {
+      this.impactoResid = 'Moderado';
+      this.probabilResid = 'Provável';
+    }
+    if ((this.ratingProb == 'C' && this.ratingImpa == 'D')) {
+      this.impactoResid = 'Significativo';
+      this.probabilResid = 'Provável';
+    }
+    if ((this.ratingProb == 'D' && this.ratingImpa == 'A+')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Muito Provável';
+    }
+    if ((this.ratingProb == 'D' && this.ratingImpa == 'A')) {
+      this.impactoResid = 'Mínimo';
+      this.probabilResid = 'Muito Provável';
+    }
+    if ((this.ratingProb == 'D' && this.ratingImpa == 'B')) {
+      this.impactoResid = 'Pequeno';
+      this.probabilResid = 'Muito Provável';
+    }
+    if ((this.ratingProb == 'D' && this.ratingImpa == 'C')) {
+      this.impactoResid = 'Moderado';
+      this.probabilResid = 'Muito Provável';
+    }
+    if ((this.ratingProb == 'D' && this.ratingImpa == 'D')) {
+      this.impactoResid = 'Significativo';
+      this.probabilResid = 'Muito Provável';
+    }
+    
+    // -----------
+
+
+
+
+    // SE(O5>=120;"CRÍTICO";SE(O5>=60;"ALTO";SE(O5>=24;"MÉDIO";SE(O5>8;"BAIXO";"MUITO BAIXO"))))
+    
+
+  }
+
+  calcRiscResid() {
+    
+  }
   
 }

@@ -10,12 +10,14 @@ import { FluxodadosComponent } from './components/fluxodados/fluxodados.componen
 import { SelecionaprocessoComponent } from './components/fluxodados/selecionaprocesso/selecionaprocesso.component';
 import { ProcessosComponent } from './components/processos/processos.component';
 import { RiscosAvaliacaoComponent } from './components/riscos-avaliacao/riscos-avaliacao.component';
+import { EmpresaComponent } from './components/empresa/empresa.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'mural_lgpd', pathMatch: 'full'},
   {path: 'mural',                           component: MuralComponent},
   {path: 'mural_lgpd',                      component: MenuComponent},
+  {path: 'empresas',                        component: EmpresaComponent},
   {path: 'inventario',                      component: InventarioComponent},
   {path: 'cadastro_inventario',             component: CadinventarioComponent},
   {path: 'dados_inventario',                component: DadoinventarioComponent},
