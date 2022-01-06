@@ -15,5 +15,6 @@ export class AppComponent {
     email = '/assets/imgs/email.png';
     mural = '/assets/imgs/mural.png';
     options = '/assets/imgs/options.png';
-    voz = '/assets/imgs/voz.png';
+  voz = '/assets/imgs/voz.png';
+
 }

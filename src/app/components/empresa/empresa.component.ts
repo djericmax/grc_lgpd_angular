@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as go from 'gojs';
+
+
 @Component({
   selector: 'app-empresa',
   templateUrl: './empresa.component.html',
@@ -14,89 +17,56 @@ export class EmpresaComponent implements OnInit {
   user =      '/assets/imgs/user.png';
   workflow =  '/assets/imgs/workflow1.png';
   seta =      '/assets/imgs/fluxo/seta.png';
-  colorbar = '/assets/imgs/colorbar.png';
+  colorbar = '/assets/imgs/colorbar.png';  
+  
+  constructor() { }
+  
+  ngOnInit(): void {
+    
+  }
   
   
-  // ORGANOGRAMA
-  nodes: any = [
-    { name: 'Nível 1', cssClass: 'ngx-org-head', image: 'fa fa-user fa-2x', title: 'título 1', childs: [
-      
-      { name: 'Nível 2', cssClass: 'ngx-org-ceo', image: './assets/imgs/user.png', title: 'Título 2', childs: [ 
-          
-          { name: 'Nível 3', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 3', childs: [] },
-          { name: 'Nível 3', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 4', childs: [] },
-          // { name: 'Nível 3', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 5', childs: [] }
-        ]
-      },
-      
-      { name: 'Nível 2', cssClass: 'ngx-org-ceo', image: './assets/imgs/user.png', title: 'Título 6', childs: [  
-          
-          { name: 'Nível 3', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 7', childs: [] },
-          { name: 'Nível 3', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 8', childs: [
-              { name: 'Nível 4', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 9', childs: [] },
-              { name: 'Nível 4', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 10', childs: [] },
-            ] },
-          { name: 'Nível 3', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 11', childs: [] }
-          ]
-        },
-        
-        {
-          name: 'Nível 2', cssClass: 'ngx-org-ceo', image: './assets/imgs/user.png', title: 'Título 12', childs: [ 
-            
-            { name: 'Nível 3', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 13', childs: [] },
-            { name: 'Nível 3', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 14', childs: [
-              { name: 'Nível 4', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 15', childs: [
-                  { name: 'Nível 5', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 23', childs: [] },
-                  { name: 'Nível 5', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 24', childs: [] },
-              ] },
-              { name: 'Nível 4', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 16', childs: [
-                    { name: 'Nível 5', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 17', childs: [] },
-                    { name: 'Nível 5', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 18', childs: [
-                        { name: 'Nível 6', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 19', childs: [] },
-                        { name: 'Nível 6', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 20', childs: [
-                          { name: 'Nível 7', cssClass: 'ngx-org-head', image: './assets/imgs/user.png', title: 'título 21', childs: [] },
-            ] },
-            ] },
-            ] },
-            ] },
-            { name: 'Nível 3', cssClass: 'ngx-org-vp', image: './assets/imgs/user.png', title: 'titulo 22', childs: [] }
-          ] },
-        ] },
-        
-        // { name: 'Nível 1', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 9', childs: [
-        //     { name: 'Nível 2', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 10', },
-        //     { name: 'Nível 2', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 11', childs: [
-        //         // { name: 'Nível 3', cssClass: 'ngx-org-head', image: this.user, title: 'título 12', childs: [] },
-        //         // { name: 'Nível 3', cssClass: 'ngx-org-vp', image: this.user, title: 'título 13', childs: [] },
-        //         // { name: 'Nível 3', cssClass: 'ngx-org-vp', image: this.user, title: 'título 14', childs: [] }
-        //       ] },
-        //     { name: 'Nível 2', cssClass: 'ngx-org-head', image: this.user, title: 'título 15', childs: [
-        //         { name: 'Nível 3', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 16' , childs: [] }
-        //       ] }
-        //   ]
-        //   },
-        
-        // { name: 'Nível 1', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 17', childs: [
-        //   { name: 'Nível 2', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 18', },
-        //   { name: 'Nível 2', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 19', childs: [
-        //         { name: 'Nível 3', cssClass: 'ngx-org-head', image: this.user, title: 'título 20', childs: [] },
-        //         { name: 'Nível 3', cssClass: 'ngx-org-vp', image: this.user, title: 'título 21', childs: [] },
-        //         { name: 'Nível 3', cssClass: 'ngx-org-vp', image: this.user, title: 'título 22', childs: [] }
-        //       ] },
-        //   { name: 'Nível 2', cssClass: 'ngx-org-head', image: this.user, title: 'título 23', childs: [
-        //         { name: 'Nível 3', cssClass: 'ngx-org-ceo', image: this.user, title: 'título 24', childs: [] }
-        //       ] }
-        //   ] }
-      ];
-      // mode: any = 'horizontal';
-      // ORGANOGRAMA
-      
-      constructor() { }
-      
-      ngOnInit(): void {
-        
-      }
-      
-      
+  public selectedNode = null;
+  
+  public model: go.TreeModel = new go.TreeModel(
+    [
+      { key: 0, name: 'Presidência',         title: '',                                                         },
+      { key: 1, name: 'Gerência Região Sul', title: '',                         parent: 10,  isAssistant: false },
+      { key: 2, name: 'Rio G. do Sul',       title: 'Gerência',                 parent: 1 ,  isAssistant: false },
+      { key: 3, name: 'Paraná',              title: 'Gerência',                 parent: 1 ,  isAssistant: false },
+      { key: 4, name: 'Sta Catarina',        title: 'Gerência',                 parent: 1 ,  isAssistant: false },
+      { key: 5, name: 'Contabilidade',       title: '',                         parent: 20,  isAssistant: false },
+      { key: 6, name: 'Consolidação',        title: '',                         parent: 5 ,  isAssistant: false },
+      { key: 7, name: 'Tesouraria',          title: '',                         parent: 20,  isAssistant: false },
+      { key: 8, name: 'Contas à pagar',      title: '',                         parent: 7 ,  isAssistant: false },
+      { key: 9, name: 'T.I',                 title: '',                         parent: 30,  isAssistant: false },
+      { key: 11, name: 'Transporte',         title: '',                         parent: 30,  isAssistant: false },
+      { key: 12, name: 'Pedro Villafuerte',  title: 'Tester',                   parent: 9 ,  isAssistant: false },
+      { key: 13, name: 'Eric Figueiredo',    title: 'Desenvolvedor Pleno',      parent: 9 ,  isAssistant: false },
+      { key: 14, name: 'Mauro Pereira',      title: 'Db Admnistrator',          parent: 9 ,  isAssistant: false },
+      { key: 15, name: 'Renan Medeiros',     title: 'Manager',                  parent: 3 ,  isAssistant: false },
+      { key: 16, name: 'Luiza Borges',       title: 'Auxiliar Administrativo',  parent: 11,  isAssistant: false },
+      { key: 17, name: 'Carla Albertina',    title: 'Auxiliar Administrativo',  parent: 4 ,  isAssistant: false },
+      { key: 18, name: 'Victória Ramineli',  title: 'Auxiliar Administrativo',  parent: 2 ,  isAssistant: false },
+      { key: 10, name: 'Dir. Comercial',     title: '',                         parent: 0 ,  isAssistant: false },
+      { key: 20, name: 'Dir. Financeira',    title: '',                         parent: 0 ,  isAssistant: false },
+      { key: 30, name: 'Dir. Operacional',   title: '',                         parent: 0 ,  isAssistant: false },
+      { key: 40, name: 'Assessoria',         title: 'Comitê de Risco',          parent: 0,   isAssistant: true },
+      {"key":19, "name":"Hannah Twomey",      "title":"Engineering Assistant", "parent":10, "isAssistant": true}
+    ]
+    );
+    
+    
+    
+    
+    
+    public setSelectedNode(node) {
+      this.selectedNode = node;
     }
     
+    
+    
+    
+    
+  }
+  

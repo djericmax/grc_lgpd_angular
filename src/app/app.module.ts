@@ -37,8 +37,12 @@ import { RiscosAvaliacaoComponent } from './components/riscos-avaliacao/riscos-a
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { EmpresaComponent } from './components/empresa/empresa.component';
+import { DiagramOrgComponent } from './components/empresa/diagramOrg/diagramOrg.component';
 import { CommonModule } from '@angular/common';
 import { NgxOrgChartModule } from 'ngx-org-chart';
+import { InspectorOrgComponent } from './components/empresa/inspectorOrg/inspectorOrg.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -59,6 +63,8 @@ import { NgxOrgChartModule } from 'ngx-org-chart';
     ProcessosComponent,
     RiscosAvaliacaoComponent,
     EmpresaComponent,
+    DiagramOrgComponent,
+    InspectorOrgComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +89,8 @@ import { NgxOrgChartModule } from 'ngx-org-chart';
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
     CommonModule,
-    NgxOrgChartModule
+    NgxOrgChartModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
