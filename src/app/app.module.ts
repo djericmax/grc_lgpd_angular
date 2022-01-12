@@ -42,6 +42,7 @@ import { CommonModule } from '@angular/common';
 import { NgxOrgChartModule } from 'ngx-org-chart';
 import { InspectorOrgComponent } from './components/empresa/inspectorOrg/inspectorOrg.component';
 import { FormsModule } from '@angular/forms';
+import { ControlesComponent } from './components/controles/controles.component';
 
 
 
@@ -63,6 +64,7 @@ import { FormsModule } from '@angular/forms';
     ProcessosComponent,
     RiscosAvaliacaoComponent,
     EmpresaComponent,
+    ControlesComponent,
     DiagramOrgComponent,
     InspectorOrgComponent,
   ],

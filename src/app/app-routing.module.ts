@@ -11,6 +11,7 @@ import { SelecionaprocessoComponent } from './components/fluxodados/selecionapro
 import { ProcessosComponent } from './components/processos/processos.component';
 import { RiscosAvaliacaoComponent } from './components/riscos-avaliacao/riscos-avaliacao.component';
 import { EmpresaComponent } from './components/empresa/empresa.component';
+import { ControlesComponent } from './components/controles/controles.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'mural',                           component: MuralComponent},
   {path: 'mural_lgpd',                      component: MenuComponent},
   {path: 'empresas',                        component: EmpresaComponent},
+  {path: 'controles',                       component: ControlesComponent},
   {path: 'inventario',                      component: InventarioComponent},
   {path: 'cadastro_inventario',             component: CadinventarioComponent},
   {path: 'dados_inventario',                component: DadoinventarioComponent},

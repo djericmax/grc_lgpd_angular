@@ -19,47 +19,49 @@ td {
   padding-right: 8px;
 }
 
+/* app.component.css */
+.myDiagramDiv {
+  background: whitesmoke;
+  width: 800px;
+  height: 300px;
+  border: 1px solid black;
+}
 
-
-
-
-
-
-.divprin{
+.divprin {
   width: 100%;
   top: 0 !important;
   margin-top: -13px !important;
   vertical-align: middle;
 }
 
-.iconedivs{
+.iconedivs {
   float: left;
   vertical-align: middle;
   margin-top: 0;
   height: 57px;
 }
 
-.bco{
-  background-color: #Fff;
+.bco {
+  background-color: #fff;
 }
 
-.bcocin{
-  background-color: #F7F9FA;
+.bcocin {
+  background-color: #f7f9fa;
 }
 
-.bordrig{
-  border-right: 1px #ccc solid
+.bordrig {
+  border-right: 1px #ccc solid;
 }
 
 .bordbot {
   border-bottom: 1px solid #ccc;
 }
 
-.pspace{
+.pspace {
   height: 5px;
 }
 
-.pspic{
+.pspic {
   margin-left: 25%;
   width: 4.2%;
   height: 35px;
@@ -67,54 +69,54 @@ td {
   font-size: 35px;
 }
 
-.ptit{
+.ptit {
   height: 35px;
   text-align: center;
   font-size: 14px;
   font-weight: bold;
-  color: #34495E;
+  color: #34495e;
 }
 
-.pinput{
+.pinput {
   height: 35px;
   text-align: left;
   font-size: 15px;
 }
 
-.maticon{
+.maticon {
   font-size: 20px;
   vertical-align: middle;
-  color: #34495E;
+  color: #34495e;
 }
 
-.icon{
+.icon {
   height: 35px;
   text-align: center;
   font-size: 35px;
 }
 
-.icoband{
+.icoband {
   float: left;
   margin-top: 0;
   height: 57px;
   width: 5.3%;
 }
 
-.icones{
+.icones {
   float: left;
   vertical-align: middle;
-   margin-top: 0;
-   height: 57px;
+  margin-top: 0;
+  height: 57px;
 }
 
-.inputs{
+.inputs {
   border: none;
   width: 100%;
   height: 100%;
   margin-left: 1%;
 }
 
-.imgp{
+.imgp {
   width: 100%;
   height: 4px;
   margin: -24px 0px 0px 0px;

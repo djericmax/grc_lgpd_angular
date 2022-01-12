@@ -51,8 +51,8 @@ export class EmpresaComponent implements OnInit {
       { key: 10, name: 'Dir. Comercial',     title: '',                         parent: 0 ,  isAssistant: false },
       { key: 20, name: 'Dir. Financeira',    title: '',                         parent: 0 ,  isAssistant: false },
       { key: 30, name: 'Dir. Operacional',   title: '',                         parent: 0 ,  isAssistant: false },
-      { key: 40, name: 'Assessoria',         title: 'Comitê de Risco',          parent: 0,   isAssistant: true },
-      {"key":19, "name":"Hannah Twomey",      "title":"Engineering Assistant", "parent":10, "isAssistant": true}
+      { key: 40, name: 'isAssistant',         title: 'Comitê de Risco',          parent: 0,  isAssistant: true  },
+      {"key":19, "name":"Hannah Twomey",      "title":"Engineering Assistant", "parent":10, "isAssistant": true }
     ]
     );
     

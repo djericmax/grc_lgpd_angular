@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output  } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output, ViewEncapsulation  } from '@angular/core';
 
 import * as go from 'gojs';
 import { Inspector } from './inspect/DataInspector';
@@ -8,12 +8,13 @@ const $ = go.GraphObject.make;
 @Component({
   selector: 'app-diagramOrg',
   templateUrl: './diagramOrg.component.html',
-  styleUrls: ['./diagramOrg.component.css']
+  styleUrls: ['./diagramOrg.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DiagramOrgComponent implements OnInit {
   
   
-  public diagram: go.Diagram = null;
+  public myDiagram : go.Diagram = null;
   
   @Input()
   public model: go.Model;
@@ -24,7 +25,7 @@ export class DiagramOrgComponent implements OnInit {
   
   
   public ngAfterViewInit() {
-    this.diagram = $(go.Diagram, 'myDiagramDiv',
+    this.myDiagram = $(go.Diagram, 'myDiagramDiv',
     {
       layout:
       $(go.TreeLayout,
@@ -45,8 +46,10 @@ export class DiagramOrgComponent implements OnInit {
       }
       );
       
+    
+    
       // define the Node template
-      this.diagram.nodeTemplate =
+      this.myDiagram.nodeTemplate =
       $(go.Node, 'Auto',
       
       new go.Binding('text', 'name'),
@@ -97,7 +100,7 @@ export class DiagramOrgComponent implements OnInit {
           defaultAlignment: go.Spot.Left
         },
         $(go.RowColumnDefinition, { column: 2, width: 4 }),
-        $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },  // the name
+        $(go.TextBlock, { font: '8pt  Segoe UI,sans-serif', stroke: 'white' },  // the name
         {
           row: 0, column: 0, columnSpan: 5,
           font: '12pt Segoe UI,sans-serif',
@@ -116,15 +119,15 @@ export class DiagramOrgComponent implements OnInit {
           margin: new go.Margin(0, 0, 0, 3)
         },
         
-          new go.Binding('text', 'title').makeTwoWay()),
+        new go.Binding('text', 'title').makeTwoWay()),
         $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
         { row: 2, column: 0 },
         
-          new go.Binding('text', 'key', function (v) { return 'ID: ' + v; })),
+        new go.Binding('text', 'key', function (v) { return 'ID: ' + v; })),
         $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
         { name: 'boss', row: 2, column: 3 }, // we include a name so we can access this TextBlock when deleting Nodes/Links
         
-          new go.Binding('text', 'parent', function (v) { return 'Boss: ' + v; })),
+        new go.Binding('text', 'parent', function (v) { return 'Boss: ' + v; })),
         $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },  // the comments
         {
           row: 3, column: 0, columnSpan: 5,
@@ -145,50 +148,269 @@ export class DiagramOrgComponent implements OnInit {
         ), // end Horizontal Panel
         );  // end Node
         
+    
+    
+    
+    
+        
+    this.myDiagram.model = this.model;
+    
+        
+        this.myDiagram.nodeTemplate.contextMenu =
+        
+        $("ContextMenu",
+        $("ContextMenuButton",
+        $(go.TextBlock, "Vacate Position"),
+        {
+          click: function (e, obj) {
+            // var node = obj.part.adornedPart;
+            var node = obj.part.data;
+            if (node !== null) {
+              var thisemp = node.data;
+              this.myDiagram.startTransaction("vacate");
+              // update the key, name, and comments
+              this.myDiagram.model.setDataProperty(thisemp, "name", "(Vacant)");
+              this.myDiagram.model.setDataProperty(thisemp, "comments", "");
+              this.myDiagram.commitTransaction("vacate");
+            }
+          }
+        }
+        )
+        ),
         
         
-        this.diagram.linkTemplate =
+        
+        
+        
+        $("ContextMenuButton",
+        $(go.TextBlock, "Remove Role"),
+        {
+          click: function (e, obj) {
+            // reparent the subtree to this node's boss, then remove the node
+            var node = obj.part.data;
+            if (node !== null) {
+              this.myDiagram.startTransaction("reparent remove");
+              var chl = node.findTreeChildrenNodes();
+              // iterate through the children and set their parent key to our selected node's parent key
+              while (chl.next()) {
+                var emp = chl.value;
+                this.myDiagram.model.setParentKeyForNodeData(emp.data, node.findTreeParentNode().data.key);
+              }
+              // and now remove the selected node itself
+              this.myDiagram.model.removeNodeData(node.data);
+              this.myDiagram.commitTransaction("reparent remove");
+            }
+          }
+        }
+        ),
+        
+        
+        
+        $("ContextMenuButton",
+        $(go.TextBlock, "Remove Department"),
+        {
+          click: function (e, obj) {
+            // remove the whole subtree, including the node itself
+            var node = obj.part.data;
+            if (node !== null) {
+              this.myDiagram.startTransaction("remove dept");
+              this.myDiagram.removeParts(node.findTreeParts());
+              this.myDiagram.commitTransaction("remove dept");
+            }
+          }
+        }
+        ),
+        
+        
+        
+        
+        $("ContextMenuButton",
+        $(go.TextBlock, "Toggle Assistant"),
+        {
+          click: function (e, obj) {
+            // remove the whole subtree, including the node itself
+            var node = obj.part.part;
+            if (node !== null) {
+              this.myDiagram.startTransaction("toggle assistant");
+              this.myDiagram.model.setDataProperty(node.data, "isAssistant", !node.data.isAssistant);
+              this.myDiagram.layout.invalidateLayout();
+              this.myDiagram.commitTransaction("toggle assistant");
+            }
+          }
+        }
+          );
+    
+        
+        this.myDiagram.linkTemplate =
         
         $(go.Link, go.Link.Orthogonal,
           { corner: 5, relinkableFrom: true, relinkableTo: true },
-          $(go.Shape, { strokeWidth: 4, stroke: "#00a4a4" }));  // the link shape
+          $(go.Shape, { strokeWidth: 1, stroke: "#555" }));  // the link shape
           
-          // support editing the properties of the selected person in HTML
-          if (Inspector !== null) new Inspector("myInspector", this.diagram,
-            {
-              properties: {
-                "key": { readOnly: true },
-                "comments": {},
-                "isAssistant": { type: "boolean" }
-              },
-              propertyModified: function (name, val) {
-                if (name === "isAssistant") this.diagram.layout.invalidateLayout();
+          // this.load();
+          
+          if (Inspector !== null) new Inspector("myInspector", this.myDiagram,
+          {
+            properties: {
+              "key": { readOnly: true },
+              "isAssistant": { type: "boolean" },
+              // "comments": {},
+            },
+            propertyModified: function (name, val) {
+              if (name === "isAssistant") this.myDiagram.layout.invalidateLayout();
+            }
+          });
+          
+          
+          // this.zoomToFit();
+          // this.centerRoot();
+          
+          // gojs
+          function isAssistant(n) {
+            if (n === null) return false;
+            return n.data.isAssistant;
+          }
+          
+          function SideTreeLayout() {
+            go.TreeLayout.call(this);
+          }
+          
+          go.Diagram.inherit(SideTreeLayout, go.TreeLayout);
+          
+          SideTreeLayout.prototype.makeNetwork = function (coll) {
+            
+            var net = go.TreeLayout.prototype.makeNetwork.call(this, coll);
+            
+            var vertexcoll = new go.Set(/*go.TreeVertex*/);
+            
+            vertexcoll.addAll(net.vertexes);
+            
+            for (var it = vertexcoll.iterator; it.next();) {
+              var parent = it.value;
+              
+              var acount = 0;
+              var ait = it.all.arguments.destinationVertexes;
+              // var ait = it.all.prototype.destinationVertexes;
+              
+              while (ait.next()) {
+                if (isAssistant(ait.value.node)) acount++;
               }
-            });
+              
+              if (acount > 0) {
+                
+                var asstedges = new go.Set(/*go.TreeEdge*/);
+                var childedges = new go.Set(/*go.TreeEdge*/);
+                var eit = it.all.arguments.destinationEdges;
+                while (eit.next()) {
+                  var e = eit.value;
+                  if (isAssistant(e.toVertex.node)) {
+                    asstedges.add(e);
+                  } else {
+                    childedges.add(e);
+                  }
+                }
+                
+                // primeiro remova todas as arestas de PARENT
+                eit = asstedges.iterator;
+                while (eit.next()) { it.all.arguments.deleteDestinationEdge(eit.value); }
+                eit = childedges.iterator;
+                while (eit.next()) { it.all.arguments.deleteDestinationEdge(eit.value); }
+                // se o número de assistentes for ímpar, adicione um assistente fictício, para tornar a contagem par
+                if (acount % 2 == 1) {
+                  var dummy = net.createVertex();
+                  net.addVertex(dummy);
+                  net.linkVertexes(it.all.arguments, dummy, asstedges.first());
+                }
+                // agora o PARENT deve pegar todos os filhos assistentes
+                eit = asstedges.iterator;
+                while (eit.next()) {
+                  it.all.arguments.addDestinationEdge(eit.value);
+                }
+                //crie um vértice substituto para ser o novo PARENT de todos os CHILDREN regulares
+                var subst = net.createVertex();
+                net.addVertex(subst);
+                // repare CHILDREN regulares para o novo vértice substituto
+                eit = childedges.iterator;
+                while (eit.next()) {
+                  var ce = eit.value;
+                  ce.fromVertex = subst;
+                  subst.addDestinationEdge(ce);
+                }
+                // finalmente pode adicionar o vértice substituto como o filho ímpar final,
+                // para ser posicionado no final da subárvore imediata do PARENT.
+                var newedge = net.linkVertexes(parent, subst, null);
+              }
+            }
+            return net;
+          };
           
-          // // Setup zoom to fit button
-          // document.getElementById('zoomToFit').addEventListener('click', function() {
-          //   myDiagram.commandHandler.zoomToFit();
-          // });
+          SideTreeLayout.prototype.assignTreeVertexValues = function(v) {
+            // se um vértice tiver algum assistente, use o alinhamento do barramento
+            var any = false;
+            var children = v.children;
+            for (var i = 0; i < children.length; i++) {
+              var c = children[i];
+              if (isAssistant(c.node)) {
+                any = true;
+                break;
+              }
+            }
+            if (any) {
+              // este é o PARENT do(s) assistente(s)
+              v.alignment = go.TreeLayout.AlignmentBus;  // isso é necessário
+              v.nodeSpacing = 50; // controlar a distância dos assistentes dos principais links do PARENT
+            } else if (v.node == null && v.childrenCount > 0) {
+              // encontrou o PARENT substituto para CHILDREN não assistentes
+              // v.alignment = go.TreeLayout.AlignmentCenterChildren;
+              // v.breadthLimit = 3000;
+              v.layerSpacing = 0;
+            }
+          };
           
-          // document.getElementById('centerRoot').addEventListener('click', function() {
-          //   myDiagram.scale = 1;
-          //   myDiagram.commandHandler.scrollToPart(myDiagram.findNodeForKey(1));
-          // });
+          SideTreeLayout.prototype.commitLinks = function() {
+            go.TreeLayout.prototype.arrangeTrees.call(this);
+            // certifique-se de que o segmento do meio de um link ortogonal não cruze a subárvore assistente
+            var eit = this.network.edges.iterator;
+            while (eit.next()) {
+              var e = eit.value;
+              if (e.link == null) continue;
+              var r = e.link;
+              // essa aresta vem de um vértice pai substituto?
+              var subst = e.fromVertex;
+              if (subst.node == null && r.routing == go.Link.Orthogonal) {
+                r.updateRoute();
+                r.startRoute();
+                // segmento médio vai do ponto 2 ao ponto 3
+                var p1 = subst.center;  // suponha que o vértice artificial tenha tamanho zero
+                var p2 = r.getPoint(2).copy();
+                var p3 = r.getPoint(3).copy();
+                var p5 = r.getPoint(r.pointsCount - 1);
+                var dist = 10;
+                if (subst.angle == 270 || subst.angle == 180) dist = -20;
+                if (subst.angle == 90 || subst.angle == 270) {
+                  p2.y = p5.y - dist; // (p1.y+p5.y)/2;
+                  p3.y = p5.y - dist; // (p1.y+p5.y)/2;
+                } else {
+                  p2.x = p5.x - dist; // (p1.x+p5.x)/2;
+                  p3.x = p5.x - dist; // (p1.x+p5.x)/2;
+                }
+                r.setPoint(2, p2);
+                r.setPoint(3, p3);
+                r.commitRoute();
+              }
+            }
+            
+          };  // end of SideTreeLayout
+          
+          
+          // gojs
           
           
           
           
-          
-          
-          
-          
-          
-          this.diagram.model = this.model;
-          
-          // when the selection changes, emit event to app-component updating the selected node
-          this.diagram.addDiagramListener('ChangedSelection', (e) => {
-            const node = this.diagram.selection.first();
+          // quando a seleção muda, emite um evento para o componente do aplicativo atualizando o nó selecionado
+          this.myDiagram.addDiagramListener('ChangedSelection', (e) => {
+            const node = this.myDiagram.selection.first();
             this.nodeClicked.emit(node);
           });
         }
@@ -200,58 +422,51 @@ export class DiagramOrgComponent implements OnInit {
         }
         
         
+        zoomToFit() {
+          document.getElementById('zoomToFit').addEventListener('click', function () {
+            if (null) {
+              
+            }
+            this.DOCUMENT_NODE.valueOf.prototype.commandHandler.zoomToFit();
+          });
+        }
         
+        centerRoot() {
+          document.getElementById('centerRoot').addEventListener('click', function() {
+            this.DOCUMENT_NODE.valueOf.prototype.scale = 1;
+            this.DOCUMENT_NODE.valueOf.prototype.commandHandler.scrollToPart(this.DOCUMENT_NODE.valueOf.prototype.findNodeForKey(1));
+          });
+        }
         
         
         save() {
-          document.getElementById("mySavedModel").nodeValue = this.diagram.model.toJson();
-          this.diagram.isModified = false;
+          document.getElementById("mySavedModel").nodeValue = this.myDiagram.model.toJson();
+          this.myDiagram.isModified = false;
         }
         
         load() {
-          this.diagram.model = go.Model.fromJson(document.getElementById("mySavedModel").nodeValue);
+          this.myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").nodeValue);
           var lastkey = 1;
-          this.diagram.model.makeUniqueKeyFunction = function (model, data) {
+          this.myDiagram.model.makeUniqueKeyFunction = function (model, data) {
             var k = data.key || lastkey;
             while (model.findNodeDataForKey(k)) k++;
             data.key = lastkey = k;
             return k;
           };
         }
-  
+        
         click(e, obj) {
           // remove the whole subtree, including the node itself
           var node = obj.part.adornedPart;
           if (node !== null) {
-            this.diagram.startTransaction("toggle assistant");
-            this.diagram.model.setDataProperty(node.data, "isAssistant", !node.data.isAssistant);
-            this.diagram.layout.invalidateLayout();
-            this.diagram.commitTransaction("toggle assistant");
+            this.myDiagram.startTransaction("toggle assistant");
+            this.myDiagram.model.setDataProperty(node.data, "isAssistant", !node.data.isAssistant);
+            this.myDiagram.layout.invalidateLayout();
+            this.myDiagram.commitTransaction("toggle assistant");
           }
         }
         
         
-        isAssistant(n) {
-          if (n === null) return false;
-          return n.data.isAssistant;
-        }
         
-        
-        
-        SideTreeLayout() {
-          go.TreeLayout.call(this);
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // gojs
-        
-        // gojs
         
       }

@@ -3,11 +3,12 @@
 
   </div>
   <p>
-    <button class="btn btn-success" id="zoomToFit">Zoom</button>
-    <button class="btn btn-warning" id="centerRoot">Center</button>
+    <button class="btn btn-success" id="zoomToFit" (click)="zoomToFit()">Zoom</button>
+    <button class="btn btn-warning" id="centerRoot" (click)="centerRoot()">Center</button>
   </p>
   <div>
-    <div id="myInspector">
+    <div class="form-control form-control-sm" id="myInspector"
+    style="background-color: #fff; width: 40%; padding: 1em; border: 1px solid #ddd; margin-top: 2em;">
 
     </div>
   </div>

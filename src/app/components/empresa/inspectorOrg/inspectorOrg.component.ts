@@ -31,10 +31,7 @@ export class InspectorOrgComponent implements OnInit {
     } else {
       this._selectedNode = null;
     }
-    
-    console.log(this.data.name);
-    console.log(this.data.parent);
-    console.log(this.data.isAssistant);
+
   }
 
   
