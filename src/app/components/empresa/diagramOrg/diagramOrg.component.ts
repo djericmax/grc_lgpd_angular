@@ -25,29 +25,65 @@ export class DiagramOrgComponent implements OnInit {
   
   
   public ngAfterViewInit() {
-    this.myDiagram = $(go.Diagram, 'myDiagramDiv',
-    {
-      layout:
-      $(go.TreeLayout,
-        {
-          isOngoing: true,
-          treeStyle: go.TreeLayout.StyleLastParents,
-          arrangement: go.TreeLayout.ArrangementHorizontal,
-          // properties for most of the tree:
-          angle: 90,
-          layerSpacing: 35,
-          // properties for the "last parents":
-          alternateAngle: 90,
-          alternateLayerSpacing: 35,
-          alternateAlignment: go.TreeLayout.AlignmentBus,
-          alternateNodeSpacing: 20
-        }),
-        'undoManager.isEnabled': true
-      }
-      );
+    this.myDiagram =
       
-    
-    
+      $(go.Diagram, "myDiagramDiv", // must be the ID or reference to div
+          {
+            maxSelectionCount: 1, // users can select only one part at a time
+            validCycle: go.Diagram.CycleDestinationTree, // make sure users can only create trees
+            "clickCreatingTool.archetypeNodeData": { // allow double-click in background to create a new node
+              name: "Novo nome",
+              title: "Cargo",
+              comments: "",
+              parent:1,
+            },
+            "clickCreatingTool.insertPart": function(loc) {  // scroll to the new node
+              var node = go.ClickCreatingTool.prototype.insertPart.call(this, loc);
+              if (node !== null) {
+                this.diagram.select(node);
+                this.diagram.commandHandler.scrollToPart(node);
+                this.diagram.commandHandler.editTextBlock(node.findObject("NAMETB"));
+              }
+              return node;
+            },
+            layout:
+              $(go.TreeLayout,
+                {
+                  treeStyle: go.TreeLayout.StyleLastParents,
+                  arrangement: go.TreeLayout.ArrangementHorizontal,
+                  // properties for most of the tree:
+                  angle: 90,
+                  layerSpacing: 35,
+                  // properties for the "last parents":
+                  alternateAngle: 90,
+                  alternateLayerSpacing: 35,
+                  alternateAlignment: go.TreeLayout.AlignmentBus,
+                  alternateNodeSpacing: 20
+                }),
+            "undoManager.isEnabled": true // enable undo & redo
+          });
+    //   $(go.Diagram, 'myDiagramDiv',
+    // {
+    //   layout:
+    //   $(go.TreeLayout,
+    //     {
+    //       isOngoing: true,
+    //       treeStyle: go.TreeLayout.StyleLastParents,
+    //       arrangement: go.TreeLayout.ArrangementHorizontal,
+    //       // properties for most of the tree:
+    //       angle: 90,
+    //       layerSpacing: 35,
+    //       // properties for the "last parents":
+    //       alternateAngle: 90,
+    //       alternateLayerSpacing: 35,
+    //       alternateAlignment: go.TreeLayout.AlignmentBus,
+    //       alternateNodeSpacing: 20
+    //     }),
+    //     'undoManager.isEnabled': true
+    //   }
+    //   );
+      
+      
       // define the Node template
       this.myDiagram.nodeTemplate =
       $(go.Node, 'Auto',
@@ -58,10 +94,11 @@ export class DiagramOrgComponent implements OnInit {
       
       $(go.Shape, 'Rectangle',
       {
-        name: 'SHAPE', fill: 'lightblue', stroke: null,
+        name: 'SHAPE', fill: 'red', stroke: 'white', strokeWidth: 3.5,
         
         portId: '', fromLinkable: true, toLinkable: true, cursor: 'pointer'
-      },
+        },
+      
       new go.Binding('fill', '', function (node) {
         
         const levelColors = ['#AC193D', '#2672EC', '#8C0095', '#5133AB', '#008299', '#D24726', '#008A00', '#094AB2'];
@@ -77,21 +114,28 @@ export class DiagramOrgComponent implements OnInit {
         }
         return color;
       }).ofObject()
-      ),
-      $(go.Panel, 'Horizontal',
+
+      
+        ),
+      
+      $(go.Panel, 'Horizontal', // Posição do texto relativo a figura (Vertical a figura fica em cima, Horizontal a figura fica ao lado)
+      
+      // ------------ Figura do quadro -------------
       $(go.Picture,
         {
           name: 'Picture',
-          desiredSize: new go.Size(39, 50),
+          desiredSize: new go.Size(47, 47),
           margin: new go.Margin(6, 8, 6, 10)
         },
         new go.Binding('source', 'key', function (key) {
-          if (key < 0 || key > 40) return ''; // There are only 16 images on the server
-          return 'assets/imgs/orgs/default.png';
-          // return 'assets/imgs/orgs/HS' + key + '.png';
+          if (key < 0 || key > 40) return ''; // Existem apenas 16 imagens no servidor
+          // return 'assets/imgs/orgs/default.png';
+          return 'assets/imgs/orgs/HS' + key + '.png';
         })
         ),
-        // define the panel where the text will appear
+        // ------------ Figura do quadro -------------
+      
+        // ------------ definição do painel do organograma -------------
         $(go.Panel, 'Table',
         {
           maxSize: new go.Size(150, 999),
@@ -99,62 +143,100 @@ export class DiagramOrgComponent implements OnInit {
           margin: new go.Margin(6, 10, 0, 3),
           defaultAlignment: go.Spot.Left
         },
-        $(go.RowColumnDefinition, { column: 2, width: 4 }),
-        $(go.TextBlock, { font: '8pt  Segoe UI,sans-serif', stroke: 'white' },  // the name
-        {
-          row: 0, column: 0, columnSpan: 5,
-          font: '12pt Segoe UI,sans-serif',
-          editable: true, isMultiline: false,
-          minSize: new go.Size(10, 16)
-        },
+        $(go.RowColumnDefinition, { column: 3, width: 5 }),
+        // ------------ definição do painel do organograma -------------
         
-        new go.Binding('text', 'name').makeTwoWay()),
-        $(go.TextBlock, '', { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
-        { row: 1, column: 0 }),
+        // ------------------- Title do quadro -------------------
         $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
         {
-          row: 1, column: 1, columnSpan: 4,
-          editable: true, isMultiline: false,
+           row: 0, column: 0, columnSpan: 4,
+          font: '12pt Segoe UI,sans-serif',
+          editable: false,
+          isMultiline: false,
+          minSize: new go.Size(10, 16)
+        }, 
+        new go.Binding('text', 'title').makeTwoWay()),
+        // ------------------- Title do quadro -------------------
+
+        // ------------------- Nome do quadro -------------------
+        $(go.TextBlock, { font: '8pt  Segoe UI,sans-serif', stroke: 'white' },  // the name
+        {
+         row: 1, column: 0, columnSpan: 4,
+          editable: true,
+          isMultiline: false,
           minSize: new go.Size(10, 14),
           margin: new go.Margin(0, 0, 0, 3)
         },
+        new go.Binding('text', 'name').makeTwoWay()),
+        // ------------------- Nome do quadro -------------------
         
-        new go.Binding('text', 'title').makeTwoWay()),
+        
+        // ------------------- ID do quadro -------------------
         $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
-        { row: 2, column: 0 },
-        
+        {
+          row: 2, column: 0, columnSpan: 1,
+          editable: false,
+          isMultiline: false,
+          minSize: new go.Size(10, 14),
+          margin: new go.Margin(0, 0, 0, 3)
+        },
         new go.Binding('text', 'key', function (v) { return 'ID: ' + v; })),
-        $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
-        { name: 'boss', row: 2, column: 3 }, // we include a name so we can access this TextBlock when deleting Nodes/Links
+        // ------------------- ID do quadro -------------------
         
+        // ------------------- Boss do quadro -------------------
+        $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
+        {
+          row: 2, column: 1, columnSpan: 1,
+          editable: true,
+          isMultiline: false,
+          minSize: new go.Size(10, 14),
+          margin: new go.Margin(0, 0, 0, 3)
+        },        
         new go.Binding('text', 'parent', function (v) { return 'Boss: ' + v; })),
+        // ------------------- Boss do quadro -------------------
+        
+        // ------------------- Assistente do quadro -------------------
         $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },  // the comments
         {
           row: 3, column: 0, columnSpan: 5,
+          editable: true,
+          isMultiline: false,
+          minSize: new go.Size(10, 14),
+          margin: new go.Margin(0, 0, 0, 3),
           font: 'italic 9pt sans-serif',
           wrap: go.TextBlock.WrapFit,
-          editable: true,  // by default newlines are allowed
-          minSize: new go.Size(10, 14)
         },
+        new go.Binding('text', 'isAssistant', function (v) { if (v === true) { return 'Assistente'; }})),
+        // ------------------- Assistente do quadro -------------------
         
-        // -----------------------
-        new go.Binding('text', 'isAssistant', function (v) { return 'isAssistant: ' + v; })),
-        $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
-        { name: 'isAssistant', row: 2, column: 3 }, // we include a name so we can access this TextBlock when deleting Nodes/Links
-        // -----------------------
         
-        new go.Binding('text', 'comments').makeTwoWay()),
+        
+        
+        // ------------------- Comments do quadro -------------------
+        // $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
+        // {
+        //   name: 'comments', row: 4, column: 0, columnSpan: 5,
+        //   font: 'italic 9pt sans-serif',
+        //   wrap: go.TextBlock.WrapFit,
+        //   editable: true,  // by default newlines are allowed
+        //   minSize: new go.Size(10, 14)
+        // },
+        //   new go.Binding('text', 'comments', function (v) { return 'Comments: ' + v; })),
+        // ),
+        // ------------------- Comments do quadro -------------------
+        
+        
         )  // end Table Panel
         ), // end Horizontal Panel
         );  // end Node
         
-    
-    
-    
-    
         
-    this.myDiagram.model = this.model;
-    
+        
+        
+        
+        
+        this.myDiagram.model = this.model;
+        
         
         this.myDiagram.nodeTemplate.contextMenu =
         
@@ -186,17 +268,17 @@ export class DiagramOrgComponent implements OnInit {
         $(go.TextBlock, "Remove Role"),
         {
           click: function (e, obj) {
-            // reparent the subtree to this node's boss, then remove the node
+            // reparente a subárvore para o chefe deste nó e remova o nó
             var node = obj.part.data;
             if (node !== null) {
               this.myDiagram.startTransaction("reparent remove");
               var chl = node.findTreeChildrenNodes();
-              // iterate through the children and set their parent key to our selected node's parent key
+              // itere através dos filhos e defina sua chave pai para a chave pai do nosso nó selecionado
               while (chl.next()) {
                 var emp = chl.value;
                 this.myDiagram.model.setParentKeyForNodeData(emp.data, node.findTreeParentNode().data.key);
               }
-              // and now remove the selected node itself
+              // e agora remova o próprio nó selecionado
               this.myDiagram.model.removeNodeData(node.data);
               this.myDiagram.commitTransaction("reparent remove");
             }
@@ -237,9 +319,10 @@ export class DiagramOrgComponent implements OnInit {
               this.myDiagram.commitTransaction("toggle assistant");
             }
           }
+          
         }
-          );
-    
+        );
+        
         
         this.myDiagram.linkTemplate =
         
@@ -254,7 +337,7 @@ export class DiagramOrgComponent implements OnInit {
             properties: {
               "key": { readOnly: true },
               "isAssistant": { type: "boolean" },
-              // "comments": {},
+              "comments": {},
             },
             propertyModified: function (name, val) {
               if (name === "isAssistant") this.myDiagram.layout.invalidateLayout();
@@ -465,6 +548,7 @@ export class DiagramOrgComponent implements OnInit {
             this.myDiagram.commitTransaction("toggle assistant");
           }
         }
+        
         
         
         
