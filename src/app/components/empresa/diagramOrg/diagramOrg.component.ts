@@ -67,7 +67,7 @@ export class DiagramOrgComponent implements OnInit {
           layerSpacing: 35, // tamanho da linha a cima de alguns quadros.
           alternateAngle: 90, // ângulo da linha adicionando quadros abaixo.
           alternateLayerSpacing: 35, // tamanho da linha vertical entre alguns quadros.
-          alternateAlignment: go.TreeLayout.AlignmentBottomRightBus,// alinhamentos dos quadros,
+          alternateAlignment: go.TreeLayout.AlignmentCenterChildren,// alinhamentos dos quadros,
           alternateNodeSpacing: 20 // tamanho da linha horizontal entre os quadros.
         }),
         "undoManager.isEnabled": true // enable undo & redo.
@@ -200,7 +200,7 @@ export class DiagramOrgComponent implements OnInit {
         
         $(go.Shape, 'Rectangle',
         {
-          name: 'SHAPE', fill: '#333333', stroke: 'white', strokeWidth: 3.5,
+          name: 'SHAPE', fill: '#fff', stroke: '#333', strokeWidth: 3.5,
           
           portId: '', fromLinkable: true, toLinkable: true, cursor: 'pointer'
         },
@@ -215,18 +215,15 @@ export class DiagramOrgComponent implements OnInit {
           if (dia && dia.layout.network) {
             dia.layout.network.vertexes.each(function (v: go.TreeVertex) {
               
-              switch (this.modo) {
-                case 1:
                 // ----------------- Quadro todo colorido -------------------------
-                if (v.node && v.node.key === node.data.key) {
-                  const level: number = v.level % (levelColors.length);
-                  color = levelColors[level];
-                  var shape = node.findObject("SHAPE");
-                  if (shape) shape.stroke = $(go.Brush, "Linear", { 0: color, 1: go.Brush.lightenBy(color, 0.05), start: go.Spot.Left, end: go.Spot.Right });
-                }
-                // ----------------- Quadro todo colorido -------------------------
-                break;
-                case 2:
+                // if (v.node && v.node.key === node.data.key) {
+                  //   const level: number = v.level % (levelColors.length);
+                  //   color = levelColors[level];
+                  //   var shape = node.findObject("SHAPE");
+                  //   if (shape) shape.stroke = $(go.Brush, "Linear", { 0: color, 1: go.Brush.lightenBy(color, 0.05), start: go.Spot.Left, end: go.Spot.Right });
+                  // }
+                  // ----------------- Quadro todo colorido -------------------------
+                
                 // ----------------- Apenas bordas coloridas -------------------------
                 if (v.node && v.node.key === node.data.key) {
                   var level = v.level % (levelColors.length);
@@ -235,11 +232,7 @@ export class DiagramOrgComponent implements OnInit {
                   if (shape) shape.stroke = $(go.Brush, "Linear", { 0: color, 1: go.Brush.lightenBy(color, 0.05), start: go.Spot.Left, end: go.Spot.Right });
                 }
                 // ----------------- Apenas bordas coloridas -------------------------
-                break;
                 
-                default:
-                break;
-              }
               
             });
           }
@@ -624,8 +617,6 @@ export class DiagramOrgComponent implements OnInit {
             // gojs
             
             
-            
-            
             // quando a seleção muda, emite um evento para o componente do aplicativo atualizando o nó selecionado
             this.myDiagram.addDiagramListener('ChangedSelection', (e) => {
               const node = this.myDiagram.selection.first();
@@ -642,13 +633,13 @@ export class DiagramOrgComponent implements OnInit {
           
           
           textStyleTitle() {
-            return { font: "12pt  Segoe UI,sans-serif", stroke: "white" };
+            return { font: "12pt  Segoe UI,sans-serif", stroke: "#333" };
           }
           textStyleName() {
-            return { font: "8pt  Segoe UI,sans-serif", stroke: "white" };
+            return { font: "8pt  Segoe UI,sans-serif", stroke: "#333" };
           }
           textStyleOthers() {
-            return { font: "9pt  Segoe UI,sans-serif", stroke: "white" };
+            return { font: "9pt  Segoe UI,sans-serif", stroke: "#333" };
           }
           
           zoomToFit() {
