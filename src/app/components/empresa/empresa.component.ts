@@ -51,7 +51,7 @@ export class EmpresaComponent implements OnInit {
       {"key":16, "name":"Victor Rizzo", "title":"Sócio LGPD", "parent":1, "isAssistant":true, "comments":""},
       {"key":17, "name":"Mauro Pereira", "title":"DBA", "parent":10, "comments":""},
       {"key":18, "name":"Bruna Picollo", "title":"Analista de B.I.", "parent":5, "comments":""},
-      {"key":19, "name":"Marcelo Fernandes", "title":"Aux. Administrativo", "parent":3, "comments":""},
+      {"key":19, "name":"Sirlane Souza", "title":"Aux. Administrativo", "parent":3, "comments":""},
       {"key":20, "name":"Renan Amaral", "title":"Aux. Infra", "parent":22, "comments":""},
       {"key":21, "name":"Luiz Andreata", "title":"Técnico Infra", "parent":22, "comments":""},
       {"key":22, "name":"Jair Silva", "title":"Sup. Infra", "parent":4, "comments":""},

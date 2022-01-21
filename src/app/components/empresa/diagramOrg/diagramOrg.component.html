@@ -2,14 +2,23 @@
   <div id="myDiagramDiv">
 
   </div>
-  <p>
-    <button class="btn btn-success" id="zoomToFit" (click)="zoomToFit()">Zoom</button>
-    <button class="btn btn-warning" id="centerRoot" (click)="centerRoot()">Center</button>
-  </p>
-  <div>
+  
+  <div  style="background-color: #fff; float: left; width: 49%; margin-top: 2em; padding: 2em;">
     <div class="form-control form-control-sm" id="myInspector"
     style="background-color: #fff; width: 40%; padding: 1em; border: 1px solid #ddd; margin-top: 2em;">
 
     </div>
+  </div>
+
+  <div style="background-color: #fff; float: right; width: 49%; margin-top: 2em; padding: 2em;">
+    <p>
+      <button class="btn btn-success" id="zoomToFit" (click)="zoomToFit()">Zoom</button>
+      <button class="btn btn-warning" id="centerRoot" (click)="centerRoot()">Center</button>
+    
+      <select [(ngModel)]="selectedModo" class="form-control" (change)="AlteraLayout(selectedModo.id)">
+        <option *ngFor="let modo of modos" [ngValue]="modo">{{ modo.modo }}</option>
+      </select>
+    
+    </p>
   </div>
 </div>
